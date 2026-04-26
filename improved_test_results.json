@@ -1,0 +1,343 @@
+{
+    "generated_at":  "2026-04-27T01:49:00.9198265+03:00",
+    "tools":  {
+                  "jacoco":  {
+                                 "version":  "0.8.12",
+                                 "cli_jar":  "tools/jacococli.jar",
+                                 "agent_jar":  "tools/jacocoagent.jar",
+                                 "analysis":  "branch coverage for Solution classes only"
+                             },
+                  "jnose_test":  {
+                                     "status":  "not runnable as installed CLI",
+                                     "reason":  "No jnose command or Docker runtime was available locally, and JNose Test targets Java/JUnit projects while these tests are plain Java main classes.",
+                                     "applied_smell_model":  "JNose-guided review for Assertion Roulette and Eager Test symptoms in the generated test files"
+                                 }
+              },
+    "jnose_guided_smell_findings":  {
+                                        "base_tests":  {
+                                                           "assertion_roulette_candidates":  30,
+                                                           "reason":  "BaseTest.java files throw AssertionError without scenario messages after grouped boolean checks.",
+                                                           "eager_test_candidates":  30,
+                                                           "reason2":  "Each generated BaseTest.java aggregates multiple scenarios in one main method."
+                                                       },
+                                        "improved_tests":  {
+                                                               "assertion_roulette_candidates_in_added_checks":  0,
+                                                               "reason":  "New checks use a helper with explicit failure messages.",
+                                                               "scope":  "ImprovedBaseTest.java files preserve BaseTest.main for compatibility and add focused coverage-gap checks."
+                                                           }
+                                    },
+    "jacoco_branch_coverage":  {
+                                   "baseline":  {
+                                                    "total_tasks":  30,
+                                                    "full_branch_coverage":  26,
+                                                    "tasks_with_missed_branches":  4,
+                                                    "average_branch_coverage_percent":  97.44
+                                                },
+                                   "improved":  {
+                                                    "total_tasks":  30,
+                                                    "full_branch_coverage":  29,
+                                                    "tasks_with_missed_branches":  1,
+                                                    "average_branch_coverage_percent":  99.87
+                                                },
+                                   "comparison":  [
+                                                      {
+                                                          "task_id":  "Java/0",
+                                                          "prompt_id":  0,
+                                                          "base_branch_missed":  0,
+                                                          "base_branch_coverage_percent":  100,
+                                                          "improved_branch_missed":  0,
+                                                          "improved_branch_coverage_percent":  100,
+                                                          "improved":  false
+                                                      },
+                                                      {
+                                                          "task_id":  "Java/1",
+                                                          "prompt_id":  1,
+                                                          "base_branch_missed":  0,
+                                                          "base_branch_coverage_percent":  100,
+                                                          "improved_branch_missed":  0,
+                                                          "improved_branch_coverage_percent":  100,
+                                                          "improved":  false
+                                                      },
+                                                      {
+                                                          "task_id":  "Java/2",
+                                                          "prompt_id":  2,
+                                                          "base_branch_missed":  0,
+                                                          "base_branch_coverage_percent":  100,
+                                                          "improved_branch_missed":  0,
+                                                          "improved_branch_coverage_percent":  100,
+                                                          "improved":  false
+                                                      },
+                                                      {
+                                                          "task_id":  "Java/3",
+                                                          "prompt_id":  3,
+                                                          "base_branch_missed":  0,
+                                                          "base_branch_coverage_percent":  100,
+                                                          "improved_branch_missed":  0,
+                                                          "improved_branch_coverage_percent":  100,
+                                                          "improved":  false
+                                                      },
+                                                      {
+                                                          "task_id":  "Java/4",
+                                                          "prompt_id":  4,
+                                                          "base_branch_missed":  0,
+                                                          "base_branch_coverage_percent":  100,
+                                                          "improved_branch_missed":  0,
+                                                          "improved_branch_coverage_percent":  100,
+                                                          "improved":  false
+                                                      },
+                                                      {
+                                                          "task_id":  "Java/5",
+                                                          "prompt_id":  5,
+                                                          "base_branch_missed":  0,
+                                                          "base_branch_coverage_percent":  100,
+                                                          "improved_branch_missed":  0,
+                                                          "improved_branch_coverage_percent":  100,
+                                                          "improved":  false
+                                                      },
+                                                      {
+                                                          "task_id":  "Java/6",
+                                                          "prompt_id":  6,
+                                                          "base_branch_missed":  1,
+                                                          "base_branch_coverage_percent":  87.5,
+                                                          "improved_branch_missed":  0,
+                                                          "improved_branch_coverage_percent":  100,
+                                                          "improved":  true
+                                                      },
+                                                      {
+                                                          "task_id":  "Java/8",
+                                                          "prompt_id":  8,
+                                                          "base_branch_missed":  0,
+                                                          "base_branch_coverage_percent":  100,
+                                                          "improved_branch_missed":  0,
+                                                          "improved_branch_coverage_percent":  100,
+                                                          "improved":  false
+                                                      },
+                                                      {
+                                                          "task_id":  "Java/9",
+                                                          "prompt_id":  9,
+                                                          "base_branch_missed":  0,
+                                                          "base_branch_coverage_percent":  100,
+                                                          "improved_branch_missed":  0,
+                                                          "improved_branch_coverage_percent":  100,
+                                                          "improved":  false
+                                                      },
+                                                      {
+                                                          "task_id":  "Java/10",
+                                                          "prompt_id":  10,
+                                                          "base_branch_missed":  0,
+                                                          "base_branch_coverage_percent":  100,
+                                                          "improved_branch_missed":  0,
+                                                          "improved_branch_coverage_percent":  100,
+                                                          "improved":  false
+                                                      },
+                                                      {
+                                                          "task_id":  "Java/12",
+                                                          "prompt_id":  12,
+                                                          "base_branch_missed":  0,
+                                                          "base_branch_coverage_percent":  100,
+                                                          "improved_branch_missed":  0,
+                                                          "improved_branch_coverage_percent":  100,
+                                                          "improved":  false
+                                                      },
+                                                      {
+                                                          "task_id":  "Java/13",
+                                                          "prompt_id":  13,
+                                                          "base_branch_missed":  1,
+                                                          "base_branch_coverage_percent":  87.5,
+                                                          "improved_branch_missed":  0,
+                                                          "improved_branch_coverage_percent":  100,
+                                                          "improved":  true
+                                                      },
+                                                      {
+                                                          "task_id":  "Java/14",
+                                                          "prompt_id":  14,
+                                                          "base_branch_missed":  0,
+                                                          "base_branch_coverage_percent":  100,
+                                                          "improved_branch_missed":  0,
+                                                          "improved_branch_coverage_percent":  100,
+                                                          "improved":  false
+                                                      },
+                                                      {
+                                                          "task_id":  "Java/15",
+                                                          "prompt_id":  15,
+                                                          "base_branch_missed":  0,
+                                                          "base_branch_coverage_percent":  100,
+                                                          "improved_branch_missed":  0,
+                                                          "improved_branch_coverage_percent":  100,
+                                                          "improved":  false
+                                                      },
+                                                      {
+                                                          "task_id":  "Java/17",
+                                                          "prompt_id":  17,
+                                                          "base_branch_missed":  0,
+                                                          "base_branch_coverage_percent":  100,
+                                                          "improved_branch_missed":  0,
+                                                          "improved_branch_coverage_percent":  100,
+                                                          "improved":  false
+                                                      },
+                                                      {
+                                                          "task_id":  "Java/19",
+                                                          "prompt_id":  19,
+                                                          "base_branch_missed":  7,
+                                                          "base_branch_coverage_percent":  73.08,
+                                                          "improved_branch_missed":  1,
+                                                          "improved_branch_coverage_percent":  96.15,
+                                                          "improved":  true
+                                                      },
+                                                      {
+                                                          "task_id":  "Java/20",
+                                                          "prompt_id":  20,
+                                                          "base_branch_missed":  0,
+                                                          "base_branch_coverage_percent":  100,
+                                                          "improved_branch_missed":  0,
+                                                          "improved_branch_coverage_percent":  100,
+                                                          "improved":  false
+                                                      },
+                                                      {
+                                                          "task_id":  "Java/23",
+                                                          "prompt_id":  23,
+                                                          "base_branch_missed":  0,
+                                                          "base_branch_coverage_percent":  100,
+                                                          "improved_branch_missed":  0,
+                                                          "improved_branch_coverage_percent":  100,
+                                                          "improved":  false
+                                                      },
+                                                      {
+                                                          "task_id":  "Java/25",
+                                                          "prompt_id":  25,
+                                                          "base_branch_missed":  0,
+                                                          "base_branch_coverage_percent":  100,
+                                                          "improved_branch_missed":  0,
+                                                          "improved_branch_coverage_percent":  100,
+                                                          "improved":  false
+                                                      },
+                                                      {
+                                                          "task_id":  "Java/28",
+                                                          "prompt_id":  28,
+                                                          "base_branch_missed":  0,
+                                                          "base_branch_coverage_percent":  100,
+                                                          "improved_branch_missed":  0,
+                                                          "improved_branch_coverage_percent":  100,
+                                                          "improved":  false
+                                                      },
+                                                      {
+                                                          "task_id":  "Java/32",
+                                                          "prompt_id":  32,
+                                                          "base_branch_missed":  0,
+                                                          "base_branch_coverage_percent":  100,
+                                                          "improved_branch_missed":  0,
+                                                          "improved_branch_coverage_percent":  100,
+                                                          "improved":  false
+                                                      },
+                                                      {
+                                                          "task_id":  "Java/33",
+                                                          "prompt_id":  33,
+                                                          "base_branch_missed":  0,
+                                                          "base_branch_coverage_percent":  100,
+                                                          "improved_branch_missed":  0,
+                                                          "improved_branch_coverage_percent":  100,
+                                                          "improved":  false
+                                                      },
+                                                      {
+                                                          "task_id":  "Java/36",
+                                                          "prompt_id":  36,
+                                                          "base_branch_missed":  0,
+                                                          "base_branch_coverage_percent":  100,
+                                                          "improved_branch_missed":  0,
+                                                          "improved_branch_coverage_percent":  100,
+                                                          "improved":  false
+                                                      },
+                                                      {
+                                                          "task_id":  "Java/38",
+                                                          "prompt_id":  38,
+                                                          "base_branch_missed":  0,
+                                                          "base_branch_coverage_percent":  100,
+                                                          "improved_branch_missed":  0,
+                                                          "improved_branch_coverage_percent":  100,
+                                                          "improved":  false
+                                                      },
+                                                      {
+                                                          "task_id":  "Java/39",
+                                                          "prompt_id":  39,
+                                                          "base_branch_missed":  0,
+                                                          "base_branch_coverage_percent":  100,
+                                                          "improved_branch_missed":  0,
+                                                          "improved_branch_coverage_percent":  100,
+                                                          "improved":  false
+                                                      },
+                                                      {
+                                                          "task_id":  "Java/40",
+                                                          "prompt_id":  40,
+                                                          "base_branch_missed":  0,
+                                                          "base_branch_coverage_percent":  100,
+                                                          "improved_branch_missed":  0,
+                                                          "improved_branch_coverage_percent":  100,
+                                                          "improved":  false
+                                                      },
+                                                      {
+                                                          "task_id":  "Java/44",
+                                                          "prompt_id":  44,
+                                                          "base_branch_missed":  0,
+                                                          "base_branch_coverage_percent":  100,
+                                                          "improved_branch_missed":  0,
+                                                          "improved_branch_coverage_percent":  100,
+                                                          "improved":  false
+                                                      },
+                                                      {
+                                                          "task_id":  "Java/46",
+                                                          "prompt_id":  46,
+                                                          "base_branch_missed":  1,
+                                                          "base_branch_coverage_percent":  75,
+                                                          "improved_branch_missed":  0,
+                                                          "improved_branch_coverage_percent":  100,
+                                                          "improved":  true
+                                                      },
+                                                      {
+                                                          "task_id":  "Java/49",
+                                                          "prompt_id":  49,
+                                                          "base_branch_missed":  0,
+                                                          "base_branch_coverage_percent":  100,
+                                                          "improved_branch_missed":  0,
+                                                          "improved_branch_coverage_percent":  100,
+                                                          "improved":  false
+                                                      },
+                                                      {
+                                                          "task_id":  "Java/50",
+                                                          "prompt_id":  50,
+                                                          "base_branch_missed":  0,
+                                                          "base_branch_coverage_percent":  100,
+                                                          "improved_branch_missed":  0,
+                                                          "improved_branch_coverage_percent":  100,
+                                                          "improved":  false
+                                                      }
+                                                  ]
+                               },
+    "targeted_improvements":  [
+                                  {
+                                      "task_id":  "Java/6",
+                                      "change":  "Added empty-input and extra-space parenthesis parsing checks."
+                                  },
+                                  {
+                                      "task_id":  "Java/13",
+                                      "change":  "Added gcd zero-input and equal-input checks."
+                                  },
+                                  {
+                                      "task_id":  "Java/19",
+                                      "change":  "Added all-number-word and duplicate-number sorting checks."
+                                  },
+                                  {
+                                      "task_id":  "Java/46",
+                                      "change":  "Added fib4 base cases n=0 through n=3."
+                                  }
+                              ],
+    "residual_risk":  [
+                          "Java/19 remains at 96.15% branch coverage because JaCoCo reports one missed compiler-generated switch default branch that is unreachable through the public API."
+                      ],
+    "files_written":  [
+                          "generated_java/Java_\u003cid\u003e/ImprovedBaseTest.java",
+                          "coverage_reports/base_branch_coverage.json",
+                          "coverage_reports/improved_branch_coverage.json",
+                          "improved_test_results.json",
+                          "improved_test_results.md"
+                      ]
+}

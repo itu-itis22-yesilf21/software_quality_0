@@ -1,0 +1,6 @@
+﻿{
+    "total_tasks":  30,
+    "full_branch_coverage":  26,
+    "tasks_with_missed_branches":  4,
+    "average_branch_coverage_percent":  97.44
+}
