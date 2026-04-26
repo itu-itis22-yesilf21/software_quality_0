@@ -1,0 +1,23 @@
+import java.util.*;
+import java.lang.*;
+
+public class BlackBoxTest {
+    public static void main(String[] args) {
+        BaseTest.main(args);
+        Solution s = new Solution();
+        check(!s.belowZero(Arrays.asList()), "empty operations never go below zero");
+        check(!s.belowZero(Arrays.asList(1, -1, 2, -2)), "balance exactly zero is not below zero");
+        check(s.belowZero(Arrays.asList(-1)), "first withdrawal can go below zero");    }
+
+    private static void check(boolean condition, String message) {
+        if (!condition) {
+            throw new AssertionError(message);
+        }
+    }
+
+    private static void checkClose(double actual, double expected, String message) {
+        if (Math.abs(actual - expected) > 1e-6) {
+            throw new AssertionError(message + " expected=" + expected + " actual=" + actual);
+        }
+    }
+}

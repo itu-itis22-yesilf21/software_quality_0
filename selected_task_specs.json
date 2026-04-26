@@ -1,0 +1,182 @@
+﻿[
+    {
+        "id":  0,
+        "task_id":  "Java/0",
+        "text":  "    Check if in given list of numbers, are any two numbers closer to each other than given threshold.\n    \u003e\u003e\u003e hasCloseElements(Arrays.asList(1.0, 2.0, 3.0), 0.5)\n    false\n    \u003e\u003e\u003e hasCloseElements(Arrays.asList(1.0, 2.8, 3.0, 4.0, 5.0, 2.0), 0.3)\n    true",
+        "declaration":  "import java.util.*;\nimport java.lang.*;\n\nclass Solution {\n    public boolean hasCloseElements(List\u003cDouble\u003e numbers, double threshold) {\n"
+    },
+    {
+        "id":  1,
+        "task_id":  "Java/1",
+        "text":  "    Input to this function is a string containing multiple groups of nested parentheses. Your goal is to\n    separate those group into separate strings and return the list of those.\n    Separate groups are balanced (each open brace is properly closed) and not nested within each other\n    Ignore any spaces in the input string.\n    \u003e\u003e\u003e separateParenGroups(\"( ) (( )) (( )( ))\")\n    [\"()\", \"(())\", \"(()())\"]",
+        "declaration":  "import java.util.*;\nimport java.lang.*;\n\nclass Solution {\n    public List\u003cString\u003e separateParenGroups(String paren_string) {\n"
+    },
+    {
+        "id":  2,
+        "task_id":  "Java/2",
+        "text":  "    Given a positive floating point number, it can be decomposed into\n    and integer part (largest integer smaller than given number) and decimals\n    (leftover part always smaller than 1).\n\n    Return the decimal part of the number.\n    \u003e\u003e\u003e truncateNumber(3.5)\n    0.5",
+        "declaration":  "import java.util.*;\nimport java.lang.*;\n\nclass Solution {\n    public double truncateNumber(double number) {\n"
+    },
+    {
+        "id":  3,
+        "task_id":  "Java/3",
+        "text":  "    You\u0027re given a list of deposit and withdrawal operations on a bank account that starts with\n    zero balance. Your task is to detect if at any point the balance of account fallls below zero, and\n    at that point function should return True. Otherwise it should return False.\n    \u003e\u003e\u003e belowZero(Arrays.asList(1, 2, 3))\n    false\n    \u003e\u003e\u003e belowZero(Arrays.asList(1, 2, -4, 5))\n    true",
+        "declaration":  "import java.util.*;\nimport java.lang.*;\n\nclass Solution {\n    public boolean belowZero(List\u003cInteger\u003e operations) {\n"
+    },
+    {
+        "id":  4,
+        "task_id":  "Java/4",
+        "text":  "    For a given list of input numbers, calculate Mean Absolute Deviation\n    around the mean of this dataset.\n    Mean Absolute Deviation is the average absolute difference between each\n    element and a centerpoint (mean in this case):\n    MAD = average | x - x_mean |\n    \u003e\u003e\u003e meanAbsoluteDeviation(Arrays.asList(1.0, 2.0, 3.0, 4.0))\n    1.0",
+        "declaration":  "import java.util.*;\nimport java.lang.*;\n\nclass Solution {\n    public double meanAbsoluteDeviation(List\u003cDouble\u003e numbers) {\n"
+    },
+    {
+        "id":  5,
+        "task_id":  "Java/5",
+        "text":  "    Insert a number \u0027delimeter\u0027 between every two consecutive elements of input list `numbers\u0027\n    \u003e\u003e\u003e intersperse(List.of(), 4)\n    []\n    \u003e\u003e\u003e intersperse(Arrays.asList(1, 2, 3), 4)\n    [1, 4, 2, 4, 3]",
+        "declaration":  "import java.util.*;\nimport java.lang.*;\n\nclass Solution {\n    public List\u003cInteger\u003e intersperse(List\u003cInteger\u003e numbers, int delimiter) {\n"
+    },
+    {
+        "id":  6,
+        "task_id":  "Java/6",
+        "text":  "    Input to this function is a string represented multiple groups for nested parentheses separated by spaces.\n    For each of the group, output the deepest level of nesting of parentheses.\n    E.g. (()()) has maximum two levels of nesting while ((())) has three.\n\n    \u003e\u003e\u003e parseNestedParens(\"(()()) ((())) () ((())()())\")\n    [2, 3, 1, 3]",
+        "declaration":  "import java.util.*;\nimport java.lang.*;\n\nclass Solution {\n    public List\u003cInteger\u003e parseNestedParens(String paren_string) {\n"
+    },
+    {
+        "id":  8,
+        "task_id":  "Java/8",
+        "text":  "    For a given list of integers, return a tuple consisting of a sum and a product of all the integers in a list.\n    Empty sum should be equal to 0 and empty product should be equal to 1.\n    \u003e\u003e\u003e sumProduct(List.of())\n    [0, 1]\n    \u003e\u003e\u003e sumProduct(Arrays.asList(1, 2, 3, 4))\n    [10, 24]",
+        "declaration":  "import java.util.*;\nimport java.lang.*;\n\nclass Solution {\n    public List\u003cInteger\u003e sumProduct(List\u003cInteger\u003e numbers) {\n"
+    },
+    {
+        "id":  9,
+        "task_id":  "Java/9",
+        "text":  "    From a given list of integers, generate a list of rolling maximum element found until given moment\n    in the sequence.\n    \u003e\u003e\u003e rollingMax(Arrays.asList(1, 2, 3, 2, 3, 4, 2))\n    [1, 2, 3, 3, 3, 4, 4]",
+        "declaration":  "import java.util.*;\nimport java.lang.*;\n\nclass Solution {\n    public List\u003cInteger\u003e rollingMax(List\u003cInteger\u003e numbers) {\n"
+    },
+    {
+        "id":  10,
+        "task_id":  "Java/10",
+        "text":  "    Find the shortest palindrome that begins with a supplied string.\n    Algorithm idea is simple:\n    - Find the longest postfix of supplied string that is a palindrome.\n    - Append to the end of the string reverse of a string prefix that comes before the palindromic suffix.\n    \u003e\u003e\u003e makePalindrome(\"\")\n    \"\"\n    \u003e\u003e\u003e makePalindrome(\"cat\")\n    \"catac\"\n    \u003e\u003e\u003e makePalindrome(\"cata\")\n    \"catac\"",
+        "declaration":  "import java.util.*;\nimport java.lang.*;\n\nclass Solution {\n    /**\n    Test if given string is a palindrome\n     */\n    public boolean isPalindrome(String string) {\n        int i = 0;\n        int j = string.length() - 1;\n        while (i \u003c j) {\n            if (string.charAt(i)!= string.charAt(j)) {\n                return false;\n            }\n            i++;\n            j--;\n        }\n        return true;\n    }\n    public String makePalindrome(String string) {\n"
+    },
+    {
+        "id":  12,
+        "task_id":  "Java/12",
+        "text":  "    Out of list of strings, return the longest one. Return the first one in case of multiple\n    strings of the same length. Return None in case the input list is empty.\n    \u003e\u003e\u003e longest(List.of())\n    Optional.empty\n    \u003e\u003e\u003e longest(Arrays.asList(\"a\", \"b\", \"c\"))\n    Optional[a]\n    \u003e\u003e\u003e longest(Arrays.asList(\"a\", \"bb\", \"ccc\"))\n    Optional[ccc]",
+        "declaration":  "import java.util.*;\nimport java.lang.*;\n\nclass Solution {\n    public Optional\u003cString\u003e longest(List\u003cString\u003e strings) {\n"
+    },
+    {
+        "id":  13,
+        "task_id":  "Java/13",
+        "text":  "    Return a greatest common divisor of two integers a and b\n    \u003e\u003e\u003e greatestCommonDivisor(3, 5)\n    1\n    \u003e\u003e\u003e greatestCommonDivisor(25, 15)\n    5",
+        "declaration":  "import java.util.*;\nimport java.lang.*;\n\nclass Solution {\n    public int greatestCommonDivisor(int a, int b) {\n"
+    },
+    {
+        "id":  14,
+        "task_id":  "Java/14",
+        "text":  "    Return list of all prefixes from shortest to longest of the input string\n    \u003e\u003e\u003e allPrefixes(\"abc\")\n    [\"a\", \"ab\", \"abc\"]",
+        "declaration":  "import java.util.*;\nimport java.lang.*;\n\nclass Solution {\n    public List\u003cString\u003e allPrefixes(String string) {\n"
+    },
+    {
+        "id":  15,
+        "task_id":  "Java/15",
+        "text":  "    Return a string containing space-delimited numbers starting from 0 upto n inclusive.\n    \u003e\u003e\u003e stringSequence(0)\n    \"0\"\n    \u003e\u003e\u003e stringSequence(5)\n    \"0 1 2 3 4 5\"",
+        "declaration":  "import java.util.*;\nimport java.lang.*;\n\nclass Solution {\n    public String stringSequence(int n) {\n"
+    },
+    {
+        "id":  17,
+        "task_id":  "Java/17",
+        "text":  "    Input to this function is a string representing musical notes in a special ASCII format.\n    Your task is to parse this string and return list of integers corresponding to how many beats does each\n    not last.\n\n    Here is a legend:\n    \"o\" - whole note, lasts four beats\n    \"o|\" - half note, lasts two beats\n    \".|\" - quater note, lasts one beat\n\n    \u003e\u003e\u003e parseMusic(\"o o| .| o| o| .| .| .| .| o o\")\n    [4, 2, 1, 2, 2, 1, 1, 1, 1, 4, 4]",
+        "declaration":  "import java.util.*;\nimport java.lang.*;\n\nclass Solution {\n    public List\u003cInteger\u003e parseMusic(String string) {\n"
+    },
+    {
+        "id":  19,
+        "task_id":  "Java/19",
+        "text":  "    Input is a space-delimited string of numberals from \u0027zero\u0027 to \u0027nine\u0027.\n    Valid choices are \u0027zero\u0027, \u0027one\u0027, \u0027two\u0027, \u0027three\u0027, \u0027four\u0027, \u0027five\u0027, \u0027six\u0027, \u0027seven\u0027, \u0027eight\u0027 and \u0027nine\u0027.\n    Return the string with numbers sorted from smallest to largest\n    \u003e\u003e\u003e sortNumbers(\"three one five\")\n    \"one three five\"",
+        "declaration":  "import java.util.*;\nimport java.lang.*;\n\nclass Solution {\n    public String sortNumbers(String numbers) {\n"
+    },
+    {
+        "id":  20,
+        "task_id":  "Java/20",
+        "text":  "    From a supplied list of numbers (of length at least two) select and return two that are the closest to each\n    other and return them in order (smaller number, larger number).\n    \u003e\u003e\u003e findClosestElements(Arrays.asList(1.0, 2.0, 3.0, 4.0, 5.0, 2.2))\n    [2.0, 2.2]\n    \u003e\u003e\u003e findClosestElements(Arrays.asList(1.0, 2.0, 3.0, 4.0, 5.0, 2.0))\n    [2.0, 2.0]",
+        "declaration":  "import java.util.*;\nimport java.lang.*;\n\nclass Solution {\n    public List\u003cDouble\u003e findClosestElements(List\u003cDouble\u003e numbers) {\n"
+    },
+    {
+        "id":  23,
+        "task_id":  "Java/23",
+        "text":  "    Return length of given string\n    \u003e\u003e\u003e strlen(\"\")\n    0\n    \u003e\u003e\u003e strlen(\"abc\")\n    3",
+        "declaration":  "import java.util.*;\nimport java.lang.*;\n\nclass Solution {\n    public int strlen(String string) {\n"
+    },
+    {
+        "id":  25,
+        "task_id":  "Java/25",
+        "text":  "    Return list of prime factors of given integer in the order from smallest to largest.\n    Each of the factors should be listed number of times corresponding to how many times it appeares in factorization.\n    Input number should be equal to the product of all factors\n    \u003e\u003e\u003e factorize(8)\n    [2, 2, 2]\n    \u003e\u003e\u003e factorize(25)\n    [5, 5]\n    \u003e\u003e\u003e factorize(70)\n    [2, 5, 7]",
+        "declaration":  "import java.util.*;\nimport java.lang.*;\n\nclass Solution {\n    public List\u003cInteger\u003e factorize(int n) {\n"
+    },
+    {
+        "id":  28,
+        "task_id":  "Java/28",
+        "text":  "    Concatenate list of strings into a single string\n    \u003e\u003e\u003e concatenate(List.of())\n    \"\"\n    \u003e\u003e\u003e concatenate(Arrays.asList(\"a\", \"b\", \"c\"))\n    \"abc\"",
+        "declaration":  "import java.util.*;\nimport java.lang.*;\n\nclass Solution {\n    public String concatenate(List\u003cString\u003e strings) {\n"
+    },
+    {
+        "id":  32,
+        "task_id":  "Java/32",
+        "text":  "    xs are coefficients of a polynomial.\n    findZero find x such that poly(x) = 0.\n    findZero returns only only zero point, even if there are many.\n    Moreover, findZero only takes list xs having even number of coefficients\n    and largest non zero coefficient as it guarantees\n    a solution.\n    \u003e\u003e\u003e findZero(Arrays.asList(1, 2)) // f(x) = 1 + 2x\n    -0.5\n    \u003e\u003e\u003e findZero(Arrays.asList(-6, 11, -6, 1)) // (x - 1) * (x - 2) * (x - 3) = -6 + 11x - 6x^2 + x^3\n    1.0",
+        "declaration":  "import java.util.*;\nimport java.lang.*;\n\nclass Solution {\n    /**\n    Evaluates polynomial with coefficients xs at point x.\n    return xs[0] + xs[1] * x + xs[1] * x^2 + .... xs[n] * x^n\n     */\n    public double poly(List\u003cDouble\u003e xs, double x) {\n        double result = 0;\n        for (int i = 0; i \u003c xs.size(); i++) {\n            result += xs.get(i) * Math.pow(x, i);\n        }\n        return result;\n    }\n    \n    public double findZero(List\u003cDouble\u003e xs) {\n"
+    },
+    {
+        "id":  33,
+        "task_id":  "Java/33",
+        "text":  "    This function takes a list l and returns a list l\u0027 such that\n    l\u0027 is identical to l in the indicies that are not divisible by three, while its values at the indicies that are divisible by three are equal\n    to the values of the corresponding indicies of l, but sorted.\n    \u003e\u003e\u003e sortThird(Arrays.asList(1, 2, 3))\n    [1, 2, 3]\n    \u003e\u003e\u003e sortThird(Arrays.asList(5, 6, 3, 4, 8, 9, 2))\n    [2, 6, 3, 4, 8, 9, 5]",
+        "declaration":  "import java.util.*;\nimport java.lang.*;\n\nclass Solution {\n    public List\u003cInteger\u003e sortThird(List\u003cInteger\u003e l) {\n"
+    },
+    {
+        "id":  36,
+        "task_id":  "Java/36",
+        "text":  "    Return the number of times the digit 7 appears in integers less than n which are divisible by 11 or 13.\n    \u003e\u003e\u003e fizzBuzz(50)\n    0\n    \u003e\u003e\u003e fizzBuzz(78)\n    2\n    \u003e\u003e\u003e fizzBuzz(79)\n    3",
+        "declaration":  "import java.util.*;\nimport java.lang.*;\n\nclass Solution {\n    public int fizzBuzz(int n) {\n"
+    },
+    {
+        "id":  38,
+        "task_id":  "Java/38",
+        "text":  "    takes as input string encoded with encodeCyclic function. Returns decoded string.",
+        "declaration":  "import java.util.*;\nimport java.lang.*;\n\nclass Solution {\n    /**\n    returns encoded string by cycling groups of three characters.\n     */\n    public String encodeCyclic(String s) {\n        // split string to groups. Each of length 3.\n        List\u003cString\u003e groups = new ArrayList\u003c\u003e();\n        for (int i = 0; i \u003c s.length(); i += 3) {\n            groups.add(s.substring(i, Math.min(i + 3, s.length())));\n        }\n        // cycle elements in each group. Unless group has fewer elements than 3.\n        for (int i = 0; i \u003c groups.size(); i++) {\n            if (groups.get(i).length() == 3) {\n                groups.set(i, groups.get(i).substring(1) + groups.get(i).charAt(0));\n            }\n        }\n        return String.join(\"\", groups);\n    }\n\n    public String decodeCyclic(String s) {\n"
+    },
+    {
+        "id":  39,
+        "task_id":  "Java/39",
+        "text":  "    primeFib returns n-th number that is a Fibonacci number and it\u0027s also prime.\n    \u003e\u003e\u003e primeFib(1)\n    2\n    \u003e\u003e\u003e primeFib(2)\n    3\n    \u003e\u003e\u003e primeFib(3)\n    5\n    \u003e\u003e\u003e primeFib(4)\n    13\n    \u003e\u003e\u003e primeFib(5)\n    89",
+        "declaration":  "import java.util.*;\nimport java.lang.*;\n\nclass Solution {\n    public int primeFib(int n) {\n"
+    },
+    {
+        "id":  40,
+        "task_id":  "Java/40",
+        "text":  "    triplesSumToZero takes a list of integers as an input.\n    it returns True if there are three distinct elements in the list that\n    sum to zero, and False otherwise.\n\n    \u003e\u003e\u003e triplesSumToZero(Arrays.asList(1, 3, 5, 0))\n    false\n    \u003e\u003e\u003e triplesSumToZero(Arrays.asList(1, 3, -2, 1))\n    true\n    \u003e\u003e\u003e triplesSumToZero(Arrays.asList(1, 2, 3, 7))\n    false\n    \u003e\u003e\u003e triplesSumToZero(Arrays.asList(2, 4, -5, 3, 9, 7))\n    true\n    \u003e\u003e\u003e triplesSumToZero(Arrays.asList(1))\n    false",
+        "declaration":  "import java.util.*;\nimport java.lang.*;\n\nclass Solution {\n    public boolean triplesSumToZero(List\u003cInteger\u003e l) {\n"
+    },
+    {
+        "id":  44,
+        "task_id":  "Java/44",
+        "text":  "    Change numerical base of input number x to base.\n    return string representation after the conversion.\n    base numbers are less than 10.\n    \u003e\u003e\u003e changeBase(8, 3)\n    \"22\"\n    \u003e\u003e\u003e changeBase(8, 2)\n    \"1000\"\n    \u003e\u003e\u003e changeBase(7, 2)\n    \"111\"",
+        "declaration":  "import java.util.*;\nimport java.lang.*;\n\nclass Solution {\n    public String changeBase(int x, int base) {\n"
+    },
+    {
+        "id":  46,
+        "task_id":  "Java/46",
+        "text":  "    The Fib4 number sequence is a sequence similar to the Fibbonacci sequnece that\u0027s defined as follows:\n    fib4(0) -\u003e 0\n    fib4(1) -\u003e 0\n    fib4(2) -\u003e 2\n    fib4(3) -\u003e 0\n    fib4(n) -\u003e fib4(n-1) + fib4(n-2) + fib4(n-3) + fib4(n-4).\n    Please write a function to efficiently compute the n-th element of the fib4 number sequence.  Do not use recursion.\n    \u003e\u003e\u003e fib4(5)\n    4\n    \u003e\u003e\u003e fib4(6)\n    8\n    \u003e\u003e\u003e fib4(7)\n    14",
+        "declaration":  "import java.util.*;\nimport java.lang.*;\n\nclass Solution {\n    public int fib4(int n) {\n"
+    },
+    {
+        "id":  49,
+        "task_id":  "Java/49",
+        "text":  "    Return 2^n modulo p (be aware of numerics).\n    \u003e\u003e\u003e modp(3, 5)\n    3\n    \u003e\u003e\u003e modp(1101, 101)\n    2\n    \u003e\u003e\u003e modp(0, 101)\n    1\n    \u003e\u003e\u003e modp(3, 11)\n    8\n    \u003e\u003e\u003e modp(100, 101)\n    1",
+        "declaration":  "import java.util.*;\nimport java.lang.*;\n\nclass Solution {\n    public int modp(int n, int p) {\n"
+    },
+    {
+        "id":  50,
+        "task_id":  "Java/50",
+        "text":  "    takes as input string encoded with encodeShift function. Returns decoded string.",
+        "declaration":  "import java.util.*;\nimport java.lang.*;\n\nclass Solution {\n    /**\n    returns encoded string by shifting every character by 5 in the alphabet.\n     */\n    public String encodeShift(String s) {\n        StringBuilder sb = new StringBuilder();\n        for (char ch : s.toCharArray()) {\n            sb.append((char) (\u0027a\u0027 + ((ch + 5 - \u0027a\u0027) % 26)));\n        }\n        return sb.toString();\n    }\n\n    public String decodeShift(String s) {\n"
+    }
+]

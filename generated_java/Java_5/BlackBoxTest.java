@@ -1,0 +1,23 @@
+import java.util.*;
+import java.lang.*;
+
+public class BlackBoxTest {
+    public static void main(String[] args) {
+        BaseTest.main(args);
+        Solution s = new Solution();
+        check(s.intersperse(Arrays.asList(9), 0).equals(Arrays.asList(9)), "single element has no delimiter inserted");
+        check(s.intersperse(Arrays.asList(-1, -2), 7).equals(Arrays.asList(-1, 7, -2)), "negative numbers are preserved around delimiter");
+        check(s.intersperse(Arrays.asList(1, 2), -5).equals(Arrays.asList(1, -5, 2)), "negative delimiter is inserted like any value");    }
+
+    private static void check(boolean condition, String message) {
+        if (!condition) {
+            throw new AssertionError(message);
+        }
+    }
+
+    private static void checkClose(double actual, double expected, String message) {
+        if (Math.abs(actual - expected) > 1e-6) {
+            throw new AssertionError(message + " expected=" + expected + " actual=" + actual);
+        }
+    }
+}

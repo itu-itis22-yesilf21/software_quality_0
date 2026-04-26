@@ -1,0 +1,23 @@
+import java.util.*;
+import java.lang.*;
+
+public class BlackBoxTest {
+    public static void main(String[] args) {
+        BaseTest.main(args);
+        Solution s = new Solution();
+        check(s.greatestCommonDivisor(0, 5) == 5, "gcd returns non-zero value when a is zero");
+        check(s.greatestCommonDivisor(5, 0) == 5, "gcd returns non-zero value when b is zero");
+        check(s.greatestCommonDivisor(9, 9) == 9, "gcd of equal values is the value itself");    }
+
+    private static void check(boolean condition, String message) {
+        if (!condition) {
+            throw new AssertionError(message);
+        }
+    }
+
+    private static void checkClose(double actual, double expected, String message) {
+        if (Math.abs(actual - expected) > 1e-6) {
+            throw new AssertionError(message + " expected=" + expected + " actual=" + actual);
+        }
+    }
+}
