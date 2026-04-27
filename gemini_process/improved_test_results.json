@@ -1,0 +1,298 @@
+{
+    "generated_at": "2026-04-27T18:55:50.333864",
+    "tools": {
+        "jacoco": {
+            "version": "0.8.12",
+            "analysis": "branch coverage for Solution classes"
+        },
+        "jnose_test": {
+            "applied_smell_model": "JNose-guided review for Assertion Roulette and Eager Test symptoms"
+        }
+    },
+    "jacoco_branch_coverage": {
+        "baseline": {
+            "total_tasks": 30,
+            "full_branch_coverage": 26,
+            "tasks_with_missed_branches": 4,
+            "average_branch_coverage_percent": 97.44
+        },
+        "improved": {
+            "total_tasks": 30,
+            "full_branch_coverage": 25,
+            "tasks_with_missed_branches": 5,
+            "average_branch_coverage_percent": 97.65
+        },
+        "comparison": [
+            {
+                "task_id": "Java/0",
+                "prompt_id": 0,
+                "base_branch_missed": 0,
+                "base_branch_coverage_percent": 100.0,
+                "improved_branch_missed": 0,
+                "improved_branch_coverage_percent": 100.0,
+                "improved": false
+            },
+            {
+                "task_id": "Java/1",
+                "prompt_id": 1,
+                "base_branch_missed": 0,
+                "base_branch_coverage_percent": 100.0,
+                "improved_branch_missed": 0,
+                "improved_branch_coverage_percent": 100.0,
+                "improved": false
+            },
+            {
+                "task_id": "Java/2",
+                "prompt_id": 2,
+                "base_branch_missed": 0,
+                "base_branch_coverage_percent": 100.0,
+                "improved_branch_missed": 0,
+                "improved_branch_coverage_percent": 100.0,
+                "improved": false
+            },
+            {
+                "task_id": "Java/3",
+                "prompt_id": 3,
+                "base_branch_missed": 0,
+                "base_branch_coverage_percent": 100.0,
+                "improved_branch_missed": 0,
+                "improved_branch_coverage_percent": 100.0,
+                "improved": false
+            },
+            {
+                "task_id": "Java/4",
+                "prompt_id": 4,
+                "base_branch_missed": 0,
+                "base_branch_coverage_percent": 100.0,
+                "improved_branch_missed": 0,
+                "improved_branch_coverage_percent": 100.0,
+                "improved": false
+            },
+            {
+                "task_id": "Java/5",
+                "prompt_id": 5,
+                "base_branch_missed": 0,
+                "base_branch_coverage_percent": 100.0,
+                "improved_branch_missed": 0,
+                "improved_branch_coverage_percent": 100.0,
+                "improved": false
+            },
+            {
+                "task_id": "Java/6",
+                "prompt_id": 6,
+                "base_branch_missed": 1,
+                "base_branch_coverage_percent": 87.5,
+                "improved_branch_missed": 0,
+                "improved_branch_coverage_percent": 100.0,
+                "improved": true
+            },
+            {
+                "task_id": "Java/8",
+                "prompt_id": 8,
+                "base_branch_missed": 0,
+                "base_branch_coverage_percent": 100.0,
+                "improved_branch_missed": 0,
+                "improved_branch_coverage_percent": 100.0,
+                "improved": false
+            },
+            {
+                "task_id": "Java/9",
+                "prompt_id": 9,
+                "base_branch_missed": 0,
+                "base_branch_coverage_percent": 100.0,
+                "improved_branch_missed": 0,
+                "improved_branch_coverage_percent": 100.0,
+                "improved": false
+            },
+            {
+                "task_id": "Java/10",
+                "prompt_id": 10,
+                "base_branch_missed": 0,
+                "base_branch_coverage_percent": 100.0,
+                "improved_branch_missed": 0,
+                "improved_branch_coverage_percent": 100.0,
+                "improved": false
+            },
+            {
+                "task_id": "Java/12",
+                "prompt_id": 12,
+                "base_branch_missed": 0,
+                "base_branch_coverage_percent": 100.0,
+                "improved_branch_missed": 0,
+                "improved_branch_coverage_percent": 100.0,
+                "improved": false
+            },
+            {
+                "task_id": "Java/13",
+                "prompt_id": 13,
+                "base_branch_missed": 1,
+                "base_branch_coverage_percent": 87.5,
+                "improved_branch_missed": 1,
+                "improved_branch_coverage_percent": 87.5,
+                "improved": false
+            },
+            {
+                "task_id": "Java/14",
+                "prompt_id": 14,
+                "base_branch_missed": 0,
+                "base_branch_coverage_percent": 100.0,
+                "improved_branch_missed": 0,
+                "improved_branch_coverage_percent": 100.0,
+                "improved": false
+            },
+            {
+                "task_id": "Java/15",
+                "prompt_id": 15,
+                "base_branch_missed": 0,
+                "base_branch_coverage_percent": 100.0,
+                "improved_branch_missed": 0,
+                "improved_branch_coverage_percent": 100.0,
+                "improved": false
+            },
+            {
+                "task_id": "Java/17",
+                "prompt_id": 17,
+                "base_branch_missed": 0,
+                "base_branch_coverage_percent": 100.0,
+                "improved_branch_missed": 0,
+                "improved_branch_coverage_percent": 100.0,
+                "improved": false
+            },
+            {
+                "task_id": "Java/19",
+                "prompt_id": 19,
+                "base_branch_missed": 7,
+                "base_branch_coverage_percent": 73.08,
+                "improved_branch_missed": 1,
+                "improved_branch_coverage_percent": 96.15,
+                "improved": true
+            },
+            {
+                "task_id": "Java/20",
+                "prompt_id": 20,
+                "base_branch_missed": 0,
+                "base_branch_coverage_percent": 100.0,
+                "improved_branch_missed": 0,
+                "improved_branch_coverage_percent": 100.0,
+                "improved": false
+            },
+            {
+                "task_id": "Java/23",
+                "prompt_id": 23,
+                "base_branch_missed": 0,
+                "base_branch_coverage_percent": 100.0,
+                "improved_branch_missed": 0,
+                "improved_branch_coverage_percent": 100.0,
+                "improved": false
+            },
+            {
+                "task_id": "Java/25",
+                "prompt_id": 25,
+                "base_branch_missed": 0,
+                "base_branch_coverage_percent": 100.0,
+                "improved_branch_missed": 1,
+                "improved_branch_coverage_percent": 75.0,
+                "improved": false
+            },
+            {
+                "task_id": "Java/28",
+                "prompt_id": 28,
+                "base_branch_missed": 0,
+                "base_branch_coverage_percent": 100.0,
+                "improved_branch_missed": 0,
+                "improved_branch_coverage_percent": 100.0,
+                "improved": false
+            },
+            {
+                "task_id": "Java/32",
+                "prompt_id": 32,
+                "base_branch_missed": 0,
+                "base_branch_coverage_percent": 100.0,
+                "improved_branch_missed": 0,
+                "improved_branch_coverage_percent": 100.0,
+                "improved": false
+            },
+            {
+                "task_id": "Java/33",
+                "prompt_id": 33,
+                "base_branch_missed": 0,
+                "base_branch_coverage_percent": 100.0,
+                "improved_branch_missed": 0,
+                "improved_branch_coverage_percent": 100.0,
+                "improved": false
+            },
+            {
+                "task_id": "Java/36",
+                "prompt_id": 36,
+                "base_branch_missed": 0,
+                "base_branch_coverage_percent": 100.0,
+                "improved_branch_missed": 0,
+                "improved_branch_coverage_percent": 100.0,
+                "improved": false
+            },
+            {
+                "task_id": "Java/38",
+                "prompt_id": 38,
+                "base_branch_missed": 0,
+                "base_branch_coverage_percent": 100.0,
+                "improved_branch_missed": 1,
+                "improved_branch_coverage_percent": 83.33,
+                "improved": false
+            },
+            {
+                "task_id": "Java/39",
+                "prompt_id": 39,
+                "base_branch_missed": 0,
+                "base_branch_coverage_percent": 100.0,
+                "improved_branch_missed": 0,
+                "improved_branch_coverage_percent": 100.0,
+                "improved": false
+            },
+            {
+                "task_id": "Java/40",
+                "prompt_id": 40,
+                "base_branch_missed": 0,
+                "base_branch_coverage_percent": 100.0,
+                "improved_branch_missed": 1,
+                "improved_branch_coverage_percent": 87.5,
+                "improved": false
+            },
+            {
+                "task_id": "Java/44",
+                "prompt_id": 44,
+                "base_branch_missed": 0,
+                "base_branch_coverage_percent": 100.0,
+                "improved_branch_missed": 0,
+                "improved_branch_coverage_percent": 100.0,
+                "improved": false
+            },
+            {
+                "task_id": "Java/46",
+                "prompt_id": 46,
+                "base_branch_missed": 1,
+                "base_branch_coverage_percent": 75.0,
+                "improved_branch_missed": 0,
+                "improved_branch_coverage_percent": 100.0,
+                "improved": true
+            },
+            {
+                "task_id": "Java/49",
+                "prompt_id": 49,
+                "base_branch_missed": 0,
+                "base_branch_coverage_percent": 100.0,
+                "improved_branch_missed": 0,
+                "improved_branch_coverage_percent": 100.0,
+                "improved": false
+            },
+            {
+                "task_id": "Java/50",
+                "prompt_id": 50,
+                "base_branch_missed": 0,
+                "base_branch_coverage_percent": 100.0,
+                "improved_branch_missed": 0,
+                "improved_branch_coverage_percent": 100.0,
+                "improved": false
+            }
+        ]
+    }
+}

@@ -1,0 +1,1126 @@
+### Path: gemini_process/generated_code/Java_0/SolutionTest.java
+`java
+package Java_0;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.*;
+import java.lang.*;
+
+public class SolutionTest {
+    @Test
+    public void testSolution() {
+        Solution s = new Solution();
+        List<Boolean> correct = Arrays.asList(
+                s.hasCloseElements(new ArrayList<>(Arrays.asList(11.0, 2.0, 3.9, 4.0, 5.0, 2.2)), 0.3),
+                !s.hasCloseElements(new ArrayList<>(Arrays.asList(1.0, 2.0, 3.9, 4.0, 5.0, 2.2)), 0.05),
+                s.hasCloseElements(new ArrayList<>(Arrays.asList(1.0, 2.0, 5.9, 4.0, 5.0)), 0.95),
+                !s.hasCloseElements(new ArrayList<>(Arrays.asList(1.0, 2.0, 5.9, 4.0, 5.0)), 0.8),
+                s.hasCloseElements(new ArrayList<>(Arrays.asList(1.0, 2.0, 3.0, 4.0, 5.0, 2.0)), 0.1),
+                s.hasCloseElements(new ArrayList<>(Arrays.asList(1.1, 2.2, 3.1, 4.1, 5.1)), 1.0),
+                !s.hasCloseElements(new ArrayList<>(Arrays.asList(1.1, 2.2, 3.1, 4.1, 5.1)), 0.5)
+        );
+        if (correct.contains(false)) {
+            throw new AssertionError();
+        }
+    }
+}
+`
+
+### Path: gemini_process/generated_code/Java_1/SolutionTest.java
+`java
+package Java_1;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.*;
+import java.lang.*;
+
+public class SolutionTest {
+    @Test
+    public void testSolution() {
+        Solution s = new Solution();
+        List<Boolean> correct = Arrays.asList(
+                s.separateParenGroups("(()()) ((())) () ((())()())").equals(Arrays.asList(
+                        "(()())", "((()))", "()", "((())()())"
+                )),
+                s.separateParenGroups("() (()) ((())) (((())))").equals(Arrays.asList(
+                        "()", "(())", "((()))", "(((())))"
+                )),
+                s.separateParenGroups("(()(())((())))").equals(Arrays.asList(
+                        "(()(())((())))"
+                )),
+                s.separateParenGroups("( ) (( )) (( )( ))").equals(Arrays.asList("()", "(())", "(()())"))
+        );
+        if (correct.contains(false)) {
+            throw new AssertionError();
+        }
+    }
+}
+`
+
+### Path: gemini_process/generated_code/Java_2/SolutionTest.java
+`java
+package Java_2;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.*;
+import java.lang.*;
+
+public class SolutionTest {
+    @Test
+    public void testSolution() {
+        Solution s = new Solution();
+        List<Boolean> correct = Arrays.asList(
+            s.truncateNumber(3.5) == 0.5,
+            Math.abs(s.truncateNumber(1.33) - 0.33) < 1e-6,
+            Math.abs(s.truncateNumber(123.456) - 0.456) < 1e-6
+        );
+        if (correct.contains(false)) {
+            throw new AssertionError();
+        }
+    }
+}
+`
+
+### Path: gemini_process/generated_code/Java_3/SolutionTest.java
+`java
+package Java_3;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.*;
+import java.lang.*;
+
+public class SolutionTest {
+    @Test
+    public void testSolution() {
+        Solution s = new Solution();
+        List<Boolean> correct = Arrays.asList(
+                !s.belowZero(new ArrayList<>(Arrays.asList())),
+                !s.belowZero(new ArrayList<>(Arrays.asList(1, 2, -3, 1, 2, -3))),
+                s.belowZero(new ArrayList<>(Arrays.asList(1, 2, -4, 5, 6))),
+                !s.belowZero(new ArrayList<>(Arrays.asList(1, -1, 2, -2, 5, -5, 4, -4))),
+                s.belowZero(new ArrayList<>(Arrays.asList(1, -1, 2, -2, 5, -5, 4, -5))),
+                s.belowZero(new ArrayList<>(Arrays.asList(1, -2, 2, -2, 5, -5, 4, -4)))
+        );
+        if (correct.contains(false)) {
+            throw new AssertionError();
+        }
+    }
+}
+`
+
+### Path: gemini_process/generated_code/Java_4/SolutionTest.java
+`java
+package Java_4;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.*;
+import java.lang.*;
+
+public class SolutionTest {
+    @Test
+    public void testSolution() {
+        Solution s = new Solution();
+        List<Boolean> correct = Arrays.asList(
+                Math.abs(s.meanAbsoluteDeviation(new ArrayList<>(Arrays.asList(1.0, 2.0, 3.0))) - 2.0/3.0) < 1e-6,
+                Math.abs(s.meanAbsoluteDeviation(new ArrayList<>(Arrays.asList(1.0, 2.0, 3.0, 4.0))) - 1.0) < 1e-6,
+                Math.abs(s.meanAbsoluteDeviation(new ArrayList<>(Arrays.asList(1.0, 2.0, 3.0, 4.0, 5.0))) - 6.0/5.0) < 1e-6
+        );
+        if (correct.contains(false)) {
+            throw new AssertionError();
+        }
+    }
+}
+`
+
+### Path: gemini_process/generated_code/Java_5/SolutionTest.java
+`java
+package Java_5;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.*;
+import java.lang.*;
+
+public class SolutionTest {
+    @Test
+    public void testSolution() {
+        Solution s = new Solution();
+        List<Boolean> correct = Arrays.asList(
+                s.intersperse(new ArrayList<>(List.of()), 7).equals(List.of()),
+                s.intersperse(new ArrayList<>(Arrays.asList(5, 6, 3, 2)), 8).equals(Arrays.asList(5, 8, 6, 8, 3, 8, 2)),
+                s.intersperse(new ArrayList<>(Arrays.asList(2, 2, 2)), 2).equals(Arrays.asList(2, 2, 2, 2, 2))
+        );
+        if (correct.contains(false)) {
+            throw new AssertionError();
+        }
+    }
+}
+`
+
+### Path: gemini_process/generated_code/Java_6/SolutionTest.java
+`java
+package Java_6;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.*;
+import java.lang.*;
+
+public class SolutionTest {
+    @Test
+    public void testSolution() {
+        Solution s = new Solution();
+        List<Boolean> correct = Arrays.asList(
+                s.parseNestedParens("(()()) ((())) () ((())()())").equals(Arrays.asList(2, 3, 1, 3)),
+                s.parseNestedParens("() (()) ((())) (((())))").equals(Arrays.asList(1, 2, 3, 4)),
+                s.parseNestedParens("(()(())((())))").equals(Arrays.asList(4))
+        );
+        if (correct.contains(false)) {
+            throw new AssertionError();
+        }
+    }
+}
+`
+
+### Path: gemini_process/generated_code/Java_8/SolutionTest.java
+`java
+package Java_8;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.*;
+import java.lang.*;
+
+public class SolutionTest {
+    @Test
+    public void testSolution() {
+        Solution s = new Solution();
+        List<Boolean> correct = Arrays.asList(
+                s.sumProduct(new ArrayList<>(List.of())).equals(Arrays.asList(0, 1)),
+                s.sumProduct(new ArrayList<>(Arrays.asList(1, 1, 1))).equals(Arrays.asList(3, 1)),
+                s.sumProduct(new ArrayList<>(Arrays.asList(100, 0))).equals(Arrays.asList(100, 0)),
+                s.sumProduct(new ArrayList<>(Arrays.asList(3, 5, 7))).equals(Arrays.asList(3 + 5 + 7, 3 * 5 * 7)),
+                s.sumProduct(new ArrayList<>(List.of(10))).equals(Arrays.asList(10, 10))
+        );
+        if (correct.contains(false)) {
+            throw new AssertionError();
+        }
+    }
+}
+`
+
+### Path: gemini_process/generated_code/Java_9/SolutionTest.java
+`java
+package Java_9;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.*;
+import java.lang.*;
+
+public class SolutionTest {
+    @Test
+    public void testSolution() {
+        Solution s = new Solution();
+        List<Boolean> correct = Arrays.asList(
+                s.rollingMax(new ArrayList<>(List.of())).equals(List.of()),
+                s.rollingMax(new ArrayList<>(Arrays.asList(1, 2, 3, 4))).equals(Arrays.asList(1, 2, 3, 4)),
+                s.rollingMax(new ArrayList<>(Arrays.asList(4, 3, 2, 1))).equals(Arrays.asList(4, 4, 4, 4)),
+                s.rollingMax(new ArrayList<>(Arrays.asList(3, 2, 3, 100, 3))).equals(Arrays.asList(3, 3, 3, 100, 100))
+        );
+        if (correct.contains(false)) {
+            throw new AssertionError();
+        }
+    }
+}
+`
+
+### Path: gemini_process/generated_code/Java_10/SolutionTest.java
+`java
+package Java_10;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.*;
+import java.lang.*;
+
+public class SolutionTest {
+    @Test
+    public void testSolution() {
+        Solution s = new Solution();
+        List<Boolean> correct = Arrays.asList(
+                Objects.equals(s.makePalindrome(""), ""),
+                Objects.equals(s.makePalindrome("x"), "x"),
+                Objects.equals(s.makePalindrome("xyz"), "xyzyx"),
+                Objects.equals(s.makePalindrome("xyx"), "xyx"),
+                Objects.equals(s.makePalindrome("jerry"), "jerryrrej")
+        );
+        if (correct.contains(false)) {
+            throw new AssertionError();
+        }
+    }
+}
+`
+
+### Path: gemini_process/generated_code/Java_12/SolutionTest.java
+`java
+package Java_12;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.*;
+import java.lang.*;
+
+public class SolutionTest {
+    @Test
+    public void testSolution() {
+        Solution s = new Solution();
+        List<Boolean> correct = Arrays.asList(
+                s.longest(new ArrayList<>(List.of())).isEmpty(),
+                Objects.equals(s.longest(new ArrayList<>(Arrays.asList("x", "y", "z"))).get(), "x"),
+                Objects.equals(s.longest(new ArrayList<>(Arrays.asList("x", "yyy", "zzzz", "www", "kkkk", "abc"))).get(), "zzzz")
+        );
+        if (correct.contains(false)) {
+            throw new AssertionError();
+        }
+    }
+}
+`
+
+### Path: gemini_process/generated_code/Java_13/SolutionTest.java
+`java
+package Java_13;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.*;
+import java.lang.*;
+
+public class SolutionTest {
+    @Test
+    public void testSolution() {
+        Solution s = new Solution();
+        List<Boolean> correct = Arrays.asList(
+                s.greatestCommonDivisor(3, 7) == 1,
+                s.greatestCommonDivisor(10, 15) == 5,
+                s.greatestCommonDivisor(49, 14) == 7,
+                s.greatestCommonDivisor(144, 60) == 12
+        );
+        if (correct.contains(false)) {
+            throw new AssertionError();
+        }
+    }
+}
+`
+
+### Path: gemini_process/generated_code/Java_14/SolutionTest.java
+`java
+package Java_14;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.*;
+import java.lang.*;
+
+public class SolutionTest {
+    @Test
+    public void testSolution() {
+        Solution s = new Solution();
+        List<Boolean> correct = Arrays.asList(
+                s.allPrefixes("").equals(List.of()),
+                s.allPrefixes("asdfgh").equals(Arrays.asList("a", "as", "asd", "asdf", "asdfg", "asdfgh")),
+                s.allPrefixes("WWW").equals(Arrays.asList("W", "WW", "WWW"))
+        );
+        if (correct.contains(false)) {
+            throw new AssertionError();
+        }
+    }
+}
+`
+
+### Path: gemini_process/generated_code/Java_15/SolutionTest.java
+`java
+package Java_15;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.*;
+import java.lang.*;
+
+public class SolutionTest {
+    @Test
+    public void testSolution() {
+        Solution s = new Solution();
+        List<Boolean> correct = Arrays.asList(
+                s.stringSequence(0).equals("0"),
+                s.stringSequence(3).equals("0 1 2 3"),
+                s.stringSequence(10).equals("0 1 2 3 4 5 6 7 8 9 10")
+        );
+        if (correct.contains(false)) {
+            throw new AssertionError();
+        }
+    }
+}
+`
+
+### Path: gemini_process/generated_code/Java_17/SolutionTest.java
+`java
+package Java_17;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.*;
+import java.lang.*;
+
+public class SolutionTest {
+    @Test
+    public void testSolution() {
+        Solution s = new Solution();
+        List<Boolean> correct = Arrays.asList(
+                s.parseMusic("").equals(List.of()),
+                s.parseMusic("o o o o").equals(Arrays.asList(4, 4, 4, 4)),
+                s.parseMusic(".| .| .| .|").equals(Arrays.asList(1, 1, 1, 1)),
+                s.parseMusic("o| o| .| .| o o o o").equals(Arrays.asList(2, 2, 1, 1, 4, 4, 4, 4)),
+                s.parseMusic("o| .| o| .| o o| o o|").equals(Arrays.asList(2, 1, 2, 1, 4, 2, 4, 2))
+        );
+        if (correct.contains(false)) {
+            throw new AssertionError();
+        }
+    }
+}
+`
+
+### Path: gemini_process/generated_code/Java_19/SolutionTest.java
+`java
+package Java_19;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.*;
+import java.lang.*;
+
+public class SolutionTest {
+    @Test
+    public void testSolution() {
+        Solution s = new Solution();
+        List<Boolean> correct = Arrays.asList(
+                s.sortNumbers("").equals(""),
+                s.sortNumbers("three").equals("three"),
+                s.sortNumbers("three five nine").equals("three five nine"),
+                s.sortNumbers("five zero four seven nine eight").equals("zero four five seven eight nine")
+        );
+        if (correct.contains(false)) {
+            throw new AssertionError();
+        }
+    }
+}
+`
+
+### Path: gemini_process/generated_code/Java_20/SolutionTest.java
+`java
+package Java_20;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.*;
+import java.lang.*;
+
+public class SolutionTest {
+    @Test
+    public void testSolution() {
+        Solution s = new Solution();
+        List<Boolean> correct = Arrays.asList(
+                s.findClosestElements(new ArrayList<>(Arrays.asList(1.0, 2.0, 3.9, 4.0, 5.0, 2.2))).equals(Arrays.asList(3.9, 4.0)),
+                s.findClosestElements(new ArrayList<>(Arrays.asList(1.0, 2.0, 5.9, 4.0, 5.0))).equals(Arrays.asList(5.0, 5.9)),
+                s.findClosestElements(new ArrayList<>(Arrays.asList(1.0, 2.0, 3.0, 4.0, 5.0, 2.2))).equals(Arrays.asList(2.0, 2.2)),
+                s.findClosestElements(new ArrayList<>(Arrays.asList(1.0, 2.0, 3.0, 4.0, 5.0, 2.0))).equals(Arrays.asList(2.0, 2.0)),
+                s.findClosestElements(new ArrayList<>(Arrays.asList(1.1, 2.2, 3.1, 4.1, 5.1))).equals(Arrays.asList(2.2, 3.1))
+        );
+        if (correct.contains(false)) {
+            throw new AssertionError();
+        }
+    }
+}
+`
+
+### Path: gemini_process/generated_code/Java_23/SolutionTest.java
+`java
+package Java_23;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.*;
+import java.lang.*;
+
+public class SolutionTest {
+    @Test
+    public void testSolution() {
+        Solution s = new Solution();
+        List<Boolean> correct = Arrays.asList(
+                s.strlen("") == 0,
+                s.strlen("x") == 1,
+                s.strlen("asdasnakj") == 9
+        );
+        if (correct.contains(false)) {
+            throw new AssertionError();
+        }
+    }
+}
+`
+
+### Path: gemini_process/generated_code/Java_25/SolutionTest.java
+`java
+package Java_25;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.*;
+import java.lang.*;
+
+public class SolutionTest {
+    @Test
+    public void testSolution() {
+        Solution s = new Solution();
+        List<Boolean> correct = Arrays.asList(
+                s.factorize(2).equals(List.of(2)),
+                s.factorize(4).equals(Arrays.asList(2, 2)),
+                s.factorize(8).equals(Arrays.asList(2, 2, 2)),
+                s.factorize(3 * 19).equals(Arrays.asList(3, 19)),
+                s.factorize(3 * 19 * 3 * 19).equals(Arrays.asList(3, 3, 19, 19)),
+                s.factorize(3 * 19 * 3 * 19 * 3 * 19).equals(Arrays.asList(3, 3, 3, 19, 19, 19)),
+                s.factorize(3 * 19 * 19 * 19).equals(Arrays.asList(3, 19, 19, 19)),
+                s.factorize(3 * 2 * 3).equals(Arrays.asList(2, 3, 3))
+        );
+        if (correct.contains(false)) {
+            throw new AssertionError();
+        }
+    }
+}
+`
+
+### Path: gemini_process/generated_code/Java_28/SolutionTest.java
+`java
+package Java_28;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.*;
+import java.lang.*;
+
+public class SolutionTest {
+    @Test
+    public void testSolution() {
+        Solution s = new Solution();
+        List<Boolean> correct = Arrays.asList(
+                Objects.equals(s.concatenate(new ArrayList<>(List.of())), ""),
+                Objects.equals(s.concatenate(new ArrayList<>(Arrays.asList("x", "y", "z"))), "xyz"),
+                Objects.equals(s.concatenate(new ArrayList<>(Arrays.asList("x", "y", "z", "w", "k"))), "xyzwk")
+        );
+        if (correct.contains(false)) {
+            throw new AssertionError();
+        }
+    }
+}
+`
+
+### Path: gemini_process/generated_code/Java_32/SolutionTest.java
+`java
+package Java_32;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.*;
+import java.lang.*;
+
+public class SolutionTest {
+    @Test
+    public void testSolution() {
+        Solution s = new Solution();
+        Random rand = new Random(42);
+        for (int i = 0; i < 100; i++) {
+            int ncoeff = 2 * (rand.nextInt(3) + 1);
+            List<Double> coeffs = new ArrayList<>();
+            for (int j = 0; j < ncoeff; j++) {
+                int coeff = rand.nextInt(20) - 10;
+                if (coeff == 0) {
+                    coeff = 1;
+                }
+                coeffs.add((double) coeff);
+            }
+            double solution = s.findZero(coeffs);
+            if (Math.abs(s.poly(coeffs, solution)) > 1e-4) {
+                throw new AssertionError();
+            }
+        }
+    }
+}
+`
+
+### Path: gemini_process/generated_code/Java_33/SolutionTest.java
+`java
+package Java_33;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.*;
+import java.lang.*;
+
+public class SolutionTest {
+    @Test
+    public void testSolution() {
+        Solution s = new Solution();
+        List<Boolean> correct = Arrays.asList(
+                s.sortThird(new ArrayList<>(Arrays.asList(5, 6, 3, 4, 8, 9, 2))).equals(Arrays.asList(2, 6, 3, 4, 8, 9, 5)),
+                s.sortThird(new ArrayList<>(Arrays.asList(5, 8, 3, 4, 6, 9, 2))).equals(Arrays.asList(2, 8, 3, 4, 6, 9, 5)),
+                s.sortThird(new ArrayList<>(Arrays.asList(5, 6, 9, 4, 8, 3, 2))).equals(Arrays.asList(2, 6, 9, 4, 8, 3, 5)),
+                s.sortThird(new ArrayList<>(Arrays.asList(5, 6, 3, 4, 8, 9, 2, 1))).equals(Arrays.asList(2, 6, 3, 4, 8, 9, 5, 1))
+        );
+        if (correct.contains(false)) {
+            throw new AssertionError();
+        }
+    }
+}
+`
+
+### Path: gemini_process/generated_code/Java_36/SolutionTest.java
+`java
+package Java_36;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.*;
+import java.lang.*;
+
+public class SolutionTest {
+    @Test
+    public void testSolution() {
+        Solution s = new Solution();
+        List<Boolean> correct = Arrays.asList(
+                s.fizzBuzz(50) == 0,
+                s.fizzBuzz(78) == 2,
+                s.fizzBuzz(79) == 3,
+                s.fizzBuzz(100) == 3,
+                s.fizzBuzz(200) == 6,
+                s.fizzBuzz(4000) == 192,
+                s.fizzBuzz(10000) == 639,
+                s.fizzBuzz(100000) == 8026
+        );
+        if (correct.contains(false)) {
+            throw new AssertionError();
+        }
+    }
+}
+`
+
+### Path: gemini_process/generated_code/Java_38/SolutionTest.java
+`java
+package Java_38;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.*;
+import java.lang.*;
+
+public class SolutionTest {
+    static char[] letters = "abcdefghijklmnopqrstuvwxyz".toCharArray();
+    static Random rand = new Random(42);
+    public static String random_string(int length) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < length; i++) {
+            sb.append(letters[rand.nextInt(26)]);
+        }
+        return sb.toString();
+    }
+    @Test
+    public void testSolution() {
+        Solution s = new Solution();
+        for (int i = 0; i < 100; i++) {
+            String str = random_string(rand.nextInt(10) + 10);
+            String encode_str = s.encodeCyclic(str);
+            if (!s.decodeCyclic(encode_str).equals(str)) {
+                throw new AssertionError();
+            }
+        }
+    }
+}
+`
+
+### Path: gemini_process/generated_code/Java_39/SolutionTest.java
+`java
+package Java_39;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.*;
+import java.lang.*;
+
+public class SolutionTest {
+    @Test
+    public void testSolution() {
+        Solution s = new Solution();
+        List<Boolean> correct = Arrays.asList(
+                s.primeFib(1) == 2,
+                s.primeFib(2) == 3,
+                s.primeFib(3) == 5,
+                s.primeFib(4) == 13,
+                s.primeFib(5) == 89,
+                s.primeFib(6) == 233,
+                s.primeFib(7) == 1597,
+                s.primeFib(8) == 28657,
+                s.primeFib(9) == 514229,
+                s.primeFib(10) == 433494437
+        );
+        if (correct.contains(false)) {
+            throw new AssertionError();
+        }
+    }
+}
+`
+
+### Path: gemini_process/generated_code/Java_40/SolutionTest.java
+`java
+package Java_40;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.*;
+import java.lang.*;
+
+public class SolutionTest {
+    @Test
+    public void testSolution() {
+        Solution s = new Solution();
+        List<Boolean> correct = Arrays.asList(
+                !s.triplesSumToZero(new ArrayList<>(Arrays.asList(1, 3, 5, 0))),
+                !s.triplesSumToZero(new ArrayList<>(Arrays.asList(1, 3, 5, -1))),
+                s.triplesSumToZero(new ArrayList<>(Arrays.asList(1, 3, -2, 1))),
+                !s.triplesSumToZero(new ArrayList<>(Arrays.asList(1, 2, 3, 7))),
+                !s.triplesSumToZero(new ArrayList<>(Arrays.asList(1, 2, 5, 7))),
+                s.triplesSumToZero(new ArrayList<>(Arrays.asList(2, 4, -5, 3, 9, 7))),
+                !s.triplesSumToZero(new ArrayList<>(Arrays.asList(1))),
+                !s.triplesSumToZero(new ArrayList<>(Arrays.asList(1, 3, 5, -100))),
+                !s.triplesSumToZero(new ArrayList<>(Arrays.asList(100, 3, 5, -100)))
+        );
+        if (correct.contains(false)) {
+            throw new AssertionError();
+        }
+    }
+}
+`
+
+### Path: gemini_process/generated_code/Java_44/SolutionTest.java
+`java
+package Java_44;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.*;
+import java.lang.*;
+
+public class SolutionTest {
+    @Test
+    public void testSolution() {
+        Solution s = new Solution();
+        List<Boolean> correct = Arrays.asList(
+                Objects.equals(s.changeBase(8, 3), "22"),
+                Objects.equals(s.changeBase(9, 3), "100"),
+                Objects.equals(s.changeBase(234, 2), "11101010"),
+                Objects.equals(s.changeBase(16, 2), "10000"),
+                Objects.equals(s.changeBase(8, 2), "1000"),
+                Objects.equals(s.changeBase(7, 2), "111")
+        );
+        if (correct.contains(false)) {
+            throw new AssertionError();
+        }
+        for (int x = 2; x < 8; x++) {
+            if (!Objects.equals(s.changeBase(x, x + 1), String.valueOf(x))) {
+                throw new AssertionError();
+            }
+        }
+    }
+}
+`
+
+### Path: gemini_process/generated_code/Java_46/SolutionTest.java
+`java
+package Java_46;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.*;
+import java.lang.*;
+
+public class SolutionTest {
+    @Test
+    public void testSolution() {
+        Solution s = new Solution();
+        List<Boolean> correct = Arrays.asList(
+                s.fib4(5) == 4,
+                s.fib4(8) == 28,
+                s.fib4(10) == 104,
+                s.fib4(12) == 386
+        );
+        if (correct.contains(false)) {
+            throw new AssertionError();
+        }
+    }
+}
+`
+
+### Path: gemini_process/generated_code/Java_49/SolutionTest.java
+`java
+package Java_49;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.*;
+import java.lang.*;
+
+public class SolutionTest {
+    @Test
+    public void testSolution() {
+        Solution s = new Solution();
+        List<Boolean> correct = Arrays.asList(
+                s.modp(3, 5) == 3,
+                s.modp(1101, 101) == 2,
+                s.modp(0, 101) == 1,
+                s.modp(3, 11) == 8,
+                s.modp(100, 101) == 1,
+                s.modp(30, 5) == 4,
+                s.modp(31, 5) == 3
+        );
+        if (correct.contains(false)) {
+            throw new AssertionError();
+        }
+    }
+}
+`
+
+### Path: gemini_process/generated_code/Java_50/SolutionTest.java
+`java
+package Java_50;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.*;
+import java.lang.*;
+
+public class SolutionTest {
+    static char[] letters = "abcdefghijklmnopqrstuvwxyz".toCharArray();
+    static Random rand = new Random(42);
+
+    public static String random_string(int length) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < length; i++) {
+            sb.append(letters[rand.nextInt(26)]);
+        }
+        return sb.toString();
+    }
+
+    @Test
+    public void testSolution() {
+        Solution s = new Solution();
+        for (int i = 0; i < 100; i++) {
+            String str = random_string(rand.nextInt(10) + 10);
+            String encode_str = s.encodeShift(str);
+            if (!s.decodeShift(encode_str).equals(str)) {
+                throw new AssertionError();
+            }
+        }
+    }
+}
+`
+
+### Path: gemini_process/base_tests.json
+`json
+[
+  {
+    "taskId": "Java/0",
+    "description": "Check if in given list of numbers, are any two numbers closer to each other than given threshold.\n    >>> hasCloseElements(Arrays.asList(1.0, 2.0, 3.0), 0.5)\n    false\n    >>> hasCloseElements(Arrays.asList(1.0, 2.8, 3.0, 4.0, 5.0, 2.0), 0.3)\n    true"
+  },
+  {
+    "taskId": "Java/1",
+    "description": "Input to this function is a string containing multiple groups of nested parentheses. Your goal is to\n    separate those group into separate strings and return the list of those.\n    Separate groups are balanced (each open brace is properly closed) and not nested within each other\n    Ignore any spaces in the input string.\n    >>> separateParenGroups(\"( ) (( )) (( )( ))\")\n    [\"()\", \"(())\", \"(()())\"]"
+  },
+  {
+    "taskId": "Java/2",
+    "description": "Given a positive floating point number, it can be decomposed into\n    and integer part (largest integer smaller than given number) and decimals\n    (leftover part always smaller than 1).\n\n    Return the decimal part of the number.\n    >>> truncateNumber(3.5)\n    0.5"
+  },
+  {
+    "taskId": "Java/3",
+    "description": "You're given a list of deposit and withdrawal operations on a bank account that starts with\n    zero balance. Your task is to detect if at any point the balance of account fallls below zero, and\n    at that point function should return True. Otherwise it should return False.\n    >>> belowZero(Arrays.asList(1, 2, 3))\n    false\n    >>> belowZero(Arrays.asList(1, 2, -4, 5))\n    true"
+  },
+  {
+    "taskId": "Java/4",
+    "description": "For a given list of input numbers, calculate Mean Absolute Deviation\n    around the mean of this dataset.\n    Mean Absolute Deviation is the average absolute difference between each\n    element and a centerpoint (mean in this case):\n    MAD = average | x - x_mean |\n    >>> meanAbsoluteDeviation(Arrays.asList(1.0, 2.0, 3.0, 4.0))\n    1.0"
+  },
+  {
+    "taskId": "Java/5",
+    "description": "Insert a number 'delimeter' between every two consecutive elements of input list `numbers'\n    >>> intersperse(List.of(), 4)\n    []\n    >>> intersperse(Arrays.asList(1, 2, 3), 4)\n    [1, 4, 2, 4, 3]"
+  },
+  {
+    "taskId": "Java/6",
+    "description": "Input to this function is a string represented multiple groups for nested parentheses separated by spaces.\n    For each of the group, output the deepest level of nesting of parentheses.\n    E.g. (()()) has maximum two levels of nesting while ((())) has three.\n\n    >>> parseNestedParens(\"(()()) ((())) () ((())()())\")\n    [2, 3, 1, 3]"
+  },
+  {
+    "taskId": "Java/8",
+    "description": "For a given list of integers, return a tuple consisting of a sum and a product of all the integers in a list.\n    Empty sum should be equal to 0 and empty product should be equal to 1.\n    >>> sumProduct(List.of())\n    [0, 1]\n    >>> sumProduct(Arrays.asList(1, 2, 3, 4))\n    [10, 24]"
+  },
+  {
+    "taskId": "Java/9",
+    "description": "From a given list of integers, generate a list of rolling maximum element found until given moment\n    in the sequence.\n    >>> rollingMax(Arrays.asList(1, 2, 3, 2, 3, 4, 2))\n    [1, 2, 3, 3, 3, 4, 4]"
+  },
+  {
+    "taskId": "Java/10",
+    "description": "Find the shortest palindrome that begins with a supplied string.\n    Algorithm idea is simple:\n    - Find the longest postfix of supplied string that is a palindrome.\n    - Append to the end of the string reverse of a string prefix that comes before the palindromic suffix.\n    >>> makePalindrome(\"\")\n    \"\"\n    >>> makePalindrome(\"cat\")\n    \"catac\"\n    >>> makePalindrome(\"cata\")\n    \"catac\""
+  },
+  {
+    "taskId": "Java/12",
+    "description": "Out of list of strings, return the longest one. Return the first one in case of multiple\n    strings of the same length. Return None in case the input list is empty.\n    >>> longest(List.of())\n    Optional.empty\n    >>> longest(Arrays.asList(\"a\", \"b\", \"c\"))\n    Optional[a]\n    >>> longest(Arrays.asList(\"a\", \"bb\", \"ccc\"))\n    Optional[ccc]"
+  },
+  {
+    "taskId": "Java/13",
+    "description": "Return a greatest common divisor of two integers a and b\n    >>> greatestCommonDivisor(3, 5)\n    1\n    >>> greatestCommonDivisor(25, 15)\n    5"
+  },
+  {
+    "taskId": "Java/14",
+    "description": "Return list of all prefixes from shortest to longest of the input string\n    >>> allPrefixes(\"abc\")\n    [\"a\", \"ab\", \"abc\"]"
+  },
+  {
+    "taskId": "Java/15",
+    "description": "Return a string containing space-delimited numbers starting from 0 upto n inclusive.\n    >>> stringSequence(0)\n    \"0\"\n    >>> stringSequence(5)\n    \"0 1 2 3 4 5\""
+  },
+  {
+    "taskId": "Java/17",
+    "description": "Input to this function is a string representing musical notes in a special ASCII format.\n    Your task is to parse this string and return list of integers corresponding to how many beats does each\n    not last.\n\n    Here is a legend:\n    \"o\" - whole note, lasts four beats\n    \"o|\" - half note, lasts two beats\n    \".|\" - quater note, lasts one beat\n\n    >>> parseMusic(\"o o| .| o| o| .| .| .| .| o o\")\n    [4, 2, 1, 2, 2, 1, 1, 1, 1, 4, 4]"
+  },
+  {
+    "taskId": "Java/19",
+    "description": "Input is a space-delimited string of numberals from 'zero' to 'nine'.\n    Valid choices are 'zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight' and 'nine'.\n    Return the string with numbers sorted from smallest to largest\n    >>> sortNumbers(\"three one five\")\n    \"one three five\""
+  },
+  {
+    "taskId": "Java/20",
+    "description": "From a supplied list of numbers (of length at least two) select and return two that are the closest to each\n    other and return them in order (smaller number, larger number).\n    >>> findClosestElements(Arrays.asList(1.0, 2.0, 3.0, 4.0, 5.0, 2.2))\n    [2.0, 2.2]\n    >>> findClosestElements(Arrays.asList(1.0, 2.0, 3.0, 4.0, 5.0, 2.0))\n    [2.0, 2.0]"
+  },
+  {
+    "taskId": "Java/23",
+    "description": "Return length of given string\n    >>> strlen(\"\")\n    0\n    >>> strlen(\"abc\")\n    3"
+  },
+  {
+    "taskId": "Java/25",
+    "description": "Return list of prime factors of given integer in the order from smallest to largest.\n    Each of the factors should be listed number of times corresponding to how many times it appeares in factorization.\n    Input number should be equal to the product of all factors\n    >>> factorize(8)\n    [2, 2, 2]\n    >>> factorize(25)\n    [5, 5]\n    >>> factorize(70)\n    [2, 5, 7]"
+  },
+  {
+    "taskId": "Java/28",
+    "description": "Concatenate list of strings into a single string\n    >>> concatenate(List.of())\n    \"\"\n    >>> concatenate(Arrays.asList(\"a\", \"b\", \"c\"))\n    \"abc\""
+  },
+  {
+    "taskId": "Java/32",
+    "description": "xs are coefficients of a polynomial.\n    findZero find x such that poly(x) = 0.\n    findZero returns only only zero point, even if there are many.\n    Moreover, findZero only takes list xs having even number of coefficients\n    and largest non zero coefficient as it guarantees\n    a solution.\n    >>> findZero(Arrays.asList(1, 2)) // f(x) = 1 + 2x\n    -0.5\n    >>> findZero(Arrays.asList(-6, 11, -6, 1)) // (x - 1) * (x - 2) * (x - 3) = -6 + 11x - 6x^2 + x^3\n    1.0"
+  },
+  {
+    "taskId": "Java/33",
+    "description": "This function takes a list l and returns a list l' such that\n    l' is identical to l in the indicies that are not divisible by three, while its values at the indicies that are divisible by three are equal\n    to the values of the corresponding indicies of l, but sorted.\n    >>> sortThird(Arrays.asList(1, 2, 3))\n    [1, 2, 3]\n    >>> sortThird(Arrays.asList(5, 6, 3, 4, 8, 9, 2))\n    [2, 6, 3, 4, 8, 9, 5]"
+  },
+  {
+    "taskId": "Java/36",
+    "description": "Return the number of times the digit 7 appears in integers less than n which are divisible by 11 or 13.\n    >>> fizzBuzz(50)\n    0\n    >>> fizzBuzz(78)\n    2\n    >>> fizzBuzz(79)\n    3"
+  },
+  {
+    "taskId": "Java/38",
+    "description": "takes as input string encoded with encodeCyclic function. Returns decoded string."
+  },
+  {
+    "taskId": "Java/39",
+    "description": "primeFib returns n-th number that is a Fibonacci number and it's also prime.\n    >>> primeFib(1)\n    2\n    >>> primeFib(2)\n    3\n    >>> primeFib(3)\n    5\n    >>> primeFib(4)\n    13\n    >>> primeFib(5)\n    89"
+  },
+  {
+    "taskId": "Java/40",
+    "description": "triplesSumToZero takes a list of integers as an input.\n    it returns True if there are three distinct elements in the list that\n    sum to zero, and False otherwise.\n\n    >>> triplesSumToZero(Arrays.asList(1, 3, 5, 0))\n    false\n    >>> triplesSumToZero(Arrays.asList(1, 3, -2, 1))\n    true\n    >>> triplesSumToZero(Arrays.asList(1, 2, 3, 7))\n    false\n    >>> triplesSumToZero(Arrays.asList(2, 4, -5, 3, 9, 7))\n    true\n    >>> triplesSumToZero(Arrays.asList(1))\n    false"
+  },
+  {
+    "taskId": "Java/44",
+    "description": "Change numerical base of input number x to base.\n    return string representation after the conversion.\n    base numbers are less than 10.\n    >>> changeBase(8, 3)\n    \"22\"\n    >>> changeBase(8, 2)\n    \"1000\"\n    >>> changeBase(7, 2)\n    \"111\""
+  },
+  {
+    "taskId": "Java/46",
+    "description": "The Fib4 number sequence is a sequence similar to the Fibbonacci sequnece that's defined as follows:\n    fib4(0) -> 0\n    fib4(1) -> 0\n    fib4(2) -> 2\n    fib4(3) -> 0\n    fib4(n) -> fib4(n-1) + fib4(n-2) + fib4(n-3) + fib4(n-4).\n    Please write a function to efficiently compute the n-th element of the fib4 number sequence.  Do not use recursion.\n    >>> fib4(5)\n    4\n    >>> fib4(6)\n    8\n    >>> fib4(7)\n    14"
+  },
+  {
+    "taskId": "Java/49",
+    "description": "Return 2^n modulo p (be aware of numerics).\n    >>> modp(3, 5)\n    3\n    >>> modp(1101, 101)\n    2\n    >>> modp(0, 101)\n    1\n    >>> modp(3, 11)\n    8\n    >>> modp(100, 101)\n    1"
+  },
+  {
+    "taskId": "Java/50",
+    "description": "takes as input string encoded with encodeShift function. Returns decoded string."
+  }
+]
+`
+
+### Path: gemini_process/base_test_results.json
+`json
+{
+  "summary": {
+    "total": 30,
+    "passed": 30,
+    "failed": 0
+  },
+  "results": [
+    {
+      "taskId": "Java/0",
+      "status": "passed",
+      "durationMs": 829
+    },
+    {
+      "taskId": "Java/1",
+      "status": "passed",
+      "durationMs": 970
+    },
+    {
+      "taskId": "Java/2",
+      "status": "passed",
+      "durationMs": 814
+    },
+    {
+      "taskId": "Java/3",
+      "status": "passed",
+      "durationMs": 901
+    },
+    {
+      "taskId": "Java/4",
+      "status": "passed",
+      "durationMs": 881
+    },
+    {
+      "taskId": "Java/5",
+      "status": "passed",
+      "durationMs": 826
+    },
+    {
+      "taskId": "Java/6",
+      "status": "passed",
+      "durationMs": 944
+    },
+    {
+      "taskId": "Java/8",
+      "status": "passed",
+      "durationMs": 860
+    },
+    {
+      "taskId": "Java/9",
+      "status": "passed",
+      "durationMs": 895
+    },
+    {
+      "taskId": "Java/10",
+      "status": "passed",
+      "durationMs": 812
+    },
+    {
+      "taskId": "Java/12",
+      "status": "passed",
+      "durationMs": 938
+    },
+    {
+      "taskId": "Java/13",
+      "status": "passed",
+      "durationMs": 983
+    },
+    {
+      "taskId": "Java/14",
+      "status": "passed",
+      "durationMs": 930
+    },
+    {
+      "taskId": "Java/15",
+      "status": "passed",
+      "durationMs": 938
+    },
+    {
+      "taskId": "Java/17",
+      "status": "passed",
+      "durationMs": 824
+    },
+    {
+      "taskId": "Java/19",
+      "status": "passed",
+      "durationMs": 927
+    },
+    {
+      "taskId": "Java/20",
+      "status": "passed",
+      "durationMs": 901
+    },
+    {
+      "taskId": "Java/23",
+      "status": "passed",
+      "durationMs": 961
+    },
+    {
+      "taskId": "Java/25",
+      "status": "passed",
+      "durationMs": 959
+    },
+    {
+      "taskId": "Java/28",
+      "status": "passed",
+      "durationMs": 882
+    },
+    {
+      "taskId": "Java/32",
+      "status": "passed",
+      "durationMs": 815
+    },
+    {
+      "taskId": "Java/33",
+      "status": "passed",
+      "durationMs": 874
+    },
+    {
+      "taskId": "Java/36",
+      "status": "passed",
+      "durationMs": 813
+    },
+    {
+      "taskId": "Java/38",
+      "status": "passed",
+      "durationMs": 884
+    },
+    {
+      "taskId": "Java/39",
+      "status": "passed",
+      "durationMs": 996
+    },
+    {
+      "taskId": "Java/40",
+      "status": "passed",
+      "durationMs": 984
+    },
+    {
+      "taskId": "Java/44",
+      "status": "passed",
+      "durationMs": 826
+    },
+    {
+      "taskId": "Java/46",
+      "status": "passed",
+      "durationMs": 989
+    },
+    {
+      "taskId": "Java/49",
+      "status": "passed",
+      "durationMs": 904
+    },
+    {
+      "taskId": "Java/50",
+      "status": "passed",
+      "durationMs": 804
+    }
+  ]
+}
+`

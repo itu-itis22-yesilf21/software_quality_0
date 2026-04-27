@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="JUnit Jupiter" tests="30" skipped="0" failures="0" errors="0" time="0.082" hostname="kutayKasman" timestamp="2026-04-27T14:47:01">
+<properties>
+<property name="file.encoding" value="UTF-8"/>
+<property name="file.separator" value="\"/>
+<property name="java.class.path" value="junit-platform-console-standalone-1.9.3.jar"/>
+<property name="java.class.version" value="65.0"/>
+<property name="java.home" value="C:\Program Files\Java\jdk-21.0.11"/>
+<property name="java.io.tmpdir" value="C:\Users\kutay\AppData\Local\Temp\"/>
+<property name="java.library.path" value="C:\Program Files\Java\jdk-21.0.11\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Users\kutay\miniconda3;C:\Users\kutay\miniconda3\Library\mingw-w64\bin;C:\Users\kutay\miniconda3\Library\usr\bin;C:\Users\kutay\miniconda3\Library\bin;C:\Users\kutay\miniconda3\Scripts;C:\Users\kutay\miniconda3\bin;C:\Users\kutay\miniconda3\condabin;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.8\bin;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.8\libnvvp;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\Program Files\dotnet;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit;C:\Program Files\Git\cmd;C:\Program Files\NVIDIA Corporation\Nsight Compute 2025.1.0;C:\Program Files\NVIDIA Corporation\NVIDIA app\NvDLISR;C:\Program Files\PuTTY;C:\Program Files\nodejs;C:\Users\kutay\miniconda3;C:\Users\kutay\miniconda3\Library\mingw-w64\bin;C:\Users\kutay\miniconda3\Library\usr\bin;C:\Users\kutay\miniconda3\Library\bin;C:\Users\kutay\miniconda3\Scripts;C:\Users\kutay\AppData\Local\Programs\Python\Python312\Scripts;C:\Users\kutay\AppData\Local\Programs\Python\Python312;C:\Users\kutay\AppData\Local\Microsoft\WindowsApps;C:\Users\kutay\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\kutay\AppData\Local\Programs\cursor\resources\app\bin;C:\Users\kutay\AppData\Roaming\npm;C:\msys64\ucrt64\bin;C:\Users\kutay\AppData\Local\Programs\Antigravity\bin;."/>
+<property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+<property name="java.runtime.version" value="21.0.11+9-LTS-211"/>
+<property name="java.specification.name" value="Java Platform API Specification"/>
+<property name="java.specification.vendor" value="Oracle Corporation"/>
+<property name="java.specification.version" value="21"/>
+<property name="java.vendor" value="Oracle Corporation"/>
+<property name="java.vendor.url" value="https://java.oracle.com/"/>
+<property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+<property name="java.version" value="21.0.11"/>
+<property name="java.version.date" value="2026-04-21"/>
+<property name="java.vm.compressedOopsMode" value="Zero based"/>
+<property name="java.vm.info" value="mixed mode, sharing"/>
+<property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+<property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+<property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+<property name="java.vm.specification.version" value="21"/>
+<property name="java.vm.vendor" value="Oracle Corporation"/>
+<property name="java.vm.version" value="21.0.11+9-LTS-211"/>
+<property name="jdk.debug" value="release"/>
+<property name="line.separator" value="
+"/>
+<property name="native.encoding" value="Cp1254"/>
+<property name="os.arch" value="amd64"/>
+<property name="os.name" value="Windows 11"/>
+<property name="os.version" value="10.0"/>
+<property name="path.separator" value=";"/>
+<property name="stderr.encoding" value="Cp1254"/>
+<property name="stdout.encoding" value="Cp1254"/>
+<property name="sun.arch.data.model" value="64"/>
+<property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-21.0.11\bin"/>
+<property name="sun.cpu.endian" value="little"/>
+<property name="sun.cpu.isalist" value="amd64"/>
+<property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+<property name="sun.java.command" value="junit-platform-console-standalone-1.9.3.jar --class-path generated_code --scan-class-path --reports-dir=reports"/>
+<property name="sun.java.launcher" value="SUN_STANDARD"/>
+<property name="sun.jnu.encoding" value="Cp1254"/>
+<property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+<property name="sun.os.patch.level" value=""/>
+<property name="user.country" value="TR"/>
+<property name="user.dir" value="C:\Users\kutay\OneDrive\Desktop\DERSLER\8Donem\BLG475E-SOFTWARE-QA\hw\github\software_quality_0\gemini_process"/>
+<property name="user.home" value="C:\Users\kutay"/>
+<property name="user.language" value="tr"/>
+<property name="user.name" value="kutay"/>
+<property name="user.script" value=""/>
+<property name="user.timezone" value="Europe/Istanbul"/>
+<property name="user.variant" value=""/>
+</properties>
+<testcase name="testSolution()" classname="Java_3.SolutionTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:Java_3.SolutionTest]/[method:testSolution()]
+display-name: testSolution()
+]]></system-out>
+</testcase>
+<testcase name="testSolution()" classname="Java_8.SolutionTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:Java_8.SolutionTest]/[method:testSolution()]
+display-name: testSolution()
+]]></system-out>
+</testcase>
+<testcase name="testSolution()" classname="Java_40.SolutionTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:Java_40.SolutionTest]/[method:testSolution()]
+display-name: testSolution()
+]]></system-out>
+</testcase>
+<testcase name="testSolution()" classname="Java_5.SolutionTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:Java_5.SolutionTest]/[method:testSolution()]
+display-name: testSolution()
+]]></system-out>
+</testcase>
+<testcase name="testSolution()" classname="Java_0.SolutionTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:Java_0.SolutionTest]/[method:testSolution()]
+display-name: testSolution()
+]]></system-out>
+</testcase>
+<testcase name="testSolution()" classname="Java_19.SolutionTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:Java_19.SolutionTest]/[method:testSolution()]
+display-name: testSolution()
+]]></system-out>
+</testcase>
+<testcase name="testSolution()" classname="Java_20.SolutionTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:Java_20.SolutionTest]/[method:testSolution()]
+display-name: testSolution()
+]]></system-out>
+</testcase>
+<testcase name="testSolution()" classname="Java_50.SolutionTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:Java_50.SolutionTest]/[method:testSolution()]
+display-name: testSolution()
+]]></system-out>
+</testcase>
+<testcase name="testSolution()" classname="Java_14.SolutionTest" time="0.003">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:Java_14.SolutionTest]/[method:testSolution()]
+display-name: testSolution()
+]]></system-out>
+</testcase>
+<testcase name="testSolution()" classname="Java_25.SolutionTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:Java_25.SolutionTest]/[method:testSolution()]
+display-name: testSolution()
+]]></system-out>
+</testcase>
+<testcase name="testSolution()" classname="Java_33.SolutionTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:Java_33.SolutionTest]/[method:testSolution()]
+display-name: testSolution()
+]]></system-out>
+</testcase>
+<testcase name="testSolution()" classname="Java_2.SolutionTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:Java_2.SolutionTest]/[method:testSolution()]
+display-name: testSolution()
+]]></system-out>
+</testcase>
+<testcase name="testSolution()" classname="Java_46.SolutionTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:Java_46.SolutionTest]/[method:testSolution()]
+display-name: testSolution()
+]]></system-out>
+</testcase>
+<testcase name="testSolution()" classname="Java_12.SolutionTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:Java_12.SolutionTest]/[method:testSolution()]
+display-name: testSolution()
+]]></system-out>
+</testcase>
+<testcase name="testSolution()" classname="Java_10.SolutionTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:Java_10.SolutionTest]/[method:testSolution()]
+display-name: testSolution()
+]]></system-out>
+</testcase>
+<testcase name="testSolution()" classname="Java_9.SolutionTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:Java_9.SolutionTest]/[method:testSolution()]
+display-name: testSolution()
+]]></system-out>
+</testcase>
+<testcase name="testSolution()" classname="Java_44.SolutionTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:Java_44.SolutionTest]/[method:testSolution()]
+display-name: testSolution()
+]]></system-out>
+</testcase>
+<testcase name="testSolution()" classname="Java_36.SolutionTest" time="0.015">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:Java_36.SolutionTest]/[method:testSolution()]
+display-name: testSolution()
+]]></system-out>
+</testcase>
+<testcase name="testSolution()" classname="Java_17.SolutionTest" time="0.003">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:Java_17.SolutionTest]/[method:testSolution()]
+display-name: testSolution()
+]]></system-out>
+</testcase>
+<testcase name="testSolution()" classname="Java_4.SolutionTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:Java_4.SolutionTest]/[method:testSolution()]
+display-name: testSolution()
+]]></system-out>
+</testcase>
+<testcase name="testSolution()" classname="Java_15.SolutionTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:Java_15.SolutionTest]/[method:testSolution()]
+display-name: testSolution()
+]]></system-out>
+</testcase>
+<testcase name="testSolution()" classname="Java_38.SolutionTest" time="0.006">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:Java_38.SolutionTest]/[method:testSolution()]
+display-name: testSolution()
+]]></system-out>
+</testcase>
+<testcase name="testSolution()" classname="Java_23.SolutionTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:Java_23.SolutionTest]/[method:testSolution()]
+display-name: testSolution()
+]]></system-out>
+</testcase>
+<testcase name="testSolution()" classname="Java_6.SolutionTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:Java_6.SolutionTest]/[method:testSolution()]
+display-name: testSolution()
+]]></system-out>
+</testcase>
+<testcase name="testSolution()" classname="Java_13.SolutionTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:Java_13.SolutionTest]/[method:testSolution()]
+display-name: testSolution()
+]]></system-out>
+</testcase>
+<testcase name="testSolution()" classname="Java_39.SolutionTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:Java_39.SolutionTest]/[method:testSolution()]
+display-name: testSolution()
+]]></system-out>
+</testcase>
+<testcase name="testSolution()" classname="Java_28.SolutionTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:Java_28.SolutionTest]/[method:testSolution()]
+display-name: testSolution()
+]]></system-out>
+</testcase>
+<testcase name="testSolution()" classname="Java_49.SolutionTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:Java_49.SolutionTest]/[method:testSolution()]
+display-name: testSolution()
+]]></system-out>
+</testcase>
+<testcase name="testSolution()" classname="Java_32.SolutionTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:Java_32.SolutionTest]/[method:testSolution()]
+display-name: testSolution()
+]]></system-out>
+</testcase>
+<testcase name="testSolution()" classname="Java_1.SolutionTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:Java_1.SolutionTest]/[method:testSolution()]
+display-name: testSolution()
+]]></system-out>
+</testcase>
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]
+display-name: JUnit Jupiter
+]]></system-out>
+</testsuite>
