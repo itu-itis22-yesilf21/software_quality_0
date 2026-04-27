@@ -1,0 +1,159 @@
+{
+  "summary": {
+    "total": 30,
+    "passed": 30,
+    "failed": 0
+  },
+  "results": [
+    {
+      "taskId": "Java/3",
+      "status": "passed",
+      "durationMs": 0
+    },
+    {
+      "taskId": "Java/8",
+      "status": "passed",
+      "durationMs": 0
+    },
+    {
+      "taskId": "Java/40",
+      "status": "passed",
+      "durationMs": 0
+    },
+    {
+      "taskId": "Java/5",
+      "status": "passed",
+      "durationMs": 1
+    },
+    {
+      "taskId": "Java/0",
+      "status": "passed",
+      "durationMs": 0
+    },
+    {
+      "taskId": "Java/19",
+      "status": "passed",
+      "durationMs": 0
+    },
+    {
+      "taskId": "Java/20",
+      "status": "passed",
+      "durationMs": 1
+    },
+    {
+      "taskId": "Java/50",
+      "status": "passed",
+      "durationMs": 0
+    },
+    {
+      "taskId": "Java/14",
+      "status": "passed",
+      "durationMs": 3
+    },
+    {
+      "taskId": "Java/25",
+      "status": "passed",
+      "durationMs": 0
+    },
+    {
+      "taskId": "Java/33",
+      "status": "passed",
+      "durationMs": 0
+    },
+    {
+      "taskId": "Java/2",
+      "status": "passed",
+      "durationMs": 0
+    },
+    {
+      "taskId": "Java/46",
+      "status": "passed",
+      "durationMs": 0
+    },
+    {
+      "taskId": "Java/12",
+      "status": "passed",
+      "durationMs": 1
+    },
+    {
+      "taskId": "Java/10",
+      "status": "passed",
+      "durationMs": 1
+    },
+    {
+      "taskId": "Java/9",
+      "status": "passed",
+      "durationMs": 0
+    },
+    {
+      "taskId": "Java/44",
+      "status": "passed",
+      "durationMs": 0
+    },
+    {
+      "taskId": "Java/36",
+      "status": "passed",
+      "durationMs": 15
+    },
+    {
+      "taskId": "Java/17",
+      "status": "passed",
+      "durationMs": 3
+    },
+    {
+      "taskId": "Java/4",
+      "status": "passed",
+      "durationMs": 1
+    },
+    {
+      "taskId": "Java/15",
+      "status": "passed",
+      "durationMs": 0
+    },
+    {
+      "taskId": "Java/38",
+      "status": "passed",
+      "durationMs": 6
+    },
+    {
+      "taskId": "Java/23",
+      "status": "passed",
+      "durationMs": 0
+    },
+    {
+      "taskId": "Java/6",
+      "status": "passed",
+      "durationMs": 0
+    },
+    {
+      "taskId": "Java/13",
+      "status": "passed",
+      "durationMs": 0
+    },
+    {
+      "taskId": "Java/39",
+      "status": "passed",
+      "durationMs": 1
+    },
+    {
+      "taskId": "Java/28",
+      "status": "passed",
+      "durationMs": 0
+    },
+    {
+      "taskId": "Java/49",
+      "status": "passed",
+      "durationMs": 1
+    },
+    {
+      "taskId": "Java/32",
+      "status": "passed",
+      "durationMs": 1
+    },
+    {
+      "taskId": "Java/1",
+      "status": "passed",
+      "durationMs": 0
+    }
+  ]
+}

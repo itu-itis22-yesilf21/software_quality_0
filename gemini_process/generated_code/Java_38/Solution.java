@@ -1,4 +1,4 @@
-// Java_38/Solution.java
+package Java_38;
 import java.util.*;
 import java.lang.*;
 

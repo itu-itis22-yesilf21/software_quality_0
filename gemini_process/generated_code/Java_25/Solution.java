@@ -1,4 +1,4 @@
-// Java_25/Solution.java
+package Java_25;
 import java.util.*;
 import java.lang.*;
 

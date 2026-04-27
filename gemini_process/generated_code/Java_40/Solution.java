@@ -1,4 +1,4 @@
-// Java_40/Solution.java
+package Java_40;
 import java.util.*;
 import java.lang.*;
 

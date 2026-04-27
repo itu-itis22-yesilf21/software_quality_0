@@ -1,4 +1,4 @@
-// Java_2/Solution.java
+package Java_2;
 import java.util.*;
 import java.lang.*;
 

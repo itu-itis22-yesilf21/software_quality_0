@@ -1,4 +1,4 @@
-// Java_10/Solution.java
+package Java_10;
 import java.util.*;
 import java.lang.*;
 

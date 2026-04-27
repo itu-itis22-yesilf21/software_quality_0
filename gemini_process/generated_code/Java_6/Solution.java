@@ -1,4 +1,4 @@
-// Java_6/Solution.java
+package Java_6;
 import java.util.*;
 import java.lang.*;
 

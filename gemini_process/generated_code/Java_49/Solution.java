@@ -1,4 +1,4 @@
-// Java_49/Solution.java
+package Java_49;
 import java.util.*;
 import java.lang.*;
 

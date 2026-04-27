@@ -1,4 +1,4 @@
-// Java_50/Solution.java
+package Java_50;
 import java.util.*;
 import java.lang.*;
 

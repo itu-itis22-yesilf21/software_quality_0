@@ -1,4 +1,4 @@
-// Java_20/Solution.java
+package Java_20;
 import java.util.*;
 import java.lang.*;
 
