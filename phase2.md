@@ -32,9 +32,9 @@ many times each word of that length appears and in which line(s) it appears.*
   - These must be used verbatim in the final report; replace the remaining `LLM A` placeholder in `report/report.tex` with `GPT-5.5`.
 
 ## Step 2 — Prompt engineering for `BookScan`
-- [ ] Draft the **unmodified & combined prompt**: concatenates the three HumanEval prompts (#18, #23, #27) verbatim and asks the agent to produce one `BookScan` class that internally uses all three methods.
-- [ ] Draft the **edited & combined prompt**: rewritten to give explicit spec — input contract (text + word length), output contract (counts per word + line numbers per word), case-insensitive matching via `flipCase`, tokenisation rules, empty-input behaviour.
-- [ ] Log both prompts in `bookscan/logs/prompt_design_log.md` with the rationale for each edit (the report must explain *how* the prompt was improved).
+- [x] Drafted the **unmodified & combined prompt** (Variant 1): concatenates the three HumanEval prompts (#18, #23, #27) verbatim and adds a single-sentence BookScan responsibility paragraph. Tokenisation, case rule, output type, and edge cases are intentionally left undefined — that is the variable we want to measure.
+- [x] Drafted the **edited & combined prompt** (Variant 2): pinned `scan(List<String>, int) → Map<String, List<Integer>>` API, explicit `[A-Za-z]`-run tokenisation, 1-based line numbers with per-occurrence repetition, mandatory delegation to the three helpers, delimiter wrapping to kill the "thethem" false-positive class, `wordLength<=0` and null-line behaviour, Java 11 + no external deps, fenced-code-block-only output.
+- [x] Both prompts and a per-edit rationale table are logged in `bookscan/logs/prompt_design_log.md`. The log also lists predicted weaknesses of Variant 1 (which Step 11 will check against actual model output) and operational notes for Step 3.
 
 ## Step 3 — Class generation with LLM A and LLM B
 - [ ] Send the **unmodified-combined** prompt to both LLMs → save outputs to `bookscan/llm_a/unmodified/BookScan.java` and `bookscan/llm_b/unmodified/BookScan.java`.
