@@ -31,20 +31,55 @@ Each run gets its own step-tagged commit (`Phase 2 / Step 5.<run#>: ...`).
 
 ---
 
-## Run 5.1 — `llm_a/unmodified/BookScan.java` → GPT-5.5  *(pending)*
+## Run 5.1 — `llm_a/unmodified/BookScan.java` → GPT-5.5  *(complete)*
 
-**Prompt sent.** _TBD: template from
-`bookscan/logs/integration_test_prompt_design.md` with
-`bookscan/llm_a/unmodified/BookScan.java` inlined verbatim._
+**Prompt sent.** The "Shared template" block from
+`bookscan/logs/integration_test_prompt_design.md` at commit `1d3b3e1`,
+with the full `bookscan/llm_a/unmodified/BookScan.java` source from
+commit `2a71037` (161 lines, including the `@Authors` header) pasted
+into the `<INLINE THE FULL BookScan.java SOURCE HERE>` marker. Sent as
+a single turn to GPT-5.5.
 
-**Model + access details.** _TBD: GPT-5.5 web UI, default sampling,
-date sent._
+**Model + access details.** GPT-5.5 via its hosted chat UI, default
+sampling, run on 2026-05-24. Single turn, no follow-ups.
 
-**Response received.** _TBD — paste full response here, including any
-prose outside the code block._
+**Response received.** Verbatim Java source saved to `response5_1.txt`,
+copied byte-for-byte into the integration test file. The paste
+preserved all asterisks; no post-processing was needed. Full source is
+the file under
+[`bookscan/llm_a/unmodified/BookScanIntegrationTest.java`](../llm_a/unmodified/BookScanIntegrationTest.java)
+committed alongside this log entry.
 
-**How the output was used.** _TBD — saved to
-`bookscan/llm_a/unmodified/BookScanIntegrationTest.java`._
+**How the output was used.** Saved to
+`bookscan/llm_a/unmodified/BookScanIntegrationTest.java`, no edits.
+Transient `response5_1.txt` deleted in the same commit.
+
+**First observations (Step 11 data).** GPT-5.5 chose a
+`public static void main` driver with seven labelled `requirementN_*`
+methods and a private `check(condition, message)` helper. The most
+important behavioural signal is that **GPT-5.5 read the BookScan.java
+source carefully and wrote tests that bake in the model's bugs as
+expected behaviour**, rather than asserting the integration brief's
+intended semantics. Examples:
+
+| Requirement | Expected by brief | What GPT-5.5 asserts |
+|---|---|---|
+| 1 (case-fold) | one key `"the"`, value covering all three lines | three separate keys `"The"`, `"the"`, `"THE"`, each with `lines=[1]/[2]/[3]` |
+| 4 (flipCase × howManyTimes) | one key `"cat"` with count 3 | three separate keys `"Cat"`, `"cat"`, `"CAT"`, each with count 1 |
+| 6 (one-char words) | lowercase keys `"i"`, `"a"`, `"b"`, `"c"` | case-preserved keys `"I"`, `"a"`, `"b"`, `"C"` |
+
+This is **regression-style** testing, not spec-conforming testing.
+Requirement 4 even includes two extra `howManyTimes` calls that
+demonstrate the case-variant difference (`exactCaseOnlyCount=1` vs
+`caseFoldedCount=3`), explicitly framing the case-sensitive behaviour
+as the desired one rather than a bug. Step 6 will run this suite; we
+expect it to pass against this specific BookScan because both the
+suite and the source share the same (flawed) view of correctness.
+
+Tests 5 (substring inside longer word), 6 (one-character words), and 7
+(empty/zero/too-long edge cases) are spec-aligned because the
+unmodified BookScan happens to handle those correctly even without
+case folding.
 
 ---
 
