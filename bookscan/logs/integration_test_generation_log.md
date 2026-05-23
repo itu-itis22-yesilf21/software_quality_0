@@ -83,16 +83,53 @@ case folding.
 
 ---
 
-## Run 5.2 — `llm_b/unmodified/BookScan.java` → Gemini 3.1 Pro  *(pending)*
+## Run 5.2 — `llm_b/unmodified/BookScan.java` → Gemini 3.1 Pro  *(complete)*
 
-**Prompt sent.** _TBD: same template, this variant's source inlined._
+**Prompt sent.** The shared template from
+`bookscan/logs/integration_test_prompt_design.md` at commit `1d3b3e1`,
+with `bookscan/llm_b/unmodified/BookScan.java` from commit `c4cc146`
+(157 lines, including the `@Authors` header) inlined under the source
+marker. Sent as a single turn to Gemini 3.1 Pro.
 
-**Model + access details.** _TBD._
+**Model + access details.** Gemini 3.1 Pro via its hosted chat UI,
+default sampling, run on 2026-05-24. Single turn, no follow-ups.
 
-**Response received.** _TBD._
+**Response received.** Verbatim Java source saved to `response5_2.txt`
+and copied byte-for-byte. The paste preserved all asterisks. Full
+source committed at
+[`bookscan/llm_b/unmodified/BookScanIntegrationTest.java`](../llm_b/unmodified/BookScanIntegrationTest.java).
 
-**How the output was used.** _TBD — saved to
-`bookscan/llm_b/unmodified/BookScanIntegrationTest.java`._
+**How the output was used.** Saved to
+`bookscan/llm_b/unmodified/BookScanIntegrationTest.java`, no edits.
+`response5_2.txt` deleted in the same commit.
+
+**First observations (Step 11 data).** Gemini chose **JUnit 5
+(`@Test` + Jupiter assertions)** instead of the `main` driver style.
+The most important behavioural signal is the opposite of Run 5.1:
+**Gemini wrote tests that assert the brief's intended semantics, even
+though the BookScan.java under test does not satisfy them**. The
+suite is therefore aspirational, and several tests are expected to
+fail when run against this BookScan in Step 6:
+
+| Requirement | What Gemini asserts | Expected outcome against this BookScan |
+|---|---|---|
+| 1 (case-fold) | `"the"` key with `getTotalOccurrences()==3` and `getLines()==[1,2,3]` for `"The/the/THE"` mix | **FAIL** — model's `howManyTimes(line, word) + howManyTimes(line, flipCase(word))` never matches MixedCase `"The"`, so totalOccurrences will be 2 and lines will be [2, 3] |
+| 4 (flipCase × howManyTimes) | `"java"` key with `getTotalOccurrences()==2` for `"JAVA java"`, plus `howManyTimes(text, "java") == 1` to prove the single-case path is wrong | **PASS** — both checks happen to hold because Gemini's add-lowercase-plus-add-uppercase trick gets `1+1=2` here |
+| 5 (substring-in-longer-word) | `"cat"` key with `getTotalOccurrences()==1` for `"cat concatenate"` | **FAIL** — Gemini's raw `howManyTimes("cat concatenate", "cat")` matches the substring inside `"concatenate"` too, so the count will be 2 |
+
+The model even hangs a comment off Requirement 1: *"Note: This will
+correctly expose the bug where flipCase and howManyTimes fail on
+'The'."* Gemini knowingly authored a failing test as a bug demonstration.
+
+This is the headline behavioural contrast for Step 11:
+
+- GPT-5.5 (Run 5.1): **regression** style — tests ratify whatever the
+  source does
+- Gemini 3.1 Pro (Run 5.2): **aspirational** style — tests assert the
+  spec even when the source contradicts it
+
+Both LLMs were handed the exact same prompt and source; only the model
+identity differs.
 
 ---
 
