@@ -37,11 +37,14 @@ many times each word of that length appears and in which line(s) it appears.*
 - [x] Both prompts and a per-edit rationale table are logged in `bookscan/logs/prompt_design_log.md`. The log also lists predicted weaknesses of Variant 1 (which Step 11 will check against actual model output) and operational notes for Step 3.
 
 ## Step 3 — Class generation with LLM A and LLM B
-- [ ] Send the **unmodified-combined** prompt to both LLMs → save outputs to `bookscan/llm_a/unmodified/BookScan.java` and `bookscan/llm_b/unmodified/BookScan.java`.
-- [ ] Send the **edited-combined** prompt to both LLMs → save outputs to `bookscan/llm_a/edited/BookScan.java` and `bookscan/llm_b/edited/BookScan.java`.
-- [ ] Log every interaction (prompt + response + note on use) in `bookscan/logs/class_generation_log.md`.
-- [ ] Add the `@Authors` header to every saved file.
-- [ ] Commit each LLM × prompt-variant pair as its own step-tagged commit.
+- [x] Variant 1 (unmodified+combined) → GPT-5.5 → `bookscan/llm_a/unmodified/BookScan.java` (Run 1, commit `2a71037`). Model invented `scanWords` returning `Map<String, WordInfo>`, `[^\p{L}\p{N}]+` tokenisation, no-op `flipCase(flipCase(x))` normalisation, synthesised-stream `howManyTimes`. 0/13 Variant 2 spec items.
+- [x] Variant 1 (unmodified+combined) → Gemini 3.1 Pro → `bookscan/llm_b/unmodified/BookScan.java` (Run 2, commit `c4cc146`). Model invented `scanWordsOfLength` returning `Map<String, WordStats>`, `[^a-zA-Z]+` tokenisation, lowercase + flipCase variant counting that misses MixedCase words, substring-of-longer-word false positives. 0/13 Variant 2 spec items.
+- [x] Variant 2 (edited+combined) → GPT-5.5 → `bookscan/llm_a/edited/BookScan.java` (Run 3, commit `fadb4a8`). Exact `scan(List<String>,int)→Map<String,List<Integer>>` signature, `[A-Za-z]` runs via `isAsciiLetter`, real case folding via `normalise()→flipCase`, ``-wrapped per-line `howManyTimes`, per-occurrence line numbers. **13/13** spec items.
+- [x] Variant 2 (edited+combined) → Gemini 3.1 Pro → `bookscan/llm_b/edited/BookScan.java` (Run 4, commit `3ac4ca1`). Same exact API; `split("[^A-Za-z]+")` tokenisation, `normalizeToLowercase→flipCase`, ``-wrapped counting, per-occurrence line numbers. **13/13** spec items.
+- [x] Every prompt + response + use-note logged in `bookscan/logs/class_generation_log.md`, with per-run spec-compliance tables and Run-1-vs-3, Run-2-vs-4, Run-3-vs-4 comparison tables for the Step 11 analysis.
+- [x] `@Authors` header (Kutay Murat Kasman 150210062, Furkan Bilal Yeşil 10210041, Ahmet Çavdar 150210059) present in all four files.
+- [x] One commit per LLM × variant (`Phase 2 / Step 3.1`–`3.4`).
+- **Headline result:** both LLMs score 0/13 under the unmodified prompt and 13/13 under the edited prompt, with edited outputs differing only in idiom (LinkedHashMap vs HashMap, regex vs char walker, `Character.isUpperCase` vs range checks). This is the central piece of evidence for the prompt-engineering story Step 11 will present.
 
 ## Step 4 — Compile and smoke-run all four variants
 - [ ] Compile each `BookScan.java` with `javac`; record compilation errors per variant.
