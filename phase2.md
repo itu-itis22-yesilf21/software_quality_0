@@ -67,9 +67,14 @@ many times each word of that length appears and in which line(s) it appears.*
 - **Headline finding for Step 11.** *Test framework is a model-stable choice* — GPT picked the `main` driver both times, Gemini picked JUnit 5 both times. *Test correctness is a source-shape effect* — under flawed source, GPT regresses while Gemini asserts the spec; under clean source, both converge. *Step 6 prediction*: ≥ 26 of 28 assertions pass; the ≤ 2 expected fails are Run 5.2 Req 1 and Req 5.
 
 ## Step 6 — Execute integration tests, collect raw metrics
-- [ ] Run each `BookScanIntegrationTest.java` and record pass/fail counts per variant.
-- [ ] Capture compilation errors, runtime exceptions, and stack traces in `bookscan/reports/integration_test_results.json`.
-- [ ] Compute per-method pass rate (substring / strlen / flipCase) so the report can show which method tends to break under integration.
+- [x] `bookscan/run_integration.py` orchestrator: per variant, compiles `BookScan + BookScanIntegrationTest` with `javac -encoding UTF-8`, dispatches to the right runner (plain `java` for `main`-driver suites, JUnit Platform Console Standalone `1.9.3` for the JUnit 5 suites — reuses the JAR shipped in `gemini_process/` from Phase 1), captures stdout/stderr/exit codes, parses JUnit's structured summary block, and aggregates totals.
+- [x] **Result: 4/4 variants compile; 25 / 28 individual assertions pass (89% overall).**
+- [x] Per variant: `llm_a/unmodified` 7/7 pass (GPT regression style ratifies its own bugs), `llm_b/unmodified` 4/7 pass (Gemini aspirational style fails 3 assertions on real defects), `llm_a/edited` 7/7 pass, `llm_b/edited` 7/7 pass.
+- [x] All three failures are in `llm_b/unmodified` and decompose into **two distinct root causes** already recorded in Step 3: the MixedCase miss (`Req 1`) and the substring-of-longer-word false positive (`Req 5` and the *not-predicted* `Req 6`, which surfaces the same root cause via a different input).
+- [x] Per-LLM pass rate: GPT-5.5 14/14 (100%, but half on a buggy source its own suite was content to bless); Gemini 11/14 (79%, but its failures are *information* about real defects, not noise).
+- [x] Per-prompt-variant pass rate: unmodified 11/14 (79%), edited 14/14 (100%) — **+21 percentage points for the edited prompt**.
+- [x] Machine-readable record at `bookscan/reports/integration_test_results.json`; human-readable summary with per-failure trace + analysis at `bookscan/reports/integration_test_results.md`.
+- [x] Step-5 prediction (≥ 26 of 28; ≤ 2 fails on Req 1 and Req 5) was *close*: actual was 25/28 with 3 fails. The extra fail (Req 6 on Gemini unmodified) is the same substring-of-longer-word root cause as Req 5, just exercised by a different input — stronger evidence for the report.
 
 ## Step 7 — Coverage analysis (re-use Phase-1 tooling)
 - [ ] Re-use `tools/jacococli.jar` + `tools/jacocoagent.jar` to measure **branch and instruction coverage** of `BookScan` under each integration suite.
