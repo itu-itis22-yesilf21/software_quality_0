@@ -100,12 +100,11 @@ appears. The method must use howManyTimes, strlen, and flipCase from the
 same class.
 
 Return ONLY the contents of BookScan.java, with the @Authors header
-already present:
+already present at the very top of the file (exact text, three lines):
 
-/* @Authors
- * Student Names: <student_name>
- * Student IDs: <student_id>
- */
+/*@Authors
+Student Names: <Kutay Murat Kasman><Furkan Bilal Yeşil><Ahmet Çavdar>
+Student IDs:<150210062><10210041><150210059>*/
 ```
 
 **Rationale (why this prompt is the "unmodified" baseline).**
@@ -251,12 +250,12 @@ PART C — Non-functional requirements
   java.util and java.lang imports.
 - Class declaration: `public class BookScan { ... }` in the default
   package. No package declaration.
-- Add this header at the very top of the file, unchanged:
+- Add this header at the very top of the file, unchanged (exact text,
+  three lines):
 
-  /* @Authors
-   * Student Names: <student_name>
-   * Student IDs: <student_id>
-   */
+  /*@Authors
+  Student Names: <Kutay Murat Kasman><Furkan Bilal Yeşil><Ahmet Çavdar>
+  Student IDs:<150210062><10210041><150210059>*/
 
 - Use the three helper methods (howManyTimes, strlen, flipCase) as
   the ONLY way to count occurrences, measure length, and normalise
@@ -316,6 +315,8 @@ block. No prose, no markdown headings outside the code block.
   was used" note to `bookscan/logs/class_generation_log.md` (Step 3's
   log file), one section per variant × LLM, exactly mirroring the Phase 1
   log format in `gemini_process/logs/code_generation_log.md`.
-- The `<student_name>` / `<student_id>` placeholders are intentional
-  here; the real values get filled in once group members confirm them
-  (this is still a TODO carried over from `report/README.md`).
+- The `@Authors` header is the real group composition (Kutay Murat
+  Kasman 150210062, Furkan Bilal Yeşil 10210041, Ahmet Çavdar 150210059)
+  pre-inlined into both prompts. No further header substitution is
+  needed when responses come back; if a model returns a different
+  header it will be normalised during the save step.
