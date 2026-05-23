@@ -58,9 +58,13 @@ many times each word of that length appears and in which line(s) it appears.*
 - **Key observations carried into Step 5:** GPT-5.5 unmodified shows case-sensitive keys (`The` vs `the` vs `MAT` vs `mat` all separate) because its `flipCase(flipCase(x))` is a no-op; Gemini unmodified collapses keys to lowercase but misses MixedCase words (`Count: 7` for `the` on the sample, where 8 is expected because `"The"` on line 1 contributes 0). Both edited variants produce the same integration output, differing only in `HashMap` vs `LinkedHashMap` iteration order.
 
 ## Step 5 — Integration test generation with the agents
-- [ ] For each of the four variants, ask the same agent to generate an `integration` JUnit-style test class (`BookScanIntegrationTest.java`) covering interactions between the three methods (e.g., `flipCase` → tokenise → `howManyTimes` per line; `strlen` filtering pipeline).
-- [ ] Save under `bookscan/<llm>/<variant>/BookScanIntegrationTest.java`.
-- [ ] Log all generation prompts/responses in `bookscan/logs/integration_test_generation_log.md`.
+- [x] Shared template authored in `bookscan/logs/integration_test_prompt_design.md` with seven concrete interaction requirements; instantiated once per variant by inlining that variant's actual `BookScan.java` source (constant prompt, varying source — keeps Step 11 attribution clean).
+- [x] Run 5.1: GPT-5.5 on `llm_a/unmodified` source → `bookscan/llm_a/unmodified/BookScanIntegrationTest.java` (commit `7ebaa7d`). `main`-driver style, seven `requirementN_*` methods, **regression-style** (ratifies the bugs as expected behaviour: `The/the/THE` and `Cat/cat/CAT` asserted as separate keys).
+- [x] Run 5.2: Gemini 3.1 Pro on `llm_b/unmodified` source → `bookscan/llm_b/unmodified/BookScanIntegrationTest.java` (commit `9b46958`). JUnit 5 (`@Test`) style, **aspirational** (asserts the spec even where the source contradicts it; the model even hangs a comment "*Note: This will correctly expose the bug where flipCase and howManyTimes fail on 'The'*"). Req 1 and Req 5 expected to FAIL in Step 6 against this BookScan.
+- [x] Run 5.3: GPT-5.5 on `llm_a/edited` source → `bookscan/llm_a/edited/BookScanIntegrationTest.java` (commit `6d124b9`). Same `main`-driver style; spec-aligned because the source is spec-compliant.
+- [x] Run 5.4: Gemini 3.1 Pro on `llm_b/edited` source → `bookscan/llm_b/edited/BookScanIntegrationTest.java` (commit `b7b7888`). JUnit 5 style; spec-aligned and **slightly more adversarial** than Run 5.3 (adds `tomcat`/`catatonic` trap words for the substring case, plus an explicit `singletonList(null)` null-line case).
+- [x] Per-run logs at `bookscan/logs/integration_test_generation_log.md` include the full prompt+source reference, model details, full response, and per-requirement expectations.
+- **Headline finding for Step 11.** *Test framework is a model-stable choice* — GPT picked the `main` driver both times, Gemini picked JUnit 5 both times. *Test correctness is a source-shape effect* — under flawed source, GPT regresses while Gemini asserts the spec; under clean source, both converge. *Step 6 prediction*: ≥ 26 of 28 assertions pass; the ≤ 2 expected fails are Run 5.2 Req 1 and Req 5.
 
 ## Step 6 — Execute integration tests, collect raw metrics
 - [ ] Run each `BookScanIntegrationTest.java` and record pass/fail counts per variant.
