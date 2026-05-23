@@ -47,9 +47,15 @@ many times each word of that length appears and in which line(s) it appears.*
 - **Headline result:** both LLMs score 0/13 under the unmodified prompt and 13/13 under the edited prompt, with edited outputs differing only in idiom (LinkedHashMap vs HashMap, regex vs char walker, `Character.isUpperCase` vs range checks). This is the central piece of evidence for the prompt-engineering story Step 11 will present.
 
 ## Step 4 — Compile and smoke-run all four variants
-- [ ] Compile each `BookScan.java` with `javac`; record compilation errors per variant.
-- [ ] Write a tiny driver (`SmokeMain.java`) that exercises each method on a 5-line sample text; record runtime errors per variant.
-- [ ] Save results into `bookscan/reports/smoke_results.json` (variant → compile/run status).
+- [x] Per-variant `SmokeMain.java` saved alongside each `BookScan.java`. The two unmodified drivers call the model-invented APIs (`scanWords` / `scanWordsOfLength`); the two edited drivers also assert the spec-pinned `scan(...)` output for a shared 5-line text.
+- [x] Orchestrator at `bookscan/run_smoke.py` cleans stale `.class` files, runs `javac -encoding UTF-8 BookScan.java SmokeMain.java`, runs `java SmokeMain`, captures stdout/stderr/return-code per variant.
+- [x] Java toolchain confirmed: `javac 21.0.10` (Java 11 source target — same as Phase 1).
+- [x] **All four variants compile and run** (`4/4 compile_ok`, `4/4 run_ok`).
+- [x] **All six HumanEval helper assertions pass on all four variants** (`howManyTimes("", "a") == 0`, `howManyTimes("aaa", "a") == 3`, `howManyTimes("aaaa", "aa") == 3`, `strlen("") == 0`, `strlen("abc") == 3`, `flipCase("Hello") == "hELLO"`).
+- [x] **Both edited variants additionally pass 9 spec-pinned integration assertions**, including per-occurrence line-number lists (`the=[1,1,2,3,4,5,5,5]`), case-insensitive collapse (`mat=[1,2]`), and null/zero/negative edge cases.
+- [x] Aggregated results saved to `bookscan/reports/smoke_results.json` (machine) and `bookscan/reports/smoke_results.md` (human, with per-variant integration output + interpretation).
+- [x] Build artefacts ignored via root `.gitignore` (`*.class`, `*.exec`).
+- **Key observations carried into Step 5:** GPT-5.5 unmodified shows case-sensitive keys (`The` vs `the` vs `MAT` vs `mat` all separate) because its `flipCase(flipCase(x))` is a no-op; Gemini unmodified collapses keys to lowercase but misses MixedCase words (`Count: 7` for `the` on the sample, where 8 is expected because `"The"` on line 1 contributes 0). Both edited variants produce the same integration output, differing only in `HashMap` vs `LinkedHashMap` iteration order.
 
 ## Step 5 — Integration test generation with the agents
 - [ ] For each of the four variants, ask the same agent to generate an `integration` JUnit-style test class (`BookScanIntegrationTest.java`) covering interactions between the three methods (e.g., `flipCase` → tokenise → `howManyTimes` per line; `strlen` filtering pipeline).

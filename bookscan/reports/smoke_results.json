@@ -1,0 +1,77 @@
+{
+  "generated_at": "2026-05-24T02:29:53+0300",
+  "java_version": "java version \"21.0.10\" 2026-01-20 LTS",
+  "variants_total": 4,
+  "compile_ok": 4,
+  "run_ok": 4,
+  "results": [
+    {
+      "variant": "llm_a/unmodified",
+      "compile": {
+        "ok": true,
+        "returncode": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "run": {
+        "ok": true,
+        "returncode": 0,
+        "stdout": "scanWords(text, 3) -> {The=count=1, lines=[1], cat=count=2, lines=[1, 4], sat=count=1, lines=[1], the=count=7, lines=[1, 2, 3, 4, 5], mat=count=1, lines=[1], MAT=count=1, lines=[2], was=count=1, lines=[2], rat=count=1, lines=[2], dog=count=1, lines=[3], ran=count=1, lines=[3]}\nSMOKE OK",
+        "stderr": ""
+      },
+      "llm": "GPT-5.5",
+      "prompt_variant": "unmodified+combined"
+    },
+    {
+      "variant": "llm_b/unmodified",
+      "compile": {
+        "ok": true,
+        "returncode": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "run": {
+        "ok": true,
+        "returncode": 0,
+        "stdout": "scanWordsOfLength(text, 3) -> {the=Count: 7, Lines: [1, 2, 3, 4, 5], mat=Count: 2, Lines: [1, 2], rat=Count: 1, Lines: [2], cat=Count: 2, Lines: [1, 4], sat=Count: 1, Lines: [1], was=Count: 1, Lines: [2], dog=Count: 1, Lines: [3], ran=Count: 1, Lines: [3]}\nSMOKE OK",
+        "stderr": ""
+      },
+      "llm": "Gemini 3.1 Pro",
+      "prompt_variant": "unmodified+combined"
+    },
+    {
+      "variant": "llm_a/edited",
+      "compile": {
+        "ok": true,
+        "returncode": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "run": {
+        "ok": true,
+        "returncode": 0,
+        "stdout": "scan(lines, 3) -> {the=[1, 1, 2, 3, 4, 5, 5, 5], cat=[1, 4], sat=[1], mat=[1, 2], was=[2], rat=[2], dog=[3], ran=[3]}\nSMOKE OK",
+        "stderr": ""
+      },
+      "llm": "GPT-5.5",
+      "prompt_variant": "edited+combined"
+    },
+    {
+      "variant": "llm_b/edited",
+      "compile": {
+        "ok": true,
+        "returncode": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "run": {
+        "ok": true,
+        "returncode": 0,
+        "stdout": "scan(lines, 3) -> {the=[1, 1, 2, 3, 4, 5, 5, 5], mat=[1, 2], rat=[2], cat=[1, 4], sat=[1], was=[2], dog=[3], ran=[3]}\nSMOKE OK",
+        "stderr": ""
+      },
+      "llm": "Gemini 3.1 Pro",
+      "prompt_variant": "edited+combined"
+    }
+  ]
+}

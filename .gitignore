@@ -1,0 +1,10 @@
+# Java build artefacts
+*.class
+
+# JaCoCo intermediate dump
+*.exec
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+*~
