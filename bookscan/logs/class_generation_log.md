@@ -450,17 +450,216 @@ eliminate; Runs 3–4 will measure how much.
 
 ---
 
-## Run 3 — Variant 2 → GPT-5.5  *(pending)*
+## Run 3 — Variant 2 → GPT-5.5  *(complete)*
 
-**Prompt sent.** See "Variant 2 — Edited + Combined prompt" section of
-`bookscan/logs/prompt_design_log.md`.
+**Prompt sent.** The exact text under "Variant 2 — Edited + Combined
+prompt" in `bookscan/logs/prompt_design_log.md` at commit `8a1982f`,
+pasted verbatim into a fresh GPT-5.5 chat as a single turn with no
+system-prompt additions.
 
-**Model + access details.** _TBD._
+**Model + access details.** GPT-5.5 via its hosted chat UI, default
+sampling, run on 2026-05-24. Single turn; no follow-ups.
 
-**Response received.** _TBD._
+**Response received.** Verbatim source below. The model returned only
+the source (no surrounding prose); the paste preserved all asterisks.
 
-**How the output was used.** _TBD — saved to
-`bookscan/llm_a/edited/BookScan.java`._
+```java
+/*@Authors
+Student Names: <Kutay Murat Kasman><Furkan Bilal Yeşil><Ahmet Çavdar>
+Student IDs:<150210062><10210041><150210059>*/
+
+import java.util.*;
+import java.lang.*;
+
+public class BookScan {
+
+    /**
+    Find how many times a given substring can be found in the original string.
+    Count overlapping cases.
+      howManyTimes("", "a")     -> 0
+      howManyTimes("aaa", "a")  -> 3
+      howManyTimes("aaaa", "aa") -> 3
+     */
+    public int howManyTimes(String string, String substring) {
+        if (string == null || substring == null || substring.length() == 0) {
+            return 0;
+        }
+
+        int count = 0;
+
+        for (int i = 0; i <= string.length() - substring.length(); i++) {
+            if (string.substring(i, i + substring.length()).equals(substring)) {
+                count++;
+            }
+        }
+
+        return count;
+    }
+
+    /**
+    Return the length of the given string.
+      strlen("")    -> 0
+      strlen("abc") -> 3
+     */
+    public int strlen(String string) {
+        return string.length();
+    }
+
+    /**
+    Flip every lowercase letter to uppercase and every uppercase letter
+    to lowercase. Non-letter characters are unchanged.
+      flipCase("Hello") -> "hELLO"
+     */
+    public String flipCase(String string) {
+        StringBuilder result = new StringBuilder();
+
+        for (int i = 0; i < string.length(); i++) {
+            char c = string.charAt(i);
+
+            if (c >= 'a' && c <= 'z') {
+                result.append((char) (c - 'a' + 'A'));
+            } else if (c >= 'A' && c <= 'Z') {
+                result.append((char) (c - 'A' + 'a'));
+            } else {
+                result.append(c);
+            }
+        }
+
+        return result.toString();
+    }
+
+    public Map<String, List<Integer>> scan(List<String> lines, int wordLength) {
+        Map<String, List<Integer>> result = new LinkedHashMap<String, List<Integer>>();
+
+        if (lines == null || wordLength <= 0) {
+            return result;
+        }
+
+        final String delimiter = "\u0001";
+
+        for (int lineIndex = 0; lineIndex < lines.size(); lineIndex++) {
+            String line = lines.get(lineIndex);
+
+            if (line == null) {
+                line = "";
+            }
+
+            List<String> wordsInLine = extractNormalisedWords(line);
+            StringBuilder normalisedLine = new StringBuilder();
+            Set<String> targetWordsInLine = new LinkedHashSet<String>();
+
+            for (String word : wordsInLine) {
+                normalisedLine.append(delimiter).append(word).append(delimiter);
+
+                if (strlen(word) == wordLength) {
+                    targetWordsInLine.add(word);
+
+                    if (!result.containsKey(word)) {
+                        result.put(word, new ArrayList<Integer>());
+                    }
+                }
+            }
+
+            for (String word : targetWordsInLine) {
+                int occurrences = howManyTimes(
+                    normalisedLine.toString(),
+                    delimiter + word + delimiter
+                );
+
+                List<Integer> lineNumbers = result.get(word);
+
+                for (int i = 0; i < occurrences; i++) {
+                    lineNumbers.add(lineIndex + 1);
+                }
+            }
+        }
+
+        return result;
+    }
+
+    private List<String> extractNormalisedWords(String line) {
+        List<String> words = new ArrayList<String>();
+        StringBuilder currentWord = new StringBuilder();
+
+        for (int i = 0; i < line.length(); i++) {
+            char c = line.charAt(i);
+
+            if (isAsciiLetter(c)) {
+                currentWord.append(c);
+            } else if (currentWord.length() > 0) {
+                words.add(normalise(currentWord.toString()));
+                currentWord.setLength(0);
+            }
+        }
+
+        if (currentWord.length() > 0) {
+            words.add(normalise(currentWord.toString()));
+        }
+
+        return words;
+    }
+
+    private String normalise(String word) {
+        StringBuilder result = new StringBuilder();
+
+        for (int i = 0; i < strlen(word); i++) {
+            String character = word.substring(i, i + 1);
+
+            if (character.compareTo("A") >= 0 && character.compareTo("Z") <= 0) {
+                result.append(flipCase(character));
+            } else {
+                result.append(character);
+            }
+        }
+
+        return result.toString();
+    }
+
+    private boolean isAsciiLetter(char c) {
+        return (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z');
+    }
+}
+```
+
+**How the output was used.** Saved verbatim to
+`bookscan/llm_a/edited/BookScan.java`, no edits. Transient
+`bookscan/logs/response.txt` deleted in the same commit.
+
+**Spec-compliance assessment vs Variant 2.**
+
+| Variant 2 requirement | GPT-5.5 response | Pass? |
+|---|---|---|
+| Exact signature `Map<String,List<Integer>> scan(List<String>, int)` | Matched character-for-character | ✓ |
+| `wordLength <= 0` returns empty map | `if (lines == null || wordLength <= 0) return result;` | ✓ |
+| `null` line element treated as `""` | `if (line == null) line = "";` | ✓ |
+| `lines == null` empty-map handling | Covered by the same guard | ✓ |
+| Tokenisation = `[A-Za-z]` runs only | `isAsciiLetter` builds runs character-by-character | ✓ |
+| Apostrophes/hyphens not part of a word | Filtered out by `isAsciiLetter` | ✓ |
+| Case-insensitive matching via `flipCase` | `normalise()` calls `flipCase` on each ASCII uppercase char | ✓ (case-detection is done by `compareTo` rather than `Character.isUpperCase`, but the call to `flipCase` is real and load-bearing) |
+| Map keys are normalised (lowercase) word strings | Stored as the `normalise`-d word | ✓ |
+| Map values = 1-based line numbers in ascending order, one per occurrence | `for (int i = 0; i < occurrences; i++) lineNumbers.add(lineIndex + 1);` inside an outer line-ascending loop | ✓ — produces `[4, 4]` for two occurrences on line 4, in line order |
+| Counting via `howManyTimes` with delimiter-wrapped tokens | Wraps each token with `"\u0001"` and searches for `delimiter+word+delimiter` | ✓ — kills the `"thethem"` false-positive class |
+| All three helpers actually called inside `scan` | `strlen`, `flipCase`, `howManyTimes` all reachable from `scan` (via `normalise` for `strlen`+`flipCase`; directly for `howManyTimes`) | ✓ |
+| Java 11 source, no external deps, default package, no `package` line | Matches; only `java.util.*` and `java.lang.*` | ✓ |
+| Single fenced code block, no prose | Returned source only | ✓ |
+| `@Authors` header exact text at top | Three-line header matches | ✓ |
+
+**Variant 1 vs Variant 2 within GPT-5.5 (Run 1 vs Run 3).**
+
+| Aspect | Run 1 (unmodified) | Run 3 (edited) |
+|---|---|---|
+| Public API | invented `scanWords` returning `Map<String, WordInfo>` | pinned `scan` returning `Map<String, List<Integer>>` |
+| Tokenisation | `[^\p{L}\p{N}]+` (model's choice, ASCII + digits + Unicode) | `[A-Za-z]` runs (spec-compliant) |
+| Case handling | `flipCase(flipCase(x))` no-op → effectively case-sensitive | `normalise()` calls `flipCase` on uppercase chars only → real case folding |
+| Counting | `howManyTimes(" "+stream+" ", " "+word+" ")` over a synthesised whitespace stream → can disagree with the per-line dedup count | `howManyTimes(delim+line+delim, delim+word+delim)` per line → no false positives, no double-counting |
+| Line numbers | `lines.contains(n) ? skip : add` → deduplicated | per-occurrence repetition, ascending order |
+| Helper load | `flipCase` dead (identity); `howManyTimes` synthesised | all three real and inside `scan`'s closure |
+| Spec-compliance | 0/13 of the Variant 2 requirements (different spec) | 13/13 |
+
+The same model, the same conversation pattern, two different prompts:
+the edited prompt eliminated every disagreement category we observed in
+Run 1. This is exactly the "prompt richness drives test quality" effect
+the Phase 1 literature review attributes to HITS and ChatTester.
 
 ---
 
