@@ -1,0 +1,210 @@
+{
+  "generated_at": "2026-05-24T02:57:24+0300",
+  "jacoco_version": "0.8.12",
+  "variants": [
+    {
+      "variant": "llm_a/unmodified",
+      "llm": "GPT-5.5",
+      "prompt_variant": "unmodified+combined",
+      "framework": "main",
+      "compile_ok": true,
+      "run_returncode": 0,
+      "run_ok": true,
+      "exec_path": "bookscan\\coverage_reports\\llm_a_unmodified\\coverage.exec",
+      "csv_path": "bookscan\\coverage_reports\\llm_a_unmodified\\BookScan.csv",
+      "xml_path": "bookscan\\coverage_reports\\llm_a_unmodified\\BookScan.xml",
+      "coverage": {
+        "totals": {
+          "instruction_missed": 15,
+          "instruction_covered": 283,
+          "branch_missed": 6,
+          "branch_covered": 34,
+          "line_missed": 4,
+          "line_covered": 58,
+          "method_missed": 1,
+          "method_covered": 10
+        },
+        "branch_total": 40,
+        "instruction_total": 298,
+        "line_total": 62,
+        "method_total": 11,
+        "branch_pct": 85.0,
+        "instruction_pct": 94.97,
+        "line_pct": 93.55,
+        "method_pct": 90.91,
+        "per_class": [
+          {
+            "class": "BookScan",
+            "branch_missed": 6,
+            "branch_covered": 32,
+            "branch_total": 38,
+            "branch_pct": 84.21,
+            "instruction_pct": 96.83,
+            "line_pct": 94.12,
+            "method_pct": 100.0
+          },
+          {
+            "class": "BookScan.WordInfo",
+            "branch_missed": 0,
+            "branch_covered": 2,
+            "branch_total": 2,
+            "branch_pct": 100.0,
+            "instruction_pct": 84.78,
+            "line_pct": 90.91,
+            "method_pct": 80.0
+          }
+        ]
+      }
+    },
+    {
+      "variant": "llm_b/unmodified",
+      "llm": "Gemini 3.1 Pro",
+      "prompt_variant": "unmodified+combined",
+      "framework": "junit5",
+      "compile_ok": true,
+      "run_returncode": 1,
+      "run_ok": true,
+      "exec_path": "bookscan\\coverage_reports\\llm_b_unmodified\\coverage.exec",
+      "csv_path": "bookscan\\coverage_reports\\llm_b_unmodified\\BookScan.csv",
+      "xml_path": "bookscan\\coverage_reports\\llm_b_unmodified\\BookScan.xml",
+      "coverage": {
+        "totals": {
+          "instruction_missed": 26,
+          "instruction_covered": 250,
+          "branch_missed": 9,
+          "branch_covered": 31,
+          "line_missed": 5,
+          "line_covered": 53,
+          "method_missed": 2,
+          "method_covered": 10
+        },
+        "branch_total": 40,
+        "instruction_total": 276,
+        "line_total": 58,
+        "method_total": 12,
+        "branch_pct": 77.5,
+        "instruction_pct": 90.58,
+        "line_pct": 91.38,
+        "method_pct": 83.33,
+        "per_class": [
+          {
+            "class": "BookScan",
+            "branch_missed": 8,
+            "branch_covered": 30,
+            "branch_total": 38,
+            "branch_pct": 78.95,
+            "instruction_pct": 92.92,
+            "line_pct": 93.18,
+            "method_pct": 100.0
+          },
+          {
+            "class": "BookScan.WordStats",
+            "branch_missed": 1,
+            "branch_covered": 1,
+            "branch_total": 2,
+            "branch_pct": 50.0,
+            "instruction_pct": 80.0,
+            "line_pct": 85.71,
+            "method_pct": 71.43
+          }
+        ]
+      }
+    },
+    {
+      "variant": "llm_a/edited",
+      "llm": "GPT-5.5",
+      "prompt_variant": "edited+combined",
+      "framework": "main",
+      "compile_ok": true,
+      "run_returncode": 0,
+      "run_ok": true,
+      "exec_path": "bookscan\\coverage_reports\\llm_a_edited\\coverage.exec",
+      "csv_path": "bookscan\\coverage_reports\\llm_a_edited\\BookScan.csv",
+      "xml_path": "bookscan\\coverage_reports\\llm_a_edited\\BookScan.xml",
+      "coverage": {
+        "totals": {
+          "instruction_missed": 21,
+          "instruction_covered": 304,
+          "branch_missed": 14,
+          "branch_covered": 46,
+          "line_missed": 4,
+          "line_covered": 59,
+          "method_missed": 0,
+          "method_covered": 8
+        },
+        "branch_total": 60,
+        "instruction_total": 325,
+        "line_total": 63,
+        "method_total": 8,
+        "branch_pct": 76.67,
+        "instruction_pct": 93.54,
+        "line_pct": 93.65,
+        "method_pct": 100.0,
+        "per_class": [
+          {
+            "class": "BookScan",
+            "branch_missed": 14,
+            "branch_covered": 46,
+            "branch_total": 60,
+            "branch_pct": 76.67,
+            "instruction_pct": 93.54,
+            "line_pct": 93.65,
+            "method_pct": 100.0
+          }
+        ]
+      }
+    },
+    {
+      "variant": "llm_b/edited",
+      "llm": "Gemini 3.1 Pro",
+      "prompt_variant": "edited+combined",
+      "framework": "junit5",
+      "compile_ok": true,
+      "run_returncode": 0,
+      "run_ok": true,
+      "exec_path": "bookscan\\coverage_reports\\llm_b_edited\\coverage.exec",
+      "csv_path": "bookscan\\coverage_reports\\llm_b_edited\\BookScan.csv",
+      "xml_path": "bookscan\\coverage_reports\\llm_b_edited\\BookScan.xml",
+      "coverage": {
+        "totals": {
+          "instruction_missed": 19,
+          "instruction_covered": 243,
+          "branch_missed": 9,
+          "branch_covered": 35,
+          "line_missed": 6,
+          "line_covered": 52,
+          "method_missed": 0,
+          "method_covered": 6
+        },
+        "branch_total": 44,
+        "instruction_total": 262,
+        "line_total": 58,
+        "method_total": 6,
+        "branch_pct": 79.55,
+        "instruction_pct": 92.75,
+        "line_pct": 89.66,
+        "method_pct": 100.0,
+        "per_class": [
+          {
+            "class": "BookScan",
+            "branch_missed": 9,
+            "branch_covered": 35,
+            "branch_total": 44,
+            "branch_pct": 79.55,
+            "instruction_pct": 92.75,
+            "line_pct": 89.66,
+            "method_pct": 100.0
+          }
+        ]
+      }
+    }
+  ],
+  "aggregate": {
+    "total_variants": 4,
+    "covered_variants": 4,
+    "mean_branch_pct": 79.68,
+    "mean_instruction_pct": 92.96,
+    "weighted_branch_pct": 79.35,
+    "weighted_instruction_pct": 93.02
+  }
+}

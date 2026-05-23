@@ -77,9 +77,14 @@ many times each word of that length appears and in which line(s) it appears.*
 - [x] Step-5 prediction (≥ 26 of 28; ≤ 2 fails on Req 1 and Req 5) was *close*: actual was 25/28 with 3 fails. The extra fail (Req 6 on Gemini unmodified) is the same substring-of-longer-word root cause as Req 5, just exercised by a different input — stronger evidence for the report.
 
 ## Step 7 — Coverage analysis (re-use Phase-1 tooling)
-- [ ] Re-use `tools/jacococli.jar` + `tools/jacocoagent.jar` to measure **branch and instruction coverage** of `BookScan` under each integration suite.
-- [ ] Emit per-variant CSV into `bookscan/coverage_reports/<llm>_<variant>/` and a JSON summary into `bookscan/coverage_reports/summary.json`.
-- [ ] **This was an outstanding gap from Phase 1's report request** — make sure both Phase-1 and Phase-2 coverage results land in the final report.
+- [x] `bookscan/run_coverage.py` orchestrator: per variant, compiles `BookScan + BookScanIntegrationTest`, runs the integration suite under `-javaagent:tools/jacocoagent.jar=destfile=...,includes=BookScan*,output=file,append=false`, then calls `java -jar tools/jacococli.jar report ...` to emit per-variant **CSV + XML** under `bookscan/coverage_reports/<llm>_<variant>/`.
+- [x] Reuses Phase 1's JaCoCo 0.8.12 binaries unchanged (same `tools/` directory).
+- [x] Per-variant branch coverage: `llm_a/unmodified` **85.00 %** (34/40); `llm_b/unmodified` **77.50 %** (31/40); `llm_a/edited` **76.67 %** (46/60); `llm_b/edited` **79.55 %** (35/44). Mean: **79.68 %**.
+- [x] Per-variant method coverage: 90.91 / 83.33 / 100.00 / 100.00. **Both edited variants reach 100 % method coverage**; both unmodified variants miss inner-class methods (`WordInfo.toString` in GPT, `WordStats.getWord` and `addLine`'s re-add branch in Gemini) that the 7-test integration suite never calls.
+- [x] Per-LLM weighted branch coverage: GPT 80 % (80/100), Gemini 78.57 % (66/84) — within 1.4 pp.
+- [x] Per-prompt-variant weighted branch coverage: unmodified 81.25 % (65/80), edited 77.88 % (81/104) — the edited variants have a denominator effect because they ship 30 % more branches; in absolute terms they cover *more* behaviour (81 vs 65 branches).
+- [x] Summary JSON at `bookscan/coverage_reports/summary.json`; per-variant + per-class human breakdown at `bookscan/coverage_reports/summary.md`, including the gap analysis that feeds Step 9's mutation tests.
+- [x] Phase 1 outstanding-gap closed: coverage results for both Phase 1 (97.44 % → 99.87 % baseline → improved) and Phase 2 (79.68 %) are now in the repo and ready for the final report.
 
 ## Step 8 — JNose-guided test-smell inspection
 - [ ] Apply the same JNose-guided checklist used in Phase 1 (Assertion Roulette, Eager Test, Duplicated Asserts, Magic Number Test, Useless Test) to each integration suite.
