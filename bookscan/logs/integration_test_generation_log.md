@@ -133,16 +133,47 @@ identity differs.
 
 ---
 
-## Run 5.3 — `llm_a/edited/BookScan.java` → GPT-5.5  *(pending)*
+## Run 5.3 — `llm_a/edited/BookScan.java` → GPT-5.5  *(complete)*
 
-**Prompt sent.** _TBD: same template, this variant's source inlined._
+**Prompt sent.** Shared template from
+`bookscan/logs/integration_test_prompt_design.md` at commit `1d3b3e1`,
+with `bookscan/llm_a/edited/BookScan.java` from commit `fadb4a8`
+(155 lines, including `@Authors`) inlined under the source marker.
+Sent as a single turn to GPT-5.5.
 
-**Model + access details.** _TBD._
+**Model + access details.** GPT-5.5 via its hosted chat UI, default
+sampling, run on 2026-05-24. Single turn, no follow-ups.
 
-**Response received.** _TBD._
+**Response received.** Verbatim Java source, saved to `response5_3.txt`
+and copied byte-for-byte. Asterisks preserved. Full source committed at
+[`bookscan/llm_a/edited/BookScanIntegrationTest.java`](../llm_a/edited/BookScanIntegrationTest.java).
 
-**How the output was used.** _TBD — saved to
-`bookscan/llm_a/edited/BookScanIntegrationTest.java`._
+**How the output was used.** Saved to
+`bookscan/llm_a/edited/BookScanIntegrationTest.java`, no edits.
+`response5_3.txt` deleted in the same commit.
+
+**First observations (Step 11 data).** GPT-5.5 again chose the
+`public static void main` driver style (same as Run 5.1), with seven
+labelled `check*` methods and `assertListEquals` / `assertMapEquals`
+helpers. With the spec-compliant Variant 2 source under test, all
+assertions are spec-aligned and should pass:
+
+| Requirement | Assertion | Notes |
+|---|---|---|
+| 1 (case-fold) | `actual.get("the") == [1, 2, 3]` for `"The/the/THE"` across three lines | One occurrence per line, lowercase key, per-occurrence ordering — exactly the Variant 2 contract |
+| 2 (length filter) | `expected.put("cat", [1])`, `("dog", [1])`, `("cow", [2])` with no other keys | Lowercase keys; words of other lengths absent |
+| 3 (repeated word) | `actual.get("red") == [1, 1, 1]` for `"red blue red red green"` | Per-occurrence repetition, ascending |
+| 4 (case-insensitive) | `actual.get("dog") == [1, 1, 1]` for `"DOG dog DoG"`; explicit `assertFalse(containsKey("DOG"))` and a single-case sanity check (`scan(["dog"], 3).get("dog") == [1]`) | Pins both the positive case (collapse) and the negative case (no leftover variants) |
+| 5 (substring-in-longer-word) | `actual.get("cat") == [1]` for `"cat concatenate"` | Validates the ``-wrapped `howManyTimes` |
+| 6 (one-char words) | lowercase keys `i`, `a`, `b`, `c` with per-line lists | Spec-aligned |
+| 7 (edges) | empty list, `wordLength=0`, `wordLength=10` all return empty map | Spec-aligned |
+
+Compared to Run 5.1, GPT-5.5 produces materially **stronger** tests
+here even though we used the same model and the same prompt template,
+because the source it is testing is itself spec-compliant. The model
+mirrors the source's contract instead of mirroring the source's bugs.
+This reinforces the Step 3 finding: when the source is well-specified,
+the downstream tests inherit that quality.
 
 ---
 
