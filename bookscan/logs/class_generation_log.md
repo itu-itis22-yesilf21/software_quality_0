@@ -663,13 +663,223 @@ the Phase 1 literature review attributes to HITS and ChatTester.
 
 ---
 
-## Run 4 — Variant 2 → Gemini 3.1 Pro  *(pending)*
+## Run 4 — Variant 2 → Gemini 3.1 Pro  *(complete)*
 
-**Prompt sent.** Same as Run 3 (Variant 2 from `prompt_design_log.md`).
+**Prompt sent.** Same prompt text as Run 3: "Variant 2 — Edited +
+Combined prompt" from `bookscan/logs/prompt_design_log.md` at commit
+`8a1982f`. Pasted verbatim into a fresh Gemini 3.1 Pro chat, single
+turn, no system-prompt additions.
 
-**Model + access details.** _TBD._
+**Model + access details.** Gemini 3.1 Pro via its hosted chat UI,
+default sampling, run on 2026-05-24. Single turn; no follow-ups.
 
-**Response received.** _TBD._
+**Response received.** Verbatim source below. Source only; paste
+preserved all asterisks and the `\u0001` escapes.
 
-**How the output was used.** _TBD — saved to
-`bookscan/llm_b/edited/BookScan.java`._
+```java
+/*@Authors
+Student Names: <Kutay Murat Kasman><Furkan Bilal Yeşil><Ahmet Çavdar>
+Student IDs:<150210062><10210041><150210059>*/
+import java.util.*;
+import java.lang.*;
+
+public class BookScan {
+
+    /**
+    Find how many times a given substring can be found in the original string. Count overlapping cases.
+    >>> howManyTimes("", "a")
+    0
+    >>> howManyTimes("aaa", "a")
+    3
+    >>> howManyTimes("aaaa", "aa")
+    3
+     */
+    public int howManyTimes(String string, String substring) {
+        if (string == null || string.isEmpty() || substring == null || substring.isEmpty()) {
+            return 0;
+        }
+        int count = 0;
+        for (int i = 0; i <= string.length() - substring.length(); i++) {
+            if (string.substring(i, i + substring.length()).equals(substring)) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    /**
+    Return length of given string
+    >>> strlen("")
+    0
+    >>> strlen("abc")
+    3
+     */
+    public int strlen(String string) {
+        if (string == null) {
+            return 0;
+        }
+        return string.length();
+    }
+
+    /**
+    For a given string, flip lowercase characters to uppercase and uppercase to lowercase.
+    >>> flipCase("Hello")
+    "hELLO"
+     */
+    public String flipCase(String string) {
+        if (string == null) {
+            return null;
+        }
+        StringBuilder sb = new StringBuilder(string.length());
+        for (int i = 0; i < string.length(); i++) {
+            char c = string.charAt(i);
+            if (Character.isUpperCase(c)) {
+                sb.append(Character.toLowerCase(c));
+            } else if (Character.isLowerCase(c)) {
+                sb.append(Character.toUpperCase(c));
+            } else {
+                sb.append(c);
+            }
+        }
+        return sb.toString();
+    }
+
+    public Map<String, List<Integer>> scan(List<String> lines, int wordLength) {
+        Map<String, List<Integer>> result = new HashMap<>();
+
+        if (wordLength <= 0 || lines == null) {
+            return result;
+        }
+
+        int lineNumber = 1;
+        for (String line : lines) {
+            if (line == null) {
+                line = "";
+            }
+
+            // A word is a maximal run of letters [A-Za-z]
+            String[] tokens = line.split("[^A-Za-z]+");
+
+            StringBuilder delimitedLine = new StringBuilder();
+            delimitedLine.append('\u0001');
+
+            Set<String> targetWordsInLine = new HashSet<>();
+
+            for (String token : tokens) {
+                if (token.isEmpty()) {
+                    continue;
+                }
+
+                String normalizedWord = normalizeToLowercase(token);
+                delimitedLine.append(normalizedWord).append('\u0001');
+
+                if (strlen(normalizedWord) == wordLength) {
+                    targetWordsInLine.add(normalizedWord);
+                }
+            }
+
+            String fullDelimitedLine = delimitedLine.toString();
+
+            // Count occurrences and record line numbers
+            for (String word : targetWordsInLine) {
+                String delimitedWord = "\u0001" + word + "\u0001";
+                int occurrences = howManyTimes(fullDelimitedLine, delimitedWord);
+
+                result.putIfAbsent(word, new ArrayList<>());
+                for (int i = 0; i < occurrences; i++) {
+                    result.get(word).add(lineNumber);
+                }
+            }
+
+            lineNumber++;
+        }
+
+        return result;
+    }
+
+    /**
+     * Normalizes a string to lowercase by strictly relying on the flipCase helper
+     * for uppercase character conversion, matching the requirement constraints.
+     */
+    private String normalizeToLowercase(String word) {
+        StringBuilder sb = new StringBuilder(strlen(word));
+        for (int i = 0; i < strlen(word); i++) {
+            char c = word.charAt(i);
+            if (Character.isUpperCase(c)) {
+                sb.append(flipCase(String.valueOf(c)));
+            } else {
+                sb.append(c);
+            }
+        }
+        return sb.toString();
+    }
+}
+```
+
+**How the output was used.** Saved verbatim to
+`bookscan/llm_b/edited/BookScan.java`, no edits. Transient
+`bookscan/logs/response.txt` deleted in the same commit.
+
+**Spec-compliance assessment vs Variant 2.**
+
+| Variant 2 requirement | Gemini 3.1 Pro response | Pass? |
+|---|---|---|
+| Exact `scan(List<String>, int) → Map<String, List<Integer>>` | Matched character-for-character | ✓ |
+| `wordLength <= 0` returns empty map | `if (wordLength <= 0 || lines == null) return result;` | ✓ |
+| `null` line element treated as `""` | `if (line == null) line = "";` | ✓ |
+| `lines == null` empty-map handling | Same guard as above | ✓ |
+| Tokenisation = `[A-Za-z]` runs | `line.split("[^A-Za-z]+")` | ✓ |
+| Apostrophes/hyphens not in word | Filtered by `[^A-Za-z]+` | ✓ |
+| Case folding via `flipCase` | `normalizeToLowercase` calls `flipCase(String.valueOf(c))` on each uppercase char | ✓ |
+| Map keys are normalised lowercase | Keys are the `normalizeToLowercase` output | ✓ |
+| Per-occurrence repetition, 1-based, ascending | `for (int i = 0; i < occurrences; i++) result.get(word).add(lineNumber);` inside an outer ascending-line loop | ✓ |
+| `howManyTimes` with delimiter-wrapped tokens | Builds `\u0001`-separated line and searches for `\u0001`+word+`\u0001` | ✓ |
+| All three helpers actually called inside `scan` | `strlen` × 3 (twice in `normalizeToLowercase`, once in `scan`); `flipCase` × 1 (per uppercase char); `howManyTimes` × 1 (per target word per line) | ✓ |
+| Java 11 source, no external deps, default package | Matches; only `java.util.*` and `java.lang.*` | ✓ |
+| Single fenced code block, no prose | Returned source only | ✓ |
+| `@Authors` header exact text at top | Three-line header matches | ✓ |
+
+**Variant 1 vs Variant 2 within Gemini 3.1 Pro (Run 2 vs Run 4).**
+
+| Aspect | Run 2 (unmodified) | Run 4 (edited) |
+|---|---|---|
+| Public API | invented `scanWordsOfLength` returning `Map<String, WordStats>` | pinned `scan` returning `Map<String, List<Integer>>` |
+| Tokenisation | `[^a-zA-Z]+` (close to spec but not asked for) | `[^A-Za-z]+` (spec-compliant) |
+| Case handling | `word.toLowerCase()` key + `howManyTimes(line, word)` and `howManyTimes(line, flipCase(word))` → drops MixedCase | `normalizeToLowercase` calls `flipCase` on uppercase chars → every casing folded correctly |
+| Counting | raw substring inside line → `"cat"` matches inside `"concatenate"` | `\u0001`-wrapped per-line counting → no false positives |
+| Line numbers | one entry per *unique* line | one entry per *occurrence* |
+| Helper load | three helpers called but `flipCase` mis-used and `howManyTimes` mis-targeted | all three helpers genuinely load-bearing |
+| Spec-compliance | 0/13 of the Variant 2 requirements (different spec) | 13/13 |
+
+**Run 3 vs Run 4 (both edited).** Both LLMs produced fully spec-compliant
+implementations. Stylistic differences only:
+
+| Aspect | Run 3 (GPT-5.5) | Run 4 (Gemini 3.1 Pro) |
+|---|---|---|
+| Map | `LinkedHashMap` (insertion order) | `HashMap` (no order; spec allows) |
+| Tokenisation | Explicit `isAsciiLetter` + `StringBuilder` walker | Regex `split("[^A-Za-z]+")` |
+| Case detection in `normalise`/`normalizeToLowercase` | `character.compareTo("A") >= 0 && character.compareTo("Z") <= 0` | `Character.isUpperCase(c)` |
+| Case detection in `flipCase` | range checks `'a'..'z'` / `'A'..'Z'` | `Character.isUpperCase`/`isLowerCase` |
+| Delimiter literal | constant `final String delimiter = "\u0001";` | inline `'\u0001'` char and `"\u0001"` string literals |
+| Set | `LinkedHashSet` | `HashSet` |
+
+This is the cleanest possible outcome for the "edited prompt eliminates
+disagreement" hypothesis: under Variant 1 the two LLMs disagreed on
+seven of nine integration decisions; under Variant 2 they agree on
+every spec item and differ only in idiom.
+
+---
+
+## Step 3 summary
+
+| # | LLM | Variant | File | Spec items met |
+|---|---|---|---|---|
+| 1 | GPT-5.5         | Unmodified | `bookscan/llm_a/unmodified/BookScan.java` | 0/13 (different contract) |
+| 2 | Gemini 3.1 Pro  | Unmodified | `bookscan/llm_b/unmodified/BookScan.java` | 0/13 (different contract) |
+| 3 | GPT-5.5         | Edited     | `bookscan/llm_a/edited/BookScan.java`     | 13/13 |
+| 4 | Gemini 3.1 Pro  | Edited     | `bookscan/llm_b/edited/BookScan.java`     | 13/13 |
+
+Compilation and smoke-run for all four variants happens in Step 4. The
+unmodified variants intentionally do not match the edited contract, so
+Step 5 will author integration suites against each variant's actual
+public API rather than forcing them all into the Variant 2 shape.
