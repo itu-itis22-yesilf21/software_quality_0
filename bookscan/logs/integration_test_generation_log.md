@@ -177,13 +177,69 @@ the downstream tests inherit that quality.
 
 ---
 
-## Run 5.4 — `llm_b/edited/BookScan.java` → Gemini 3.1 Pro  *(pending)*
+## Run 5.4 — `llm_b/edited/BookScan.java` → Gemini 3.1 Pro  *(complete)*
 
-**Prompt sent.** _TBD: same template, this variant's source inlined._
+**Prompt sent.** Shared template at commit `1d3b3e1`, with
+`bookscan/llm_b/edited/BookScan.java` from commit `3ac4ca1` (137
+lines, including `@Authors`) inlined under the source marker. Sent as
+a single turn to Gemini 3.1 Pro.
 
-**Model + access details.** _TBD._
+**Model + access details.** Gemini 3.1 Pro via its hosted chat UI,
+default sampling, run on 2026-05-24. Single turn, no follow-ups.
 
-**Response received.** _TBD._
+**Response received.** Verbatim Java source, saved to `response5_4.txt`
+and copied byte-for-byte. Asterisks preserved. Full source committed at
+[`bookscan/llm_b/edited/BookScanIntegrationTest.java`](../llm_b/edited/BookScanIntegrationTest.java).
 
-**How the output was used.** _TBD — saved to
-`bookscan/llm_b/edited/BookScanIntegrationTest.java`._
+**How the output was used.** Saved to
+`bookscan/llm_b/edited/BookScanIntegrationTest.java`, no edits.
+`response5_4.txt` deleted in the same commit.
+
+**First observations (Step 11 data).** Gemini chose JUnit 5 (same as
+Run 5.2), seven `@Test` methods named `reqN_*`. With the
+spec-compliant Variant 2 source under test, every assertion is
+spec-aligned and should pass:
+
+| Requirement | Assertion | Notes |
+|---|---|---|
+| 1 (case-fold) | `result.get("the") == [1, 3, 4]` for `"The/the/THE"` mix across 4 lines | Per-occurrence line numbers, lowercase key |
+| 2 (length filter) | `result.size() == 2` and `containsKey("ccc") && containsKey("fff")` | Plain length filter |
+| 3 (repeated word) | `result.get("hello") == [1, 1, 1]` for `"hello world hello hello"` | Per-occurrence |
+| 4 (case-insensitive) | `result.get("cat").size() == 4` for `"Cat CAT cAt caT"` plus negative single-case comparison | Verifies both the collapse and the differentiation |
+| 5 (substring-in-longer-word) | `result.get("cat") == [1]` for `"cat concatenate tomcat catatonic"` — adds two extra trap words versus Run 5.3 | More thorough than Run 5.3 |
+| 6 (one-char words) | `result.get("a") == [1, 1]` for `"I a m a t"` — exercises per-occurrence even at length 1 | Spec-aligned |
+| 7 (edges) | empty list, null list, `wordLength=0`, `wordLength=10`, AND `singletonList(null)` for the null-line case | One assertion more than Run 5.3 (the null-line subcase) |
+
+This suite is **slightly more rigorous** than Run 5.3 in two places:
+the substring-of-longer-word case adds two trap words instead of one,
+and the edge-case test exercises `scan(Collections.singletonList(null), 3)`
+explicitly. Same prompt, same source-shape, different model — Gemini's
+test design choices are slightly more adversarial here.
+
+---
+
+## Step 5 summary
+
+| # | LLM | Variant | Test framework | Style | Expected against this BookScan |
+|---|---|---|---|---|---|
+| 5.1 | GPT-5.5         | unmodified | `main` driver | **regression** (ratifies the bugs) | All 7 likely pass |
+| 5.2 | Gemini 3.1 Pro  | unmodified | JUnit 5       | **aspirational** (asserts the spec) | Req 1 and 5 likely fail (MixedCase miss, substring-in-longer-word false positive) |
+| 5.3 | GPT-5.5         | edited     | `main` driver | spec-aligned | All 7 likely pass |
+| 5.4 | Gemini 3.1 Pro  | edited     | JUnit 5       | spec-aligned (slightly more adversarial) | All 7 likely pass |
+
+Headline findings:
+
+1. **Style is a model-stable choice.** GPT-5.5 picked the `main`
+   driver both times; Gemini picked JUnit 5 both times. The prompt
+   template explicitly allowed either, and neither model wavered.
+2. **Test correctness is a source-shape effect.** Under the unmodified
+   prompt's flawed source, the two models split sharply: GPT-5.5
+   ratifies the bugs, Gemini asserts the spec. Under the edited
+   prompt's clean source, both models converge on spec-aligned tests
+   that mirror the source's contract.
+3. **Step 6 prediction.** Of the 28 individual integration assertions
+   across the four suites (7 per suite), we expect ≥ 26 to pass and
+   ≤ 2 to fail (Run 5.2's Req 1 and Req 5). Step 6 will record the
+   actual numbers.
+
+Step 5 is complete; Step 6 (execute integration tests) is next.
