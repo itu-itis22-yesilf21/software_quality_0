@@ -116,9 +116,19 @@ many times each word of that length appears and in which line(s) it appears.*
 - [x] If a future iteration of this project wants to demonstrate the refactoring loop empirically, the corrective prompt skeleton would be: *"Your `scanWordsOfLength` returns 7 for the input `\"The first line\\nthe second line\\nTHE third line\"` at target length 3, but a case-folded count should be 3. Please regenerate `BookScan.java` so the count is 3."*
 
 ## Step 11 — Statistical comparison of agent performance
-- [ ] Build a comparison table: rows = {LLM A unmodified, LLM A edited, LLM B unmodified, LLM B edited}; columns = compile rate, integration test pass rate, branch coverage %, ECP effectiveness, # test smells.
-- [ ] Plot at least one chart (bar or grouped bar) visualising pass rate and coverage per variant — saved as a PNG into `report/figures/` and `\includegraphics`-d in the report.
-- [ ] Compute a simple statistic (mean ± stdev across variants, or paired comparison unmodified-vs-edited) so the report can answer "did prompt editing actually help?"
+- [x] `bookscan/make_comparison.py` aggregator reads every Step 4–9 JSON artefact (smoke, integration, coverage, smell metrics, black-box) plus the hand-curated Step 3 spec-items-met counts and Step 9 spec-divergence counts, and emits one source-of-truth JSON (`bookscan/reports/comparison_data.json`).
+- [x] **Per-variant comparison table** at `bookscan/reports/comparison.md` with columns for compile/run, integration pass rate, branch %, method %, spec items met, ECP pre-mutation, smell signature, and black-box pass.
+- [x] **Per-LLM and per-prompt rollups** added to the same markdown for easier interpretation in the report.
+- [x] **Paired-delta table** (unmodified → edited per LLM) for integration pass rate, branch %, spec items met, ECP pre-mutation, and spec-divergence. With n = 2 LLMs we cannot run inferential statistics; the report reports each LLM's pre/post values plus the simple mean and population stdev of the deltas, with prose calling out the small-n caveat.
+- [x] **Headline numbers (will go into the report as the §V Results table):**
+  - Integration pass rate: **mean Δ = +21.45 pp** (GPT 100→100, Gemini 57→100)
+  - Branch %: **mean Δ = −3.14 pp** (denominator effect: edited variants ship 30 % more branches, cover 81 vs 65 in absolute terms)
+  - Spec items met: **mean Δ = +13 / 13** (0/13 → 13/13 for both LLMs)
+  - ECP pre-mutation effectiveness: **mean Δ = +2.25 pp** (small because the Step 5 prompt template was identical for every variant)
+  - Spec-divergence count: **mean Δ = −3** (unmodified suites had 3 each; edited suites have 0 each)
+- [x] **Chart 1** — `report/figures/phase2_comparison.png`: per-variant grouped bar of the three percentage metrics (integration pass, branch coverage, ECP pre-mut) at 150 dpi. Shows Gemini-unmodified as the visible outlier at 57 % pass.
+- [x] **Chart 2** — `report/figures/phase2_prompt_effect.png`: per-LLM bar of the four headline metric deltas, answering the brief's question "did prompt editing help?" in one image.
+- [x] Both charts re-generate from `python bookscan/make_comparison.py`; no manual editing required.
 
 ## Step 12 — Analyse complex-class integration failures
 - [ ] For every failing integration test, write a one-paragraph root-cause analysis: was it a tokenisation disagreement, a case-normalisation order issue, an off-by-one in `howManyTimes`, etc.?

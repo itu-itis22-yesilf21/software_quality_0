@@ -1,0 +1,249 @@
+{
+  "rows": [
+    {
+      "variant": "llm_a/unmodified",
+      "llm": "GPT-5.5",
+      "prompt": "unmodified+combined",
+      "compile_ok": 1,
+      "integ_passed": 7,
+      "integ_found": 7,
+      "integ_pass_rate": 100.0,
+      "branch_pct": 85.0,
+      "branch_covered": 34,
+      "branch_total": 40,
+      "instr_pct": 94.97,
+      "method_pct": 90.91,
+      "spec_items_met": 0,
+      "spec_items_total": 13,
+      "ecp_pre_mutation": 10,
+      "ecp_pre_mutation_pct": 45.5,
+      "ecp_post_mutation": 22,
+      "ecp_post_mutation_pct": 100.0,
+      "spec_divergence": 3,
+      "smell_assert_roulette": 0,
+      "smell_max_asserts": 6,
+      "smell_conditional": 0,
+      "smell_magic_int": 17,
+      "smell_shared_fixture": 0,
+      "bb_passed": 1,
+      "bb_found": 1
+    },
+    {
+      "variant": "llm_b/unmodified",
+      "llm": "Gemini 3.1 Pro",
+      "prompt": "unmodified+combined",
+      "compile_ok": 1,
+      "integ_passed": 4,
+      "integ_found": 7,
+      "integ_pass_rate": 57.1,
+      "branch_pct": 77.5,
+      "branch_covered": 31,
+      "branch_total": 40,
+      "instr_pct": 90.58,
+      "method_pct": 83.33,
+      "spec_items_met": 0,
+      "spec_items_total": 13,
+      "ecp_pre_mutation": 10,
+      "ecp_pre_mutation_pct": 45.5,
+      "ecp_post_mutation": 22,
+      "ecp_post_mutation_pct": 100.0,
+      "spec_divergence": 3,
+      "smell_assert_roulette": 0,
+      "smell_max_asserts": 4,
+      "smell_conditional": 0,
+      "smell_magic_int": 15,
+      "smell_shared_fixture": 0,
+      "bb_passed": 15,
+      "bb_found": 15
+    },
+    {
+      "variant": "llm_a/edited",
+      "llm": "GPT-5.5",
+      "prompt": "edited+combined",
+      "compile_ok": 1,
+      "integ_passed": 7,
+      "integ_found": 7,
+      "integ_pass_rate": 100.0,
+      "branch_pct": 76.67,
+      "branch_covered": 46,
+      "branch_total": 60,
+      "instr_pct": 93.54,
+      "method_pct": 100.0,
+      "spec_items_met": 13,
+      "spec_items_total": 13,
+      "ecp_pre_mutation": 10,
+      "ecp_pre_mutation_pct": 45.5,
+      "ecp_post_mutation": 22,
+      "ecp_post_mutation_pct": 100.0,
+      "spec_divergence": 0,
+      "smell_assert_roulette": 0,
+      "smell_max_asserts": 3,
+      "smell_conditional": 1,
+      "smell_magic_int": 13,
+      "smell_shared_fixture": 0,
+      "bb_passed": 1,
+      "bb_found": 1
+    },
+    {
+      "variant": "llm_b/edited",
+      "llm": "Gemini 3.1 Pro",
+      "prompt": "edited+combined",
+      "compile_ok": 1,
+      "integ_passed": 7,
+      "integ_found": 7,
+      "integ_pass_rate": 100.0,
+      "branch_pct": 79.55,
+      "branch_covered": 35,
+      "branch_total": 44,
+      "instr_pct": 92.75,
+      "method_pct": 100.0,
+      "spec_items_met": 13,
+      "spec_items_total": 13,
+      "ecp_pre_mutation": 11,
+      "ecp_pre_mutation_pct": 50.0,
+      "ecp_post_mutation": 22,
+      "ecp_post_mutation_pct": 100.0,
+      "spec_divergence": 0,
+      "smell_assert_roulette": 0,
+      "smell_max_asserts": 5,
+      "smell_conditional": 0,
+      "smell_magic_int": 13,
+      "smell_shared_fixture": 1,
+      "bb_passed": 15,
+      "bb_found": 15
+    }
+  ],
+  "paired_delta": [
+    {
+      "metric": "integ_pass_rate",
+      "per_llm": [
+        {
+          "llm": "GPT-5.5",
+          "unmodified": 100.0,
+          "edited": 100.0,
+          "delta": 0.0
+        },
+        {
+          "llm": "Gemini 3.1 Pro",
+          "unmodified": 57.1,
+          "edited": 100.0,
+          "delta": 42.9
+        }
+      ],
+      "mean_delta": 21.45,
+      "stdev_delta": 21.45
+    },
+    {
+      "metric": "branch_pct",
+      "per_llm": [
+        {
+          "llm": "GPT-5.5",
+          "unmodified": 85.0,
+          "edited": 76.67,
+          "delta": -8.33
+        },
+        {
+          "llm": "Gemini 3.1 Pro",
+          "unmodified": 77.5,
+          "edited": 79.55,
+          "delta": 2.05
+        }
+      ],
+      "mean_delta": -3.14,
+      "stdev_delta": 5.19
+    },
+    {
+      "metric": "spec_items_met",
+      "per_llm": [
+        {
+          "llm": "GPT-5.5",
+          "unmodified": 0,
+          "edited": 13,
+          "delta": 13
+        },
+        {
+          "llm": "Gemini 3.1 Pro",
+          "unmodified": 0,
+          "edited": 13,
+          "delta": 13
+        }
+      ],
+      "mean_delta": 13,
+      "stdev_delta": 0.0
+    },
+    {
+      "metric": "ecp_pre_mutation_pct",
+      "per_llm": [
+        {
+          "llm": "GPT-5.5",
+          "unmodified": 45.5,
+          "edited": 45.5,
+          "delta": 0.0
+        },
+        {
+          "llm": "Gemini 3.1 Pro",
+          "unmodified": 45.5,
+          "edited": 50.0,
+          "delta": 4.5
+        }
+      ],
+      "mean_delta": 2.25,
+      "stdev_delta": 2.25
+    },
+    {
+      "metric": "spec_divergence",
+      "per_llm": [
+        {
+          "llm": "GPT-5.5",
+          "unmodified": 3,
+          "edited": 0,
+          "delta": -3
+        },
+        {
+          "llm": "Gemini 3.1 Pro",
+          "unmodified": 3,
+          "edited": 0,
+          "delta": -3
+        }
+      ],
+      "mean_delta": -3,
+      "stdev_delta": 0.0
+    }
+  ],
+  "per_llm": {
+    "GPT-5.5": {
+      "n": 2,
+      "integ_pass_rate": 100.0,
+      "branch_pct": 80.84,
+      "spec_items_met": 6.5,
+      "ecp_pre_mutation_pct": 45.5,
+      "spec_divergence": 1.5
+    },
+    "Gemini 3.1 Pro": {
+      "n": 2,
+      "integ_pass_rate": 78.55,
+      "branch_pct": 78.53,
+      "spec_items_met": 6.5,
+      "ecp_pre_mutation_pct": 47.75,
+      "spec_divergence": 1.5
+    }
+  },
+  "per_prompt": {
+    "unmodified+combined": {
+      "n": 2,
+      "integ_pass_rate": 78.55,
+      "branch_pct": 81.25,
+      "spec_items_met": 0,
+      "ecp_pre_mutation_pct": 45.5,
+      "spec_divergence": 3
+    },
+    "edited+combined": {
+      "n": 2,
+      "integ_pass_rate": 100.0,
+      "branch_pct": 78.11,
+      "spec_items_met": 13,
+      "ecp_pre_mutation_pct": 47.75,
+      "spec_divergence": 0
+    }
+  }
+}
