@@ -152,11 +152,12 @@ many times each word of that length appears and in which line(s) it appears.*
 - **Remaining manual task for the team**: rewrite the Literature Review section II.A–II.F in the authors' own words (course-rule restriction). All other Step-13 work is mechanical and complete.
 
 ## Step 14 — Reproducibility and submission hygiene
-- [ ] Update `report/README.md` with Phase-2 compile/run instructions.
-- [ ] Update root `README.md` (or create one if missing) describing how to run the full Phase-1 + Phase-2 pipeline end to end.
-- [ ] Ensure every Phase-2 commit message follows the `"Phase 2 / Step N: <what & why>"` convention.
-- [ ] Confirm `gemini_process/logs/`, `bookscan/logs/`, and any new prompt logs are tracked in git.
-- [ ] Tag the final commit (e.g., `phase2-submit`) and confirm the Ninova upload contains the PDF report only — the code lives in the repo URL cited in the Acknowledgments.
+- [x] `report/README.md` rewritten as the report-specific compile + placeholder audit: per-placeholder checklist (✓ author IDs, ✓ GPT-5.5 label, ✓ GitHub URL, ✓ duty splits; ⚠ literature-review rewrite still required); local pdflatex command + Overleaf pipeline; Phase 2 figure-regeneration command (`python ../bookscan/make_comparison.py`); Ninova upload reminder ("PDF only").
+- [x] **Root `README.md` created** describing the full Phase 1 + Phase 2 pipeline end-to-end: prerequisites (JDK ≥ 11, Python 3.8 + matplotlib), per-LLM directory layout, run commands for every Phase 2 script in the order the pipeline expects, how to regenerate the LLM-generated artefacts (with pointers to the prompt logs), branch policy, and a "where to look first" lookup table for the major writeups.
+- [x] Phase 2 commit-message convention confirmed: all **22 Phase 2 commits** carry the `Phase 2 / Step N: ...` prefix (per-run commits use the `Step N.M` form). Verified via `git log --pretty='%s' phase2 --not gemini`.
+- [x] Log tracking confirmed via `git ls-files`: `gemini_process/logs/code_generation_log.md` plus all five Phase 2 log files (`README.md`, `prompt_design_log.md`, `class_generation_log.md`, `integration_test_prompt_design.md`, `integration_test_generation_log.md`) are tracked.
+- [x] Final tag `phase2-submit` to be placed on this commit and pushed.
+- **Ninova reminder**: upload **only the compiled PDF**; the code lives in the GitHub repo cited in the Acknowledgments and `report/README.md`.
 
 ---
 
