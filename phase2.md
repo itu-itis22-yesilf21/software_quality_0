@@ -137,16 +137,19 @@ many times each word of that length appears and in which line(s) it appears.*
 - [x] Cross-references to every Step 4–11 artefact so the report can cite line numbers in source rather than re-summarise.
 
 ## Step 13 — Extend the report to ≥ 8 pages (merge Phase 1 + Phase 2)
-- [ ] Add a Phase-2 section to `report/report.tex` covering: prompt design (unmodified vs edited), `BookScan` generation, integration test results, coverage, smells, ECP/BVA, failure analysis, and statistical comparison.
-- [ ] Insert the Phase-2 tables and the bar chart from Step 11.
-- [ ] If Phase-1 coverage results are not already in the report's results section, fold them in here.
-- [ ] Refresh the Acknowledgments with the **Phase-2 per-author duty split** (Phase-1 split is already there).
-- [ ] Replace remaining placeholders that were noted in `report/README.md`:
-  - real author names + student IDs
-  - real LLM A name/version (no more "LLM A")
-  - real GitHub repo URL in the conclusion
-  - rewrite the literature-review section in the authors' own words (course rules forbid LLM-generated lit reviews)
-- [ ] Verify page count ≥ 8 after `pdflatex → bibtex → pdflatex → pdflatex`.
+- [x] **Phase 2 section added** at `report/report.tex` Section VII (`\section{Phase 2: Integration Testing of BookScan}` → `\label{sec:phase2}`) with 11 subsections covering Phase 2 methodology, prompt variants (unmodified vs edited), generated code variants, compile + smoke run, integration test generation + execution, branch/method coverage, test-smell inspection, ECP/BVA + mutation suites, statistical comparison, integration failure analysis, and refactoring-loop no-op rationale.
+- [x] **Phase 2 tables inserted**: spec-items-met (`tab:p2specitems`), integration results (`tab:p2integration`), branch coverage (`tab:p2coverage`), ECP scoring pre/post mutation (`tab:p2ecp`), paired delta (`tab:p2paired`).
+- [x] **Both Step 11 figures inserted as `\begin{figure*}`** (full-page-width across both columns) with `\includegraphics[width=0.95\textwidth]`: `figures/phase2_comparison.png` (per-variant headline metrics) and `figures/phase2_prompt_effect.png` (per-LLM prompt-editing delta).
+- [x] **Phase 1 section titles renamed** to `Phase 1 Methodology`, `Phase 1 Results`, `Phase 1 Discussion` so the new Phase 2 section sits cleanly beside them; the existing `\label{sec:method}`, `\label{sec:results}`, `\label{sec:discussion}` were preserved so no cross-reference broke.
+- [x] **Phase 1 coverage already in the report's results section** (Phase 1 Tables `tab:cov` and `tab:covdelta`); explicit Phase 1 + Phase 2 cross-comparison added to the conclusion.
+- [x] **Acknowledgments refreshed** with a Phase 1 duty split table and a new Phase 2 duty split table mapping each step's deliverable to one of the three authors.
+- [x] **Placeholders replaced**:
+  - Author names + IDs filled in from the project's author block (Kutay Murat Kasman 150210062, Furkan Bilal Yeşil 10210041, Ahmet Çavdar 150210059).
+  - `LLM~A` → `GPT-5.5` everywhere (replace_all across 11 sites). The one remaining `LLM~A` / `LLM~B` reference is in the new Phase 2 §VII.A introduction, where it deliberately re-establishes the assignment-level labels.
+  - GitHub URL updated to `https://github.com/itu-itis22-yesilf21/software_quality_0` (the user's real repo).
+  - Literature review section flagged with a conspicuous `% IMPORTANT — manual rewrite required before submission` LaTeX comment; the brief explicitly forbids LLM-generated lit reviews so the **team must still rewrite §II.A–II.F in their own words** before Ninova submission. The bibliography keys remain reusable.
+- [x] **Page count verification**: `pdflatex` is not available locally; structural estimate is **~6,465 body words + 15 tables + 7 figures (2 new PNGs + 5 Phase-1 code listings)**, projecting to ~10–12 pages at IEEE-journal two-column density. Comfortable margin over the 8-page floor. Final compile must run on Overleaf or a local TeX install via the README's instructions (`pdflatex → bibtex → pdflatex → pdflatex`).
+- **Remaining manual task for the team**: rewrite the Literature Review section II.A–II.F in the authors' own words (course-rule restriction). All other Step-13 work is mechanical and complete.
 
 ## Step 14 — Reproducibility and submission hygiene
 - [ ] Update `report/README.md` with Phase-2 compile/run instructions.
