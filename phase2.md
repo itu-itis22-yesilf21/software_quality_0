@@ -131,8 +131,10 @@ many times each word of that length appears and in which line(s) it appears.*
 - [x] Both charts re-generate from `python bookscan/make_comparison.py`; no manual editing required.
 
 ## Step 12 — Analyse complex-class integration failures
-- [ ] For every failing integration test, write a one-paragraph root-cause analysis: was it a tokenisation disagreement, a case-normalisation order issue, an off-by-one in `howManyTimes`, etc.?
-- [ ] Save as `bookscan/reports/failure_analysis.md` — the report's "problems in integration tests of complex classes" section pulls from this file.
+- [x] `bookscan/reports/failure_analysis.md` — root-cause writeup that consolidates Step 6's three hard failures (F1–F3) and Step 9's three soft SPEC-DIVERGENCE rows (D1–D3) into a per-mode index, per-failure deep dive (input + spec expectation + observed output + helper-call trace + integration root cause + line-number citation + Phase 1 literature parallel + how the edited prompt prevents it), and a cross-failure pattern table that consolidates six modes into three integration anti-patterns: *wrong helper composition rule* (F1, D1), *missing word-boundary invariant* (F2, F3), *underspecified contract → divergent choices* (D2, D3).
+- [x] Per-LLM and per-prompt-variant patterns recorded — both **edited** variants exhibit **zero** anti-patterns; both **unmodified** variants exhibit 2–3 each. The number of anti-patterns per LLM is similar (GPT 2, Gemini 3), but the *observable* failure rate diverges because GPT's regression-style suite hides the divergences while Gemini's aspirational suite exposes them.
+- [x] Ready-to-paste prose paragraph at the end of the writeup for the report's §VI "Problems in integration tests of complex classes" subsection.
+- [x] Cross-references to every Step 4–11 artefact so the report can cite line numbers in source rather than re-summarise.
 
 ## Step 13 — Extend the report to ≥ 8 pages (merge Phase 1 + Phase 2)
 - [ ] Add a Phase-2 section to `report/report.tex` covering: prompt design (unmodified vs edited), `BookScan` generation, integration test results, coverage, smells, ECP/BVA, failure analysis, and statistical comparison.
