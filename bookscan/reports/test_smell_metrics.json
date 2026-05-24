@@ -1,0 +1,268 @@
+{
+  "variants": [
+    {
+      "file": "bookscan\\llm_a\\unmodified\\BookScanIntegrationTest.java",
+      "lines": 188,
+      "test_methods": 7,
+      "assertion_calls": 28,
+      "asserts_without_message": 0,
+      "longest_test_assertions": 6,
+      "conditional_branches_in_tests": 0,
+      "magic_int_literals_in_tests": 17,
+      "shared_fixture_field": 0,
+      "per_method": [
+        {
+          "name": "requirement1_tokenisationCaseFoldingMatching",
+          "asserts": 6,
+          "asserts_without_message": 0,
+          "conditionals": 0,
+          "magic_int_literals": 3
+        },
+        {
+          "name": "requirement2_tokenisationLengthFiltering",
+          "asserts": 5,
+          "asserts_without_message": 0,
+          "conditionals": 0,
+          "magic_int_literals": 4
+        },
+        {
+          "name": "requirement3_tokenisationRepeatedWordCounting",
+          "asserts": 1,
+          "asserts_without_message": 0,
+          "conditionals": 0,
+          "magic_int_literals": 2
+        },
+        {
+          "name": "requirement4_flipCaseHowManyTimesCaseVariantDifference",
+          "asserts": 6,
+          "asserts_without_message": 0,
+          "conditionals": 0,
+          "magic_int_literals": 2
+        },
+        {
+          "name": "requirement5_howManyTimesDoesNotCountSubstringInsideLongerWord",
+          "asserts": 2,
+          "asserts_without_message": 0,
+          "conditionals": 0,
+          "magic_int_literals": 1
+        },
+        {
+          "name": "requirement6_strlenOneCharacterWords",
+          "asserts": 5,
+          "asserts_without_message": 0,
+          "conditionals": 0,
+          "magic_int_literals": 3
+        },
+        {
+          "name": "requirement7_edgeCases",
+          "asserts": 3,
+          "asserts_without_message": 0,
+          "conditionals": 0,
+          "magic_int_literals": 2
+        }
+      ],
+      "llm": "GPT-5.5",
+      "prompt_variant": "unmodified+combined",
+      "framework": "main",
+      "variant": "llm_a/unmodified"
+    },
+    {
+      "file": "bookscan\\llm_b\\unmodified\\BookScanIntegrationTest.java",
+      "lines": 146,
+      "test_methods": 7,
+      "assertion_calls": 22,
+      "asserts_without_message": 0,
+      "longest_test_assertions": 4,
+      "conditional_branches_in_tests": 0,
+      "magic_int_literals_in_tests": 15,
+      "shared_fixture_field": 0,
+      "per_method": [
+        {
+          "name": "testTokenisationCaseFoldingMatching",
+          "asserts": 3,
+          "asserts_without_message": 0,
+          "conditionals": 0,
+          "magic_int_literals": 4
+        },
+        {
+          "name": "testTokenisationLengthFiltering",
+          "asserts": 3,
+          "asserts_without_message": 0,
+          "conditionals": 0,
+          "magic_int_literals": 2
+        },
+        {
+          "name": "testTokenisationRepeatedWordCounting",
+          "asserts": 3,
+          "asserts_without_message": 0,
+          "conditionals": 0,
+          "magic_int_literals": 2
+        },
+        {
+          "name": "testFlipCaseHowManyTimesIntegration",
+          "asserts": 4,
+          "asserts_without_message": 0,
+          "conditionals": 0,
+          "magic_int_literals": 3
+        },
+        {
+          "name": "testHowManyTimesSubstringOfLongerWord",
+          "asserts": 2,
+          "asserts_without_message": 0,
+          "conditionals": 0,
+          "magic_int_literals": 1
+        },
+        {
+          "name": "testStrlenEmptyOneCharacterWords",
+          "asserts": 3,
+          "asserts_without_message": 0,
+          "conditionals": 0,
+          "magic_int_literals": 0
+        },
+        {
+          "name": "testEdgeCases",
+          "asserts": 4,
+          "asserts_without_message": 0,
+          "conditionals": 0,
+          "magic_int_literals": 3
+        }
+      ],
+      "llm": "Gemini 3.1 Pro",
+      "prompt_variant": "unmodified+combined",
+      "framework": "junit5",
+      "variant": "llm_b/unmodified"
+    },
+    {
+      "file": "bookscan\\llm_a\\edited\\BookScanIntegrationTest.java",
+      "lines": 192,
+      "test_methods": 7,
+      "assertion_calls": 10,
+      "asserts_without_message": 0,
+      "longest_test_assertions": 3,
+      "conditional_branches_in_tests": 1,
+      "magic_int_literals_in_tests": 13,
+      "shared_fixture_field": 0,
+      "per_method": [
+        {
+          "name": "checkTokenisationCaseFoldingMatchingAcrossMultipleLines",
+          "asserts": 1,
+          "asserts_without_message": 0,
+          "conditionals": 0,
+          "magic_int_literals": 3
+        },
+        {
+          "name": "checkTokenisationLengthFilteringOnlyTargetLengthReturned",
+          "asserts": 1,
+          "asserts_without_message": 0,
+          "conditionals": 0,
+          "magic_int_literals": 2
+        },
+        {
+          "name": "checkTokenisationRepeatedWordCountingUsesPerOccurrenceLineList",
+          "asserts": 1,
+          "asserts_without_message": 0,
+          "conditionals": 0,
+          "magic_int_literals": 1
+        },
+        {
+          "name": "checkFlipCaseHowManyTimesCaseInsensitiveCounting",
+          "asserts": 2,
+          "asserts_without_message": 0,
+          "conditionals": 1,
+          "magic_int_literals": 2
+        },
+        {
+          "name": "checkHowManyTimesDoesNotCountSubstringInsideLongerWord",
+          "asserts": 1,
+          "asserts_without_message": 0,
+          "conditionals": 0,
+          "magic_int_literals": 1
+        },
+        {
+          "name": "checkStrlenOneCharacterWords",
+          "asserts": 1,
+          "asserts_without_message": 0,
+          "conditionals": 0,
+          "magic_int_literals": 2
+        },
+        {
+          "name": "checkEdgeCasesEmptyInputZeroLengthAndTooLongLength",
+          "asserts": 3,
+          "asserts_without_message": 0,
+          "conditionals": 0,
+          "magic_int_literals": 2
+        }
+      ],
+      "llm": "GPT-5.5",
+      "prompt_variant": "edited+combined",
+      "framework": "main",
+      "variant": "llm_a/edited"
+    },
+    {
+      "file": "bookscan\\llm_b\\edited\\BookScanIntegrationTest.java",
+      "lines": 129,
+      "test_methods": 7,
+      "assertion_calls": 21,
+      "asserts_without_message": 0,
+      "longest_test_assertions": 5,
+      "conditional_branches_in_tests": 0,
+      "magic_int_literals_in_tests": 13,
+      "shared_fixture_field": 1,
+      "per_method": [
+        {
+          "name": "req1_tokenizationCaseFoldingMatching",
+          "asserts": 2,
+          "asserts_without_message": 0,
+          "conditionals": 0,
+          "magic_int_literals": 3
+        },
+        {
+          "name": "req2_tokenizationLengthFiltering",
+          "asserts": 3,
+          "asserts_without_message": 0,
+          "conditionals": 0,
+          "magic_int_literals": 2
+        },
+        {
+          "name": "req3_tokenizationRepeatedWordCounting",
+          "asserts": 2,
+          "asserts_without_message": 0,
+          "conditionals": 0,
+          "magic_int_literals": 1
+        },
+        {
+          "name": "req4_flipCaseHowManyTimes",
+          "asserts": 3,
+          "asserts_without_message": 0,
+          "conditionals": 0,
+          "magic_int_literals": 2
+        },
+        {
+          "name": "req5_howManyTimesSubstringOfLongerWord",
+          "asserts": 2,
+          "asserts_without_message": 0,
+          "conditionals": 0,
+          "magic_int_literals": 1
+        },
+        {
+          "name": "req6_strlenEmptyOrOneCharacterWords",
+          "asserts": 4,
+          "asserts_without_message": 0,
+          "conditionals": 0,
+          "magic_int_literals": 0
+        },
+        {
+          "name": "req7_edgeCases",
+          "asserts": 5,
+          "asserts_without_message": 0,
+          "conditionals": 0,
+          "magic_int_literals": 4
+        }
+      ],
+      "llm": "Gemini 3.1 Pro",
+      "prompt_variant": "edited+combined",
+      "framework": "junit5",
+      "variant": "llm_b/edited"
+    }
+  ]
+}

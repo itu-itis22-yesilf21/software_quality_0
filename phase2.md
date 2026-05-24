@@ -87,8 +87,15 @@ many times each word of that length appears and in which line(s) it appears.*
 - [x] Phase 1 outstanding-gap closed: coverage results for both Phase 1 (97.44 % → 99.87 % baseline → improved) and Phase 2 (79.68 %) are now in the repo and ready for the final report.
 
 ## Step 8 — JNose-guided test-smell inspection
-- [ ] Apply the same JNose-guided checklist used in Phase 1 (Assertion Roulette, Eager Test, Duplicated Asserts, Magic Number Test, Useless Test) to each integration suite.
-- [ ] Record findings in `bookscan/reports/test_smell_findings.md`, one section per variant.
+- [x] `bookscan/analyze_test_smells.py` extractor (matches Phase 1's JNose-guided manual approach, plus quantifies it): counts per file the test-method count, assertion calls, assertion calls without a message (Assertion Roulette proxy), max asserts per method (Eager Test proxy), `if` count in test bodies (Conditional Test Logic), magic integer literals (Magic Number Test proxy), and shared-fixture fields (General Fixture proxy). Output at `bookscan/reports/test_smell_metrics.json`.
+- [x] Per-variant + comparison findings at `bookscan/reports/test_smell_findings.md`, with one section per suite, a cross-suite table, per-LLM and per-prompt-variant signatures, and a comparison row against Phase 1's smell numbers.
+- [x] **Headline: 81 total assertions across the four suites; 0 lack a failure message** (Phase 1's 30 base suites had **30 / 30** Assertion Roulette candidates). The Step 5 prompt template's *"each test must include a failure message"* clause is the dominant explanation.
+- [x] Eager Test: mild and *focused* (each test method covers one requirement; max asserts per method is 6 / 4 / 3 / 5 across the four suites) — qualitatively different from Phase 1's base tests where one `main` aggregated 5–7 unrelated scenarios.
+- [x] Duplicated Asserts: present only in Run 5.1 (GPT/unmodified) Req 1 and Req 6, mild; absent in the other three suites.
+- [x] Conditional Test Logic: present only in Run 5.3 (`if/throw` block in `checkFlipCaseHowManyTimesCaseInsensitiveCounting`), mild.
+- [x] General Fixture: only Run 5.4 (Gemini/edited) declares a class-scope `BookScan scanner` field, but JUnit 5 reconstructs the test-class instance per `@Test` and `BookScan` is stateless, so the smell is structural only.
+- [x] Useless / Empty / Dependent / Mystery Guest / Sensitive Equality: zero across all four suites.
+- [x] **Phase 2 integration suites carry a cleaner smell signature than Phase 1's base tests and even slightly cleaner than Phase 1's improved tests** — validating the Grano et al. 2024 finding that LLM-generated test smells respond strongly to prompt content.
 
 ## Step 9 — Black-box ECP / BVA assessment
 - [ ] Build an ECP/BVA table for `BookScan`'s *integration* contract (not the individual methods): valid classes (empty text, single-line text, multi-line text, mixed case, target length 0, target length larger than every word, words with punctuation, repeated words across lines) + boundaries + invalid/out-of-contract.
