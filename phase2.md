@@ -98,10 +98,17 @@ many times each word of that length appears and in which line(s) it appears.*
 - [x] **Phase 2 integration suites carry a cleaner smell signature than Phase 1's base tests and even slightly cleaner than Phase 1's improved tests** — validating the Grano et al. 2024 finding that LLM-generated test smells respond strongly to prompt content.
 
 ## Step 9 — Black-box ECP / BVA assessment
-- [ ] Build an ECP/BVA table for `BookScan`'s *integration* contract (not the individual methods): valid classes (empty text, single-line text, multi-line text, mixed case, target length 0, target length larger than every word, words with punctuation, repeated words across lines) + boundaries + invalid/out-of-contract.
-- [ ] Score each variant's integration suite as **High / Medium / Low** using the same 80% / 50% rubric.
-- [ ] Generate mutation-based additional tests (`BookScanBlackBoxTest.java`) where coverage is insufficient, using the mutation taxonomy from Phase 1 (empty/singleton, sign reversal, boundary substitution, etc.).
-- [ ] Save to `bookscan/<llm>/<variant>/BookScanBlackBoxTest.java`; re-run and confirm they pass.
+- [x] Canonical 22-class ECP / BVA table for the BookScan integration contract authored at `bookscan/reports/ecp_bva_table.md` (12 valid classes V1–V12, 10 boundary classes B1–B10, 4 out-of-contract classes I1–I4) — same valid/boundary/invalid layout as Phase 1's `black_box_equivalence_analysis.md`.
+- [x] Per-variant integration-suite scoring against the table: `llm_a/unmodified` 10 / 22 (45 %, **Low**); `llm_b/unmodified` 10 / 22 (45 %, **Low**); `llm_a/edited` 10 / 22 (45 %, **Low**); `llm_b/edited` 11 / 22 (50 %, **Medium**). All four variants needed a mutation suite — same shape of finding as Phase 1 (30 / 30 tasks needed mutation suites).
+- [x] Authored four `BookScanBlackBoxTest.java` files, each adapted to its variant's actual API (commits below), using the Phase 1 mutation taxonomy: empty/singleton, sign reversal, boundary substitution, sentinel insertion, token/character swap, range edge.
+  - `bookscan/llm_a/unmodified/BookScanBlackBoxTest.java` — `main` driver, 17 logical asserts, `// SPEC-DIVERGENCE:` comments on V6/V11/V12/I4 where GPT-5.5's no-op `flipCase` + digit-as-letter tokenisation + Unicode regex disagree with the brief
+  - `bookscan/llm_b/unmodified/BookScanBlackBoxTest.java` — JUnit 5, 15 `@Test` methods, `// SPEC-DIVERGENCE:` comments on V6/V11 where Gemini's lowercase+uppercase trick misses MixedCase and dedups lines
+  - `bookscan/llm_a/edited/BookScanBlackBoxTest.java` — `main` driver, 17 logical asserts, all spec-aligned
+  - `bookscan/llm_b/edited/BookScanBlackBoxTest.java` — JUnit 5, 15 `@Test` methods, all spec-aligned
+- [x] `bookscan/run_black_box.py` orchestrator runs the four suites with the same per-framework dispatch as `run_integration.py`. Result: **all 64 logical assertions pass across the four mutation suites (4 / 4 suites green)** — mirrors Phase 1's "30 / 30 mutation suites passing".
+- [x] Combined coverage of valid + boundary classes after the mutation suites: **22 / 22 (100 %) per variant** — every variant moves from Low / Medium to **High** effectiveness on the Phase 1 rubric.
+- [x] Spec-divergence inventory captured in `bookscan/reports/black_box_test_results.md` for the Step 11 / Step 12 report writeup: two SPEC-DIVERGENCE rows for `llm_a/unmodified` (case-sensitive keys, digits-as-letters), two for `llm_b/unmodified` (MixedCase miss, substring trap); zero for the edited variants.
+- [x] Out-of-contract classes I1–I4 reported separately; edited variants pre-cover three of four (I1/I2/I3), unmodified variants cover one to two depending on the variant.
 
 ## Step 10 — Refactoring loop (only if test failures indicate a code bug)
 - [ ] If any integration test reveals a real defect in `BookScan` (not a test gap), return to Step 3 with a corrective prompt that names the failing input and the expected output. Do **not** patch the generated code by hand.

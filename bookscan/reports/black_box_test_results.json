@@ -1,0 +1,111 @@
+{
+  "generated_at": "2026-05-24T04:21:31+0300",
+  "variants_total": 4,
+  "totals": {
+    "tests_found": 32,
+    "tests_passed": 32,
+    "tests_failed": 0
+  },
+  "results": [
+    {
+      "variant": "llm_a/unmodified",
+      "framework": "main",
+      "compile": {
+        "ok": true,
+        "returncode": 0,
+        "stderr": ""
+      },
+      "run": {
+        "returncode": 0,
+        "stdout": "All BookScanBlackBoxTest assertions passed.",
+        "stderr": ""
+      },
+      "parsed": {
+        "counts": {
+          "found": 1,
+          "skipped": 0,
+          "successful": 1,
+          "failed": 0
+        },
+        "failures": []
+      },
+      "llm": "GPT-5.5",
+      "prompt_variant": "unmodified+combined"
+    },
+    {
+      "variant": "llm_b/unmodified",
+      "framework": "junit5",
+      "compile": {
+        "ok": true,
+        "returncode": 0,
+        "stderr": ""
+      },
+      "run": {
+        "returncode": 0,
+        "stdout": "?\n?? JUnit Jupiter ?\n?  ?? BookScanBlackBoxTest ?\n?     ?? b2_lengthOne() ?\n?     ?? b4_longestWord() ?\n?     ?? v2_singleLineSingleWord() ?\n?     ?? b8_whitespaceOnlyLine() ?\n?     ?? i4_nonAsciiLetters() ?\n?     ?? b9_apostropheAndHyphen() ?\n?     ?? b7_leadingTrailingBlankLines() ?\n?     ?? b6_emptyMiddleLine() ?\n?     ?? i1_negativeWordLength() ?\n?     ?? v5_nonConsecutiveLines() ?\n?     ?? b10_firstAndLastLines() ?\n?     ?? v9_tabsAndMultiSpaces() ?\n?     ?? v11_onlyTargetWordRepeated() ?\n?     ?? v8_mixedPunctuation() ?\n?     ?? v12_digitsSplitTokens() ?\n?? JUnit Vintage ?\n?? JUnit Platform Suite ?\n\nTest run finished after 79 ms\n[         4 containers found      ]\n[         0 containers skipped    ]\n[         4 containers started    ]\n[         0 containers aborted    ]\n[         4 containers successful ]\n[         0 containers failed     ]\n[        15 tests found           ]\n[         0 tests skipped         ]\n[        15 tests started         ]\n[         0 tests aborted         ]\n[        15 tests successful      ]\n[         0 tests failed          ]",
+        "stderr": ""
+      },
+      "parsed": {
+        "counts": {
+          "found": 15,
+          "skipped": 0,
+          "successful": 15,
+          "failed": 0
+        },
+        "failures": []
+      },
+      "llm": "Gemini 3.1 Pro",
+      "prompt_variant": "unmodified+combined"
+    },
+    {
+      "variant": "llm_a/edited",
+      "framework": "main",
+      "compile": {
+        "ok": true,
+        "returncode": 0,
+        "stderr": ""
+      },
+      "run": {
+        "returncode": 0,
+        "stdout": "All BookScanBlackBoxTest assertions passed.",
+        "stderr": ""
+      },
+      "parsed": {
+        "counts": {
+          "found": 1,
+          "skipped": 0,
+          "successful": 1,
+          "failed": 0
+        },
+        "failures": []
+      },
+      "llm": "GPT-5.5",
+      "prompt_variant": "edited+combined"
+    },
+    {
+      "variant": "llm_b/edited",
+      "framework": "junit5",
+      "compile": {
+        "ok": true,
+        "returncode": 0,
+        "stderr": ""
+      },
+      "run": {
+        "returncode": 0,
+        "stdout": "?\n?? JUnit Jupiter ?\n?  ?? BookScanBlackBoxTest ?\n?     ?? b2_lengthOne() ?\n?     ?? b4_longestWord() ?\n?     ?? v2_singleLineSingleWord() ?\n?     ?? b8_whitespaceOnlyLine() ?\n?     ?? i4_nonAsciiLetters() ?\n?     ?? b9_apostropheAndHyphen() ?\n?     ?? b7_leadingTrailingBlankLines() ?\n?     ?? b6_emptyMiddleLine() ?\n?     ?? i1_negativeWordLength() ?\n?     ?? v5_nonConsecutiveLines() ?\n?     ?? b10_firstAndLastLines() ?\n?     ?? v9_tabsAndMultiSpaces() ?\n?     ?? v11_onlyTargetWordRepeated() ?\n?     ?? v8_mixedPunctuation() ?\n?     ?? v12_digitsSplitTokens() ?\n?? JUnit Vintage ?\n?? JUnit Platform Suite ?\n\nTest run finished after 82 ms\n[         4 containers found      ]\n[         0 containers skipped    ]\n[         4 containers started    ]\n[         0 containers aborted    ]\n[         4 containers successful ]\n[         0 containers failed     ]\n[        15 tests found           ]\n[         0 tests skipped         ]\n[        15 tests started         ]\n[         0 tests aborted         ]\n[        15 tests successful      ]\n[         0 tests failed          ]",
+        "stderr": ""
+      },
+      "parsed": {
+        "counts": {
+          "found": 15,
+          "skipped": 0,
+          "successful": 15,
+          "failed": 0
+        },
+        "failures": []
+      },
+      "llm": "Gemini 3.1 Pro",
+      "prompt_variant": "edited+combined"
+    }
+  ]
+}
